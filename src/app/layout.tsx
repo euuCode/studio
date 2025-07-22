@@ -8,7 +8,7 @@ import { Header } from '@/components/layout/header';
 import { ChatAssistant } from '@/components/chat-assistant';
 
 export const metadata: Metadata = {
-  title: 'Mithras CyberSec',
+  title: 'Mithras',
   description: 'Seu companheiro de aprendizado de cibersegurança personalizado.',
 };
 
@@ -20,6 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <link
+          rel="icon"
+          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z' /><circle cx='12' cy='12' r='3' /><path d='M12 17a5 5 0 0 0 0-10' /></svg>"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

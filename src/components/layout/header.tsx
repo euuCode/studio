@@ -12,7 +12,7 @@ const pageTitles: { [key: string]: string } = {
 export function Header() {
   const pathname = usePathname();
   
-  let title = 'Mithras CyberSec';
+  let title = 'Mithras';
   if (pageTitles[pathname]) {
     title = pageTitles[pathname];
   } else if (pathname.startsWith('/certifications/')) {
