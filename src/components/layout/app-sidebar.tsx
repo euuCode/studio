@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BookOpen, Briefcase, ShieldCheck } from 'lucide-react';
+import { BookOpen, Briefcase, ShieldCheck, LifeBuoy } from 'lucide-react';
 import {
   Sidebar,
   SidebarHeader,
@@ -18,6 +18,7 @@ const menuItems = [
   { href: '/', label: 'Planos de Carreira', icon: Briefcase },
   { href: '/certifications', label: 'Certificações', icon: ShieldCheck },
   { href: '/library', label: 'Biblioteca', icon: BookOpen },
+  { href: '/protection', label: 'Aprenda a se Proteger', icon: LifeBuoy },
 ];
 
 export function AppSidebar() {
