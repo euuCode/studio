@@ -1,3 +1,4 @@
+
 export type Certification = {
   id: string;
   name: string;
@@ -30,10 +31,79 @@ export type Resource = {
 };
 
 export const contentLibrary: Resource[] = [
-    { id: 'cia-triad', title: 'Understanding the CIA Triad', type: 'Article', level: 'Beginner', description: 'A fundamental concept in cybersecurity: Confidentiality, Integrity, and Availability.', content: 'The CIA Triad is a model designed to guide policies for information security within an organization...\n\n**Confidentiality**: Measures to ensure that data is not disclosed to unauthorized individuals...\n\n**Integrity**: Measures to ensure that data is not altered or destroyed in an unauthorized manner...\n\n**Availability**: Measures to ensure that systems and data are accessible to authorized users when needed...' },
-    { id: 'tcp-ip', title: 'How TCP/IP Works', type: 'Video', level: 'Beginner', description: 'A visual explanation of the foundational protocol suite of the internet.', content: 'The TCP/IP model is the foundation of the internet. This article breaks down its four layers...\n\n**Application Layer**: Where protocols like HTTP, FTP, and SMTP operate...\n\n**Transport Layer**: Home to TCP and UDP, managing communication between hosts...\n\n**Internet Layer**: Responsible for logical addressing and routing (IP)...\n\n**Network Access Layer**: The physical hardware that connects devices...' },
-    { id: 'metasploit', title: 'Introduction to Metasploit', type: 'Video', level: 'Experienced', description: 'Learn the basics of the world\'s most popular penetration testing framework.', content: 'Metasploit is an essential tool for penetration testers. This guide covers the basics...\n\n**Modules**: Exploits, payloads, auxiliary, nops, encoders...\n\n**msfconsole**: The primary interface for interacting with the framework...\n\n**Basic Workflow**: Selecting an exploit, configuring a payload, setting options, and running the exploit.' },
-    { id: 'wireshark', title: 'Wireshark: Deep Dive', type: 'Tool', level: 'Experienced', description: 'Master the art of network packet analysis with this powerful tool.', content: 'Wireshark is a powerful network protocol analyzer. Key features include...\n\n**Packet Capturing**: How to start capturing packets on your network interface...\n\n**Display Filters**: Using filters to narrow down and find specific traffic...\n\n**Protocol Analysis**: Understanding how to dissect different protocols like HTTP, DNS, and TCP.' },
-    { id: 'owasp-top-10', title: 'OWASP Top 10 Explained', type: 'Article', level: 'Beginner', description: 'An overview of the most critical security risks to web applications.', content: 'The OWASP Top 10 is a standard awareness document for developers and web application security. It represents a broad consensus about the most critical security risks to web applications...\n\n1. Broken Access Control\n2. Cryptographic Failures\n3. Injection\n...' },
-    { id: 'pyramid-of-pain', title: 'The Pyramid of Pain', type: 'Article', level: 'Experienced', description: 'A model for understanding the effectiveness of different types of threat indicators.', content: 'The Pyramid of Pain is a conceptual model that helps security analysts understand the relative difficulty for an adversary to change different indicators of compromise (IOCs)...\n\n- **Hash Values**: Trivial to change.\n- **IP Addresses**: Easy for attackers to change.\n- **Domain Names**: Also relatively easy to change.\n- **Network/Host Artifacts**: More difficult to change.\n- **Tools**: Adversaries prefer to reuse tools, so detecting them is more impactful.\n- **TTPs (Tactics, Techniques, and Procedures)**: The most difficult for an adversary to change.' },
+    {
+        id: 'social-engineering',
+        title: 'Introdução à Engenharia Social',
+        type: 'Article',
+        level: 'Beginner',
+        description: 'Aprenda a arte da manipulação psicológica para obter informações confidenciais.',
+        content: `A engenharia social é a prática de manipular pessoas para que elas divulguem informações confidenciais. É uma técnica de ataque que depende mais da interação humana do que de falhas técnicas.
+
+**Técnicas Comuns:**
+- **Phishing:** Envio de e-mails fraudulentos que parecem ser de fontes confiáveis para roubar informações.
+- **Pretexting:** Criar um cenário falso (pretexto) para enganar a vítima e obter informações.
+- **Baiting:** Deixar um dispositivo infectado (como um pendrive) em um local público para que alguém o encontre e o conecte a seu computador.
+
+**Onde aprender mais:**
+- **Livro:** "The Art of Deception" por Kevin Mitnick.
+- **Curso Online:** Cybrary - Social Engineering Fundamentals.
+- **Comunidade:** Participe de fóruns de segurança para ver exemplos reais.`
+    },
+    {
+        id: 'linux-distros',
+        title: 'Distribuições Linux para Segurança',
+        type: 'Article',
+        level: 'Beginner',
+        description: 'Conheça as distribuições Linux mais populares usadas por profissionais de segurança.',
+        content: `Uma distribuição Linux é um sistema operacional feito a partir do kernel do Linux e um conjunto de softwares. Para segurança, algumas distribuições vêm com ferramentas pré-instaladas para pentest, forense e outras tarefas.
+
+**Distribuições Populares:**
+- **Kali Linux:** A mais famosa, mantida pela Offensive Security. Vem com centenas de ferramentas para testes de invasão.
+- **Parrot OS:** Alternativa ao Kali, focada em pentest, forense, desenvolvimento e privacidade.
+- **BlackArch:** Baseada em Arch Linux, possui um repositório extenso com milhares de ferramentas de segurança.
+
+**Onde aprender mais:**
+- **Site Oficial:** Visite os sites oficiais de Kali Linux, Parrot OS e BlackArch.
+- **Tutoriais no YouTube:** Procure por "como instalar e usar Kali Linux" para começar.
+- **Documentação:** A documentação de cada distro é a melhor fonte de informação.`
+    },
+    {
+        id: 'top-linux-tools',
+        title: 'Top Ferramentas Linux para Segurança',
+        type: 'Tool',
+        level: 'Experienced',
+        description: 'Uma visão geral das ferramentas essenciais que todo profissional de segurança deve conhecer no Linux.',
+        content: `O Linux é a plataforma de escolha para a maioria das ferramentas de segurança. Conhecer as ferramentas certas pode economizar muito tempo.
+
+**Ferramentas Essenciais:**
+- **Nmap:** Scanner de rede para descobrir hosts e serviços em uma rede de computadores.
+- **Metasploit Framework:** Plataforma para desenvolver e executar exploits contra uma máquina remota.
+- **Wireshark:** Analisador de protocolo de rede para ver o que está acontecendo em sua rede em um nível microscópico.
+- **John the Ripper:** Ferramenta para quebrar senhas.
+- **Aircrack-ng:** Conjunto de ferramentas para auditoria de redes sem fio.
+
+**Onde aprender mais:**
+- **Man pages:** No terminal, digite \`man nmap\` para ler o manual do Nmap.
+- **Livros:** "Nmap Network Scanning" pelo autor do Nmap, Gordon Lyon.
+- **Hack The Box:** Plataforma prática para treinar suas habilidades com essas ferramentas.`
+    },
+    {
+        id: 'networking-intro',
+        title: 'Introdução a Redes de Computadores',
+        type: 'Article',
+        level: 'Beginner',
+        description: 'Entenda os conceitos básicos de redes, essenciais para qualquer carreira em cibersegurança.',
+        content: `Redes de computadores são a espinha dorsal da internet e de qualquer infraestrutura de TI. Entender como elas funcionam é fundamental para a segurança.
+
+**Conceitos Fundamentais:**
+- **Modelo OSI e TCP/IP:** Estruturas que padronizam as funções de um sistema de telecomunicações ou de computação.
+- **Endereçamento IP:** Como os dispositivos são identificados em uma rede.
+- **Protocolos:** Regras que governam a comunicação (HTTP, DNS, TCP, UDP).
+- **Firewalls e Roteadores:** Componentes que controlam o tráfego de rede.
+
+**Onde aprender mais:**
+- **Cursos:** Professor Messer (YouTube) oferece cursos gratuitos para CompTIA Network+.
+- **Livro:** "Redes de Computadores" por Andrew S. Tanenbaum.
+- **Labs:** Crie sua própria rede virtual usando GNS3 ou EVE-NG para praticar.`
+    }
 ];
