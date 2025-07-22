@@ -1,4 +1,4 @@
-import { Shield, Fingerprint, CloudCog, KeyRound, Layers, GitBranch, AlertTriangle, Blocks, Anchor, Lock, Server, FileLock2, BrainCircuit, Microscope, Cloud, Cpu, HardDrive, ShieldCheck, FileKey2, FileTerminal, Network, BookLock, Landmark } from "lucide-react";
+import { Shield, Fingerprint, CloudCog, KeyRound, Layers, GitBranch, AlertTriangle, Blocks, Anchor, Lock, Server, FileLock2, BrainCircuit, Microscope, Cloud, Cpu, HardDrive, ShieldCheck, FileKey2, FileTerminal, Network, BookLock, Landmark, Target, Binary, TestTube2, Scale, Files } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export type Certification = {
@@ -125,6 +125,20 @@ export const contentLibrary: Resource[] = [
           recommendations: '- **Livro:** "Practical Packet Analysis" por Chris Sanders é considerado a bíblia para aprender a usar o Wireshark.\n- **Canal no YouTube:** "Chris Greer\'s Networking Channel" oferece tutoriais fantásticos sobre análise de pacotes.\n- **Practice:** O "Wireshark Sample Captures Wiki" oferece centenas de arquivos de captura de pacotes (.pcap) para você praticar a análise de diferentes protocolos e ataques.'
         }
     },
+     {
+        id: 'ipv4-ipv6',
+        title: 'IPv4 vs. IPv6',
+        category: 'Ferramentas Essenciais',
+        subcategory: 'Redes e Protocolos',
+        type: 'Artigo',
+        level: 'Iniciante',
+        description: 'Entenda as diferenças entre as duas versões do Protocolo de Internet e por que a transição é crucial.',
+        content: {
+          concepts: '**IPv4 (Internet Protocol version 4)** é o protocolo que tornou a internet possível. Ele usa endereços de 32 bits (ex: 192.168.1.1), o que permite cerca de 4,3 bilhões de endereços únicos. Com o crescimento da internet, esses endereços se esgotaram.\n\n**IPv6 (Internet Protocol version 6)** é sua sucessora. Ele usa endereços de 128 bits (ex: 2001:0db8:85a3:0000:0000:8a2e:0370:7334), oferecendo um número praticamente infinito de endereços. Além disso, o IPv6 traz melhorias de eficiência e segurança, como o suporte nativo ao IPsec.',
+          advanced: 'A transição do IPv4 para o IPv6 não é simples, por isso ambos coexistem. Técnicas de transição como **Dual Stack** (onde dispositivos têm ambos os endereços), **Tunneling** (encapsular pacotes IPv6 dentro de pacotes IPv4 para atravessar redes que só suportam IPv4) e **NAT64** (tradução de endereços) são usadas para garantir a interoperabilidade. Do ponto de vista da segurança, a vasta quantidade de endereços IPv6 torna o escaneamento de redes muito mais difícil para os atacantes, mas também introduz novos desafios de gerenciamento e visibilidade.',
+          recommendations: '- **Vídeo:** "IPv4 vs IPv6" da série "Redes de Computadores" do canal "Curso em Vídeo".\n- **Teste de Conectividade:** Verifique se sua conexão já suporta IPv6 em sites como "test-ipv6.com".\n- **RFC:** A RFC 2460 define o padrão original do IPv6, para quem gosta de fontes primárias.'
+        }
+    },
     {
         id: 'siem',
         title: 'Splunk / ELK Stack (SIEM)',
@@ -195,6 +209,20 @@ export const contentLibrary: Resource[] = [
           recommendations: '- **Curso Gratuito:** "Metasploit Unleashed" da Offensive Security é o guia gratuito e oficial para aprender Metasploit.\n- **Máquina Virtual:** Baixe e pratique na "Metasploitable 2" ou "Metasploitable 3", que são máquinas virtuais intencionalmente vulneráveis, projetadas para praticar com o Metasploit.\n- **Comunidade:** A comunidade da Rapid7 (a empresa por trás do Metasploit) oferece muitos recursos e um fórum ativo.'
         }
     },
+     {
+        id: 'hydra',
+        title: 'Hydra',
+        category: 'Ferramentas Essenciais',
+        subcategory: 'Pentest e Auditoria',
+        type: 'Ferramenta',
+        level: 'Intermediário',
+        description: 'Uma ferramenta de quebra de senhas online extremamente rápida e flexível.',
+        content: {
+          concepts: 'O THC Hydra, ou simplesmente Hydra, é uma ferramenta de linha de comando para realizar ataques de força bruta contra serviços de autenticação. Ele suporta dezenas de protocolos, como FTP, SSH, Telnet, HTTP, SMB, RDP, e muitos outros. O objetivo é tentar adivinhar a senha de um usuário usando uma lista de senhas potenciais (wordlist). É uma ferramenta poderosa para testar a força das senhas em uma rede.',
+          advanced: 'O uso avançado do Hydra envolve a otimização da velocidade do ataque (ajustando o número de tarefas paralelas), a utilização de listas de senhas inteligentes (como as da SecLists) e a combinação com outras ferramentas. Por exemplo, pode-se usar o Nmap para descobrir quais hosts têm a porta SSH aberta e, em seguida, alimentar essa lista no Hydra para tentar um ataque de força bruta em todos eles. É crucial entender que usar o Hydra contra sistemas sem permissão é ilegal.',
+          recommendations: '- **Repositório:** O repositório oficial no GitHub é a melhor fonte para a versão mais recente e a documentação.\n- **Laboratórios:** Use o Hydra em ambientes de laboratório como Metasploitable ou em plataformas como Hack The Box para praticar de forma ética.\n- **Wordlists:** Estude o projeto SecLists no GitHub para ter acesso a uma vasta coleção de wordlists para todos os tipos de ataques.'
+        }
+    },
     {
         id: 'burp-suite',
         title: 'Burp Suite / OWASP ZAP',
@@ -220,7 +248,7 @@ export const contentLibrary: Resource[] = [
         content: {
           concepts: 'Nikto é um scanner de vulnerabilidades web que realiza testes abrangentes contra servidores web para múltiplos itens, incluindo mais de 6700 arquivos/programas potencialmente perigosos, verifica versões desatualizadas de mais de 1250 servidores e problemas específicos de versão em mais de 270 servidores. Ele também verifica itens de configuração do servidor, como a presença de múltiplos arquivos de índice, opções do servidor HTTP, e tentará identificar servidores web e softwares instalados. É uma ferramenta de reconhecimento rápida e barulhenta.',
           advanced: 'Nikto pode ser barulhento e gerar muitos falsos positivos, então o uso avançado envolve refinar a saída e entender o que é relevante. Ele pode ser integrado em scripts de pentest mais amplos. Por exemplo, você pode usar a saída do Nmap para identificar todos os servidores web em uma sub-rede e, em seguida, executar o Nikto contra cada um deles automaticamente. A atualização regular de seu banco de dados de plugins e a personalização de seus testes através de arquivos de configuração são essenciais para obter os melhores resultados.',
-          recommendations: '- **Documentação:** O repositório oficial do Nikto no GitHub contém a documentação e as informações mais recentes.\n- **Combinação com Nmap:** Aprenda a usar o script `http-nikto.nse` do Nmap, que integra a funcionalidade do Nikto diretamente nos scans do Nmap.\n- **Cuidado:** Por ser uma ferramenta barulhenta, use o Nikto apenas em sistemas para os quais você tem permissão explícita para testar, pois ele pode facilmente acionar sistemas de detecção de intrusão (IDS).'
+          recommendations: '- **Documentação:** O repositório oficial do Nikto no GitHub contém a documentação e as informações mais recentes.\n- **Combinação com Nmap:** Aprenda a usar o script `http-nikto.nse` do Nmap, que integra a funcionalidade do Nikto diretamente nos scans do Nmap.\n- **Cuidado:** Por ser uma ferramenta barulhenta, use o Nikto apenas em sistemas para os quais você tem permissão explícita para testar, pois ele pode easily acionar sistemas de detecção de intrusão (IDS).'
         }
     },
     {
@@ -416,118 +444,487 @@ export type CareerPath = {
   stages: {
     title: string;
     duration: string;
-    items: {
+    objective?: string;
+    topics: {
       title: string;
       description: string;
       resourceId?: string;
     }[];
+    recommendations?: {
+      title: string;
+      description: string;
+    }[];
+  }[];
+  specializations?: {
+    title: string;
+    duration: string;
+    objective: string;
+    tracks: {
+        id: string;
+        title: string;
+        icon: LucideIcon;
+        duration: string;
+        focus: string;
+        topics: string[];
+        recommendations: string[];
+    }[];
+  }[];
+  consolidation?: {
+     title: string;
+     duration: string;
+     items: string[];
   }[];
 };
 
 export const careerPaths: CareerPath[] = [
   {
-    id: "pentester",
-    title: "Pentester (Hacker Ético)",
-    description: "Especialista em encontrar e explorar vulnerabilidades em sistemas para testar suas defesas.",
-    icon: Fingerprint,
+    id: "offensive-security",
+    title: "Segurança Ofensiva (Red Team)",
+    description: "Especialistas em simular ataques para encontrar e explorar vulnerabilidades, testando as defesas da organização.",
+    icon: Target,
     stages: [
-      {
-        title: "Fundamentos (Meses 1-3)",
-        duration: "3 Meses",
-        items: [
-          { title: "Redes de Computadores", description: "Domine os modelos OSI e TCP/IP, sub-redes e protocolos essenciais.", resourceId: "network-protocols" },
-          { title: "Sistemas Operacionais", description: "Aprenda a usar e administrar Linux e Windows a fundo.", resourceId: "operating-systems-security" },
-          { title: "Criptografia Básica", description: "Entenda os conceitos de chaves, cifras e hashes.", resourceId: "cryptography" },
-        ],
-      },
-      {
-        title: "Ferramentas do Ofício (Meses 4-6)",
-        duration: "3 Meses",
-        items: [
-          { title: "Dominando o Nmap", description: "Aprenda a escanear redes, descobrir hosts e identificar serviços.", resourceId: "nmap" },
-          { title: "Análise com Wireshark", description: "Capture e analise tráfego de rede para entender a comunicação.", resourceId: "wireshark" },
-          { title: "Exploração com Metasploit", description: "Inicie seus estudos no framework de exploração mais famoso.", resourceId: "metasploit" },
-        ],
-      },
-      {
-        title: "Prática e Certificação (Meses 7-12)",
-        duration: "6 Meses",
-        items: [
-          { title: "Plataformas de Treinamento", description: "Resolva máquinas em plataformas como Hack The Box e TryHackMe." },
-          { title: "Estudo para Certificação", description: "Prepare-se para certificações como CompTIA Security+ ou eJPT." },
-          { title: "Desenvolvimento de Scripts", description: "Aprenda Python ou Bash para automatizar tarefas e criar suas próprias ferramentas." },
-        ],
-      },
-    ],
+        {
+            title: "FASE 1 – Fundamentos da Cibersegurança",
+            duration: "2 Meses",
+            objective: "Construir base sólida comum a todas as áreas.",
+            topics: [
+                { title: "Redes de computadores", description: "TCP/IP, DNS, HTTP, etc.", resourceId: "network-protocols" },
+                { title: "Conceitos CIA", description: "Confidencialidade, Integridade, Disponibilidade.", resourceId: "cia-triad"},
+                { title: "Sistemas operacionais", description: "Linux + Windows básico.", resourceId: "operating-systems-security"},
+                { title: "Introdução à criptografia", description: "Chaves, cifras e hashes.", resourceId: "cryptography"},
+                { title: "Tipos de ameaças", description: "Malwares, phishing, DDoS.", resourceId: "threat-types"},
+                { title: "Ferramentas básicas", description: "Nmap, Wireshark", resourceId: "nmap"},
+            ],
+            recommendations: [
+                 { title: "Curso", description: "“Fundamentos de Cibersegurança” (Cisco, gratuito)" },
+                 { title: "Labs Interativos", description: "TryHackMe (Free Rooms: “Introduction to Cyber Security”)" },
+            ]
+        },
+        {
+            title: "FASE 2 – Trilha de Pentest",
+            duration: "3 Meses",
+            objective: "Aprender a explorar sistemas e aplicações de forma controlada.",
+            topics: [
+              { title: "Kali Linux", description: "Estudo aprofundado da principal distro de pentest.", resourceId: "kali-linux" },
+              { title: "Ferramentas Avançadas", description: "Nmap, Burp Suite, Metasploit, Nikto.", resourceId: "metasploit" },
+              { title: "OWASP Top 10", description: "Foco nas principais vulnerabilidades web.", resourceId: "burp-suite" },
+              { title: "Exploração de Aplicações e Redes", description: "Técnicas de invasão e pivoteamento." }
+            ],
+            recommendations: [
+              { title: "Curso", description: "TryHackMe 'Pre Security + Pentest Path'" },
+              { title: "Prática", description: "Hack The Box / CTFs" },
+              { title: "Livro", description: "“The Web Application Hacker’s Handbook”" },
+            ]
+        },
+        {
+            title: "FASE 3 – Consolidação e Certificações",
+            duration: "6 Meses",
+            topics: [
+              { title: "Certificação Alvo", description: "Prepare-se para a OSCP ou CEH." },
+              { title: "Prática Contínua", description: "Aprofunde-se em laboratórios e desafios simulados." },
+              { title: "Construção de Portfólio", description: "Documente seus projetos e aprendizados no GitHub, blog, etc." },
+            ]
+        }
+    ]
   },
   {
-    id: "soc-analyst",
-    title: "Analista de SOC (Centro de Operações de Segurança)",
-    description: "O guardião da rede, monitorando, detectando e respondendo a ameaças em tempo real.",
+    id: "defensive-security",
+    title: "Segurança Defensiva (Blue Team)",
+    description: "Os guardiões da rede, focados em detecção, resposta a incidentes e defesa proativa dos sistemas.",
     icon: Shield,
     stages: [
-      {
-        title: "Fundamentos de Defesa (Meses 1-3)",
-        duration: "3 Meses",
-        items: [
-          { title: "Introdução à Cibersegurança", description: "Conheça a tríade CIA (Confidencialidade, Integridade, Disponibilidade) e os principais vetores de ataque.", resourceId: "cia-triad" },
-          { title: "Redes e Protocolos", description: "Foco em DNS, HTTP/S, e como o tráfego normal se parece.", resourceId: "network-protocols" },
-          { title: "Tipos de Malware", description: "Estude o comportamento de vírus, worms, ransomware e spyware.", resourceId: "threat-types" },
-        ],
-      },
-      {
-        title: "Análise e Ferramentas (Meses 4-6)",
-        duration: "3 Meses",
-        items: [
-          { title: "Análise de Logs", description: "Aprenda a ler e correlacionar logs de firewalls, sistemas operacionais e aplicações.", resourceId: "log-analysis" },
-          { title: "SIEM (Security Information and Event Management)", description: "Entenda como funcionam ferramentas como Splunk ou ELK Stack para agregar e analisar alertas.", resourceId: "siem" },
-          { title: "Wireshark para Defesa", description: "Use o Wireshark para identificar anomalias e atividades maliciosas no tráfego.", resourceId: "wireshark" },
-        ],
-      },
-      {
-        title: "Resposta a Incidentes e Certificação (Meses 7-12)",
-        duration: "6 Meses",
-        items: [
-          { title: "Playbooks de Resposta", description: "Aprenda os passos para conter, erradicar e recuperar de um incidente de segurança." },
-          { title: "Plataformas de Simulação", description: "Use plataformas como o LetsDefend para praticar a análise de alertas reais." },
-          { title: "Estudo para Certificação", description: "Prepare-se para certificações como Cisco CyberOps Associate ou CompTIA CySA+." },
-        ],
-      },
-    ],
+       {
+            title: "FASE 1 – Fundamentos da Cibersegurança",
+            duration: "2 Meses",
+            objective: "Construir base sólida comum a todas as áreas.",
+            topics: [
+                { title: "Redes de computadores", description: "TCP/IP, DNS, HTTP, etc.", resourceId: "network-protocols" },
+                { title: "Conceitos CIA", description: "Confidencialidade, Integridade, Disponibilidade.", resourceId: "cia-triad"},
+                { title: "Sistemas operacionais", description: "Linux + Windows básico.", resourceId: "operating-systems-security"},
+                { title: "Introdução à criptografia", description: "Chaves, cifras e hashes.", resourceId: "cryptography"},
+                { title: "Tipos de ameaças", description: "Malwares, phishing, DDoS.", resourceId: "threat-types"},
+                { title: "Ferramentas básicas", description: "Nmap, Wireshark", resourceId: "nmap"},
+            ],
+            recommendations: [
+                 { title: "Curso", description: "“Fundamentos de Cibersegurança” (Cisco, gratuito)" },
+                 { title: "Labs Interativos", description: "TryHackMe (Free Rooms: “Introduction to Cyber Security”)" },
+            ]
+        },
+        {
+            title: "FASE 2 – Trilha de Defesa",
+            duration: "3 Meses",
+            objective: "Aprender a monitorar, detectar e proteger os ativos da organização.",
+             topics: [
+              { title: "SIEM", description: "Estudo de ferramentas como Splunk e Wazuh.", resourceId: "siem" },
+              { title: "IDS/IPS", description: "Análise de sistemas como Snort e Suricata." },
+              { title: "Análise de Logs", description: "Coleta e interpretação de logs de diversas fontes.", resourceId: "log-analysis" },
+              { title: "Resposta a Incidentes", description: "Processos de contenção, erradicação e recuperação." }
+            ],
+            recommendations: [
+              { title: "Curso", description: "TryHackMe 'Cyber Defense Path'" },
+              { title: "Simuladores", description: "Blue Team Labs Online, LetsDefend" },
+              { title: "Framework", description: "Estude o framework MITRE ATT&CK para entender táticas de adversários." },
+            ]
+        },
+        {
+            title: "FASE 3 – Consolidação e Certificações",
+            duration: "6 Meses",
+            topics: [
+              { title: "Certificação Alvo", description: "Prepare-se para CompTIA CySA+ ou Blue Team Level 1." },
+              { title: "Automação", description: "Aprenda a criar playbooks de segurança com SOAR." },
+              { title: "Threat Hunting", description: "Desenvolva a habilidade de caçar ameaças proativamente." },
+            ]
+        }
+    ]
   },
   {
-    id: "cloud-engineer",
-    title: "Engenheiro de Segurança na Nuvem",
-    description: "Especialista em proteger dados, aplicações e infraestrutura em ambientes de nuvem como AWS, Azure e GCP.",
+    id: "digital-forensics",
+    title: "Forense Digital",
+    description: "O detetive digital, focado na investigação de crimes cibernéticos e na análise de evidências digitais.",
+    icon: Microscope,
+    stages: [
+       {
+            title: "FASE 1 – Fundamentos da Cibersegurança",
+            duration: "2 Meses",
+            objective: "Construir base sólida comum a todas as áreas.",
+            topics: [
+                { title: "Redes de computadores", description: "TCP/IP, DNS, HTTP, etc.", resourceId: "network-protocols" },
+                { title: "Conceitos CIA", description: "Confidencialidade, Integridade, Disponibilidade.", resourceId: "cia-triad"},
+                { title: "Sistemas operacionais", description: "Linux + Windows básico.", resourceId: "operating-systems-security"},
+                { title: "Introdução à criptografia", description: "Chaves, cifras e hashes.", resourceId: "cryptography"},
+                { title: "Tipos de ameaças", description: "Malwares, phishing, DDoS.", resourceId: "threat-types"},
+                { title: "Ferramentas básicas", description: "Nmap, Wireshark", resourceId: "nmap"},
+            ],
+            recommendations: [
+                 { title: "Curso", description: "“Fundamentos de Cibersegurança” (Cisco, gratuito)" },
+                 { title: "Labs Interativos", description: "TryHackMe (Free Rooms: “Introduction to Cyber Security”)" },
+            ]
+        },
+        {
+            title: "FASE 2 – Trilha Forense",
+            duration: "3 Meses",
+            objective: "Dominar a coleta, preservação e análise de evidências digitais.",
+             topics: [
+              { title: "Coleta e Preservação", description: "Técnicas de aquisição de dados voláteis e não voláteis." },
+              { title: "Análise de Disco", description: "Uso de ferramentas como FTK Imager e Autopsy.", resourceId: "forensic-analysis" },
+              { title: "Análise de Memória", description: "Uso do framework Volatility para extrair artefatos da RAM.", resourceId: "memory-analysis" },
+              { title: "Sistemas de Arquivos", description: "Estudo aprofundado de NTFS, ext4, APFS." }
+            ],
+            recommendations: [
+              { title: "Curso", description: "TryHackMe 'Digital Forensics and Incident Response Path'" },
+              { title: "Livro", description: "“Guide to Computer Forensics and Investigations”" },
+              { title: "Prática", description: "Casos simulados em DFIR.training" },
+            ]
+        },
+        {
+            title: "FASE 3 – Consolidação e Certificações",
+            duration: "6 Meses",
+            topics: [
+              { title: "Certificação Alvo", description: "Prepare-se para a GCFE, GCFA ou CHFI." },
+              { title: "Análise de Malware", description: "Combine forense com análise básica de malware." },
+              { title: "Relatórios Técnicos", description: "Aprenda a documentar suas descobertas de forma clara e legalmente defensável." },
+            ]
+        }
+    ]
+  },
+  {
+    id: "grc",
+    title: "Gestão de Segurança / GRC",
+    description: "O estrategista, focado em políticas, governança, risco e conformidade (compliance).",
+    icon: Scale,
+    stages: [
+       {
+            title: "FASE 1 – Fundamentos da Cibersegurança",
+            duration: "2 Meses",
+            objective: "Construir base sólida comum a todas as áreas.",
+            topics: [
+                { title: "Redes de computadores", description: "TCP/IP, DNS, HTTP, etc.", resourceId: "network-protocols" },
+                { title: "Conceitos CIA", description: "Confidencialidade, Integridade, Disponibilidade.", resourceId: "cia-triad"},
+                { title: "Sistemas operacionais", description: "Linux + Windows básico.", resourceId: "operating-systems-security"},
+                { title: "Introdução à criptografia", description: "Chaves, cifras e hashes.", resourceId: "cryptography"},
+                { title: "Tipos de ameaças", description: "Malwares, phishing, DDoS.", resourceId: "threat-types"},
+                { title: "Ferramentas básicas", description: "Nmap, Wireshark", resourceId: "nmap"},
+            ],
+            recommendations: [
+                 { title: "Curso", description: "“Fundamentos de Cibersegurança” (Cisco, gratuito)" },
+                 { title: "Labs Interativos", description: "TryHackMe (Free Rooms: “Introduction to Cyber Security”)" },
+            ]
+        },
+        {
+            title: "FASE 2 – Trilha de GRC",
+            duration: "3 Meses",
+            objective: "Entender como alinhar a segurança com os objetivos de negócio e as leis.",
+             topics: [
+              { title: "Frameworks de Segurança", description: "Estudo aprofundado da ISO/IEC 27001 e do NIST Framework.", resourceId: "compliance-frameworks" },
+              { title: "Leis de Privacidade", description: "Foco em LGPD e GDPR.", resourceId: "compliance-frameworks" },
+              { title: "Gestão de Riscos", description: "Metodologias de avaliação e tratamento de riscos." },
+              { title: "Políticas de Segurança", description: "Criação e implementação de políticas e procedimentos." }
+            ],
+            recommendations: [
+              { title: "Curso", description: "“Introdução à Segurança da Informação” (ENAP / Escola Virtual Gov)" },
+              { title: "Guias", description: "Guias sobre LGPD e ISO 27001 no YouTube e blogs." },
+              { title: "Leitura", description: "Documentos oficiais do NIST e da ISO." },
+            ]
+        },
+        {
+            title: "FASE 3 – Consolidação e Certificações",
+            duration: "6 Meses",
+            topics: [
+              { title: "Certificação Alvo", description: "Prepare-se para a ISO 27001 Lead Implementer, EXIN Privacy & Data Protection, ou CRISC." },
+              { title: "Auditoria Interna", description: "Aprenda a planejar e executar auditorias de conformidade." },
+              { title: "Comunicação Executiva", description: "Desenvolva a habilidade de comunicar riscos e estratégias para a liderança." },
+            ]
+        }
+    ]
+  },
+  {
+    id: "cloud-security",
+    title: "Segurança em Nuvem",
+    description: "Especialista em proteger dados e infraestrutura em ambientes de nuvem como AWS, Azure e Google Cloud.",
     icon: CloudCog,
     stages: [
-      {
-        title: "Fundamentos de Nuvem e Segurança (Meses 1-3)",
-        duration: "3 Meses",
-        items: [
-          { title: "Conceitos de Nuvem", description: "Domine os modelos IaaS, PaaS, SaaS e os principais serviços da AWS, Azure ou GCP." },
-          { title: "Redes na Nuvem", description: "Aprenda sobre VPCs, Subnets, Security Groups e Network ACLs.", resourceId: "aws-security" },
-          { title: "Modelo de Responsabilidade Compartilhada", description: "Entenda o que é responsabilidade do provedor de nuvem e o que é sua." },
-        ],
-      },
-      {
-        title: "Gestão de Identidade e Acesso (IAM) (Meses 4-6)",
-        duration: "3 Meses",
-        items: [
-          { title: "Princípio do Menor Privilégio", description: "Aprenda a conceder apenas as permissões estritamente necessárias.", resourceId: "security-models" },
-          { title: "Políticas e Roles", description: "Domine a criação de políticas de IAM para usuários, grupos e serviços." },
-          { title: "Autenticação Multifator (MFA)", description: "Implemente e gerencie a MFA para proteger contas críticas." },
-        ],
-      },
-      {
-        title: "Automação e Certificação (Meses 7-12)",
-        duration: "6 Meses",
-        items: [
-          { title: "Infraestrutura como Código (IaC)", description: "Use ferramentas como Terraform ou CloudFormation para automatizar a criação de ambientes seguros." },
-          { title: "Segurança de Contêineres e Serverless", description: "Aprenda a proteger Docker, Kubernetes e funções Lambda." },
-          { title: "Estudo para Certificação", description: "Prepare-se para certificações como AWS Certified Security - Specialty ou Microsoft Certified: Azure Security Engineer." },
-        ],
-      },
-    ],
+        {
+            title: "FASE 1 – Fundamentos da Cibersegurança",
+            duration: "2 Meses",
+            objective: "Construir base sólida comum a todas as áreas.",
+            topics: [
+                { title: "Redes de computadores", description: "TCP/IP, DNS, HTTP, etc.", resourceId: "network-protocols" },
+                { title: "Conceitos CIA", description: "Confidencialidade, Integridade, Disponibilidade.", resourceId: "cia-triad"},
+                { title: "Sistemas operacionais", description: "Linux + Windows básico.", resourceId: "operating-systems-security"},
+                { title: "Introdução à criptografia", description: "Chaves, cifras e hashes.", resourceId: "cryptography"},
+                { title: "Tipos de ameaças", description: "Malwares, phishing, DDoS.", resourceId: "threat-types"},
+                { title: "Ferramentas básicas", description: "Nmap, Wireshark", resourceId: "nmap"},
+            ],
+            recommendations: [
+                 { title: "Curso", description: "“Fundamentos de Cibersegurança” (Cisco, gratuito)" },
+                 { title: "Labs Interativos", description: "TryHackMe (Free Rooms: “Introduction to Cyber Security”)" },
+            ]
+        },
+        {
+            title: "FASE 2 – Trilha de Nuvem",
+            duration: "3 Meses",
+            objective: "Aprender as particularidades da segurança em ambientes de nuvem.",
+             topics: [
+              { title: "Conceitos de Nuvem", description: "IaaS, PaaS, SaaS e Modelo de Responsabilidade Compartilhada." },
+              { title: "IAM (Identity and Access Management)", description: "Políticas, roles e privilégio mínimo na nuvem.", resourceId: "aws-security" },
+              { title: "Segurança de Rede na Nuvem", description: "VPC, Security Groups, WAFs.", resourceId: "cloudflare-waf" },
+              { title: "Ferramentas Nativas", description: "Estudo de AWS GuardDuty, Azure Defender, etc.", resourceId: "azure-security" }
+            ],
+            recommendations: [
+              { title: "Curso", description: "AWS Cloud Practitioner + Segurança em Cloud (DIO, AWS Academy)" },
+              { title: "Prática", description: "TryHackMe 'Cloud Fundamentals Path'" },
+              { title: "Laboratórios", description: "Use o AWS Free Tier para criar e proteger recursos." },
+            ]
+        },
+        {
+            title: "FASE 3 – Consolidação e Certificações",
+            duration: "6 Meses",
+            topics: [
+              { title: "Certificação Alvo", description: "Prepare-se para a AWS/Azure Security Specialty ou CCSP." },
+              { title: "Infraestrutura como Código (IaC)", description: "Aprenda Terraform para automação segura." },
+              { title: "Segurança de Contêineres", description: "Proteção de Docker e Kubernetes na nuvem." },
+            ]
+        }
+    ]
+  },
+  {
+    id: "appsec",
+    title: "DevSecOps / Segurança de Aplicações",
+    description: "Foco em integrar a segurança em todo o ciclo de vida de desenvolvimento de software (SDLC).",
+    icon: GitBranch,
+    stages: [
+        {
+            title: "FASE 1 – Fundamentos da Cibersegurança",
+            duration: "2 Meses",
+            objective: "Construir base sólida comum a todas as áreas.",
+            topics: [
+                { title: "Redes de computadores", description: "TCP/IP, DNS, HTTP, etc.", resourceId: "network-protocols" },
+                { title: "Conceitos CIA", description: "Confidencialidade, Integridade, Disponibilidade.", resourceId: "cia-triad"},
+                { title: "Sistemas operacionais", description: "Linux + Windows básico.", resourceId: "operating-systems-security"},
+                { title: "Introdução à criptografia", description: "Chaves, cifras e hashes.", resourceId: "cryptography"},
+                { title: "Tipos de ameaças", description: "Malwares, phishing, DDoS.", resourceId: "threat-types"},
+                { title: "Ferramentas básicas", description: "Nmap, Wireshark", resourceId: "nmap"},
+            ],
+            recommendations: [
+                 { title: "Curso", description: "“Fundamentos de Cibersegurança” (Cisco, gratuito)" },
+                 { title: "Labs Interativos", description: "TryHackMe (Free Rooms: “Introduction to Cyber Security”)" },
+            ]
+        },
+        {
+            title: "FASE 2 – Trilha AppSec",
+            duration: "3 Meses",
+            objective: "Aprender a encontrar e corrigir falhas de segurança no código e na infraestrutura.",
+             topics: [
+              { title: "Tipos de Testes de Segurança", description: "SAST, DAST, IAST e Análise de Composição de Software (SCA)." },
+              { title: "Ferramentas de CI/CD", description: "SonarQube, OWASP ZAP, GitHub Actions.", resourceId: "burp-suite" },
+              { title: "Segurança de Contêineres", description: "Análise de imagens Docker e segurança em Kubernetes." },
+              { title: "Modelagem de Ameaças", description: "Processo para identificar ameaças no design de uma aplicação." }
+            ],
+            recommendations: [
+              { title: "Curso", description: "“DevSecOps Essentials” (Udemy, DIO)" },
+              { title: "Leitura", description: "OWASP Top 10 e OWASP ASVS (Application Security Verification Standard)." },
+              { title: "Repositórios", description: "Explore projetos de segurança em CI/CD no GitHub." },
+            ]
+        },
+        {
+            title: "FASE 3 – Consolidação e Certificações",
+            duration: "6 Meses",
+            topics: [
+              { title: "Certificação Alvo", description: "Considere certificações como a GWEB ou CASE." },
+              { title: "Cultura de Segurança", description: "Aprenda a promover uma cultura de segurança entre os desenvolvedores." },
+              { title: "Automação de Segurança", description: "Crie pipelines de CI/CD seguros e eficientes." },
+            ]
+        }
+    ]
+  },
+   {
+    id: "malware-analysis",
+    title: "Análise de Malware",
+    description: "Especialista em engenharia reversa de softwares maliciosos para entender seu funcionamento.",
+    icon: Binary,
+    stages: [
+       {
+            title: "FASE 1 – Fundamentos da Cibersegurança",
+            duration: "2 Meses",
+            objective: "Construir base sólida comum a todas as áreas.",
+            topics: [
+                { title: "Redes de computadores", description: "TCP/IP, DNS, HTTP, etc.", resourceId: "network-protocols" },
+                { title: "Conceitos CIA", description: "Confidencialidade, Integridade, Disponibilidade.", resourceId: "cia-triad"},
+                { title: "Sistemas operacionais", description: "Linux + Windows básico.", resourceId: "operating-systems-security"},
+                { title: "Introdução à criptografia", description: "Chaves, cifras e hashes.", resourceId: "cryptography"},
+                { title: "Tipos de ameaças", description: "Malwares, phishing, DDoS.", resourceId: "threat-types"},
+                { title: "Ferramentas básicas", description: "Nmap, Wireshark", resourceId: "nmap"},
+            ],
+            recommendations: [
+                 { title: "Curso", description: "“Fundamentos de Cibersegurança” (Cisco, gratuito)" },
+                 { title: "Labs Interativos", description: "TryHackMe (Free Rooms: “Introduction to Cyber Security”)" },
+            ]
+        },
+        {
+            title: "FASE 2 – Trilha de Análise de Malware",
+            duration: "3 Meses",
+            objective: "Aprender a dissecar e entender o comportamento de amostras maliciosas.",
+             topics: [
+              { title: "Análise Estática vs. Dinâmica", description: "Diferenças e quando usar cada abordagem." },
+              { title: "Ambiente de Análise (Sandbox)", description: "Criação de um laboratório seguro para executar malware." },
+              { title: "Engenharia Reversa", description: "Uso de ferramentas como Ghidra, IDA Pro, x64dbg." },
+              { title: "Análise de Comportamento", description: "Monitoramento de rede, sistema de arquivos e registro." }
+            ],
+            recommendations: [
+              { title: "Curso", description: "TryHackMe 'Malware Analysis Path'" },
+              { title: "Livro", description: "“Practical Malware Analysis”" },
+              { title: "Amostras", description: "Use fontes como o MalwareBazaar para obter amostras para análise." },
+            ]
+        },
+        {
+            title: "FASE 3 – Consolidação e Certificações",
+            duration: "6 Meses",
+            topics: [
+              { title: "Certificação Alvo", description: "Prepare-se para a GREM ou CREA." },
+              { title: "Desofuscação", description: "Aprenda técnicas para reverter a ofuscação de código." },
+              { title: "Criação de Assinaturas", description: "Escreva regras YARA e assinaturas de rede para detectar o malware analisado." },
+            ]
+        }
+    ]
+  },
+  {
+    id: "threat-intelligence",
+    title: "Threat Intelligence",
+    description: "O analista de inteligência, focado na coleta e análise de informações sobre ameaças cibernéticas.",
+    icon: TestTube2,
+    stages: [
+        {
+            title: "FASE 1 – Fundamentos da Cibersegurança",
+            duration: "2 Meses",
+            objective: "Construir base sólida comum a todas as áreas.",
+            topics: [
+                { title: "Redes de computadores", description: "TCP/IP, DNS, HTTP, etc.", resourceId: "network-protocols" },
+                { title: "Conceitos CIA", description: "Confidencialidade, Integridade, Disponibilidade.", resourceId: "cia-triad"},
+                { title: "Sistemas operacionais", description: "Linux + Windows básico.", resourceId: "operating-systems-security"},
+                { title: "Introdução à criptografia", description: "Chaves, cifras e hashes.", resourceId: "cryptography"},
+                { title: "Tipos de ameaças", description: "Malwares, phishing, DDoS.", resourceId: "threat-types"},
+                { title: "Ferramentas básicas", description: "Nmap, Wireshark", resourceId: "nmap"},
+            ],
+            recommendations: [
+                 { title: "Curso", description: "“Fundamentos de Cibersegurança” (Cisco, gratuito)" },
+                 { title: "Labs Interativos", description: "TryHackMe (Free Rooms: “Introduction to Cyber Security”)" },
+            ]
+        },
+        {
+            title: "FASE 2 – Trilha de Inteligência",
+            duration: "3 Meses",
+            objective: "Aprender a coletar, processar e analisar dados para produzir inteligência acionável.",
+             topics: [
+              { title: "Fontes OSINT", description: "Uso de Shodan, VirusTotal, ThreatFox, etc.", resourceId: "virustotal" },
+              { title: "Indicadores de Comprometimento (IOCs)", description: "Análise de IPs, hashes, domínios maliciosos." },
+              { title: "Frameworks de Inteligência", description: "Estudo de STIX/TAXII e MITRE ATT&CK." },
+              { title: "Ciclo de Inteligência", description: "Direção, Coleta, Processamento, Análise, Disseminação, Feedback." }
+            ],
+            recommendations: [
+              { title: "Curso", description: "TryHackMe 'Threat Intelligence Path' ou curso da SANS (talks gratuitos)." },
+              { title: "Ferramentas", description: "Explore plataformas como MISP e The Hive." },
+              { title: "Leitura", description: "Blogs de empresas de Threat Intelligence (Mandiant, CrowdStrike)." },
+            ]
+        },
+        {
+            title: "FASE 3 – Consolidação e Certificações",
+            duration: "6 Meses",
+            topics: [
+              { title: "Certificação Alvo", description: "Prepare-se para a GCTI ou CTIA." },
+              { title: "Análise de Atores de Ameaça", description: "Rastreamento de grupos APT e suas táticas." },
+              { title: "Relatórios de Inteligência", description: "Aprenda a escrever relatórios claros para diferentes públicos (técnico, executivo)." },
+            ]
+        }
+    ]
+  },
+  {
+    id: "audit",
+    title: "Auditoria de Sistemas",
+    description: "Responsável pela verificação e validação dos controles de segurança para garantir a conformidade.",
+    icon: Files,
+    stages: [
+       {
+            title: "FASE 1 – Fundamentos da Cibersegurança",
+            duration: "2 Meses",
+            objective: "Construir base sólida comum a todas as áreas.",
+            topics: [
+                { title: "Redes de computadores", description: "TCP/IP, DNS, HTTP, etc.", resourceId: "network-protocols" },
+                { title: "Conceitos CIA", description: "Confidencialidade, Integridade, Disponibilidade.", resourceId: "cia-triad"},
+                { title: "Sistemas operacionais", description: "Linux + Windows básico.", resourceId: "operating-systems-security"},
+                { title: "Introdução à criptografia", description: "Chaves, cifras e hashes.", resourceId: "cryptography"},
+                { title: "Tipos de ameaças", description: "Malwares, phishing, DDoS.", resourceId: "threat-types"},
+                { title: "Ferramentas básicas", description: "Nmap, Wireshark", resourceId: "nmap"},
+            ],
+            recommendations: [
+                 { title: "Curso", description: "“Fundamentos de Cibersegurança” (Cisco, gratuito)" },
+                 { title: "Labs Interativos", description: "TryHackMe (Free Rooms: “Introduction to Cyber Security”)" },
+            ]
+        },
+        {
+            title: "FASE 2 – Trilha de Auditoria",
+            duration: "3 Meses",
+            objective: "Aprender a avaliar a eficácia dos controles de segurança e a conformidade com as políticas.",
+             topics: [
+              { title: "Frameworks de Auditoria", description: "Estudo de COBIT e outros padrões relevantes." },
+              { title: "Técnicas de Entrevista e Coleta de Evidências", description: "Como interagir com equipes e coletar provas." },
+              { title: "Testes de Controles", description: "Validação de controles de acesso, backups, etc." },
+              { title: "Análise de Políticas", description: "Verificação se as políticas escritas são aplicadas na prática.", resourceId: "compliance-frameworks" }
+            ],
+            recommendations: [
+              { title: "Curso", description: "Busque cursos de Auditoria de TI da ISACA ou Udemy." },
+              { title: "Leitura", description: "Guias da ISACA (Information Systems Audit and Control Association)." },
+              { title: "Frameworks", description: "Aprofunde-se no NIST Cybersecurity Framework e na ISO 27001.", resourceId: "compliance-frameworks" },
+            ]
+        },
+        {
+            title: "FASE 3 – Consolidação e Certificações",
+            duration: "6 Meses",
+            topics: [
+              { title: "Certificação Alvo", description: "Prepare-se para a CISA (Certified Information Systems Auditor)." },
+              { title: "Automação de Auditoria", description: "Use scripts para verificar configurações e conformidade." },
+              { title: "Relatórios de Auditoria", description: "Aprenda a escrever relatórios de auditoria com descobertas e recomendações." },
+            ]
+        }
+    ]
   },
 ];
