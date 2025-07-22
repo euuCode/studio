@@ -20,7 +20,7 @@ export async function getLearningPath(
   if (!input.skillLevel || !input.areaOfInterest) {
     return {
       status: 'error',
-      message: 'Please select both skill level and area of interest.',
+      message: 'Por favor, selecione o nível de habilidade e a área de interesse.',
       data: null,
     };
   }
@@ -29,14 +29,14 @@ export async function getLearningPath(
     const result = await generateLearningPath(input);
     return {
       status: 'success',
-      message: 'Learning path generated successfully!',
+      message: 'Plano de ensino gerado com sucesso!',
       data: result,
     };
   } catch (error) {
     console.error(error);
     return {
       status: 'error',
-      message: 'Failed to generate learning path. Please try again.',
+      message: 'Falha ao gerar o plano de ensino. Por favor, tente novamente.',
       data: null,
     };
   }

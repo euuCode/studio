@@ -4,9 +4,9 @@ import { usePathname } from 'next/navigation';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 
 const pageTitles: { [key: string]: string } = {
-  '/': 'Personalized Learning Path',
-  '/certifications': 'Certification Guide',
-  '/library': 'Content Library',
+  '/': 'Plano de Ensino Personalizado',
+  '/certifications': 'Guia de Certificações',
+  '/library': 'Biblioteca de Conteúdo',
 };
 
 export function Header() {
@@ -16,9 +16,9 @@ export function Header() {
   if (pageTitles[pathname]) {
     title = pageTitles[pathname];
   } else if (pathname.startsWith('/certifications/')) {
-    title = 'Certification Details';
+    title = 'Detalhes da Certificação';
   } else if (pathname.startsWith('/library/')) {
-    title = 'Content Details';
+    title = 'Detalhes do Conteúdo';
   }
 
   return (

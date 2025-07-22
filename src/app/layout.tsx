@@ -8,7 +8,7 @@ import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
   title: 'Mithras CyberSec',
-  description: 'Your personalized cybersecurity learning companion.',
+  description: 'Seu companheiro de aprendizado de cibersegurança personalizado.',
 };
 
 export default function RootLayout({

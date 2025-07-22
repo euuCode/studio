@@ -13,7 +13,7 @@ export function LearningPathDisplay({ pathData }: LearningPathDisplayProps) {
         <div className="bg-primary text-primary-foreground p-3 rounded-full">
             <GraduationCap className="h-6 w-6" />
         </div>
-        <CardTitle className="font-headline text-3xl tracking-wide">Your Personalized Learning Path</CardTitle>
+        <CardTitle className="font-headline text-3xl tracking-wide">Seu Plano de Ensino Personalizado</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="prose prose-invert max-w-none text-foreground text-base">

@@ -5,9 +5,9 @@ import { Badge } from '@/components/ui/badge';
 import { FileText, Video, Wrench } from 'lucide-react';
 
 const typeIcons = {
-  Article: <FileText className="h-8 w-8 text-primary" />,
-  Video: <Video className="h-8 w-8 text-primary" />,
-  Tool: <Wrench className="h-8 w-8 text-primary" />,
+  Artigo: <FileText className="h-8 w-8 text-primary" />,
+  Vídeo: <Video className="h-8 w-8 text-primary" />,
+  Ferramenta: <Wrench className="h-8 w-8 text-primary" />,
 };
 
 export default function ResourceDetailPage({ params }: { params: { id: string } }) {
@@ -18,7 +18,7 @@ export default function ResourceDetailPage({ params }: { params: { id: string } 
   }
   
   const getLevelVariant = (level: string) => {
-    return level === 'Beginner' ? 'secondary' : 'destructive';
+    return level === 'Iniciante' ? 'secondary' : 'destructive';
   }
 
   return (

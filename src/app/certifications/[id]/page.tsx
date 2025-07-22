@@ -14,9 +14,9 @@ export default function CertificationDetailPage({ params }: { params: { id: stri
   
   const getLevelVariant = (level: string) => {
     switch(level) {
-        case 'Beginner': return 'secondary';
-        case 'Intermediate': return 'default';
-        case 'Advanced': return 'destructive';
+        case 'Iniciante': return 'secondary';
+        case 'Intermediário': return 'default';
+        case 'Avançado': return 'destructive';
         default: return 'outline';
     }
   }
@@ -28,7 +28,7 @@ export default function CertificationDetailPage({ params }: { params: { id: stri
           <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
             <div>
               <CardTitle className="font-headline text-4xl tracking-wider mb-2">{cert.name}</CardTitle>
-              <CardDescription>Issued by {cert.issuer}</CardDescription>
+              <CardDescription>Emitido por {cert.issuer}</CardDescription>
             </div>
             <div className="flex gap-2 flex-wrap items-start">
               <Badge variant={getLevelVariant(cert.level)} className="text-base py-1 px-3">{cert.level}</Badge>
@@ -50,7 +50,7 @@ export default function CertificationDetailPage({ params }: { params: { id: stri
             </div>
              <Button asChild>
                 <a href={cert.url} target="_blank" rel="noopener noreferrer">
-                    Official Website <ArrowUpRight className="ml-2 h-5 w-5" />
+                    Site Oficial <ArrowUpRight className="ml-2 h-5 w-5" />
                 </a>
             </Button>
           </div>

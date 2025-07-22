@@ -9,15 +9,15 @@ interface ResourceCardProps {
 }
 
 const typeIcons = {
-  Article: <FileText className="h-6 w-6" />,
-  Video: <Video className="h-6 w-6" />,
-  Tool: <Wrench className="h-6 w-6" />,
+  Artigo: <FileText className="h-6 w-6" />,
+  Vídeo: <Video className="h-6 w-6" />,
+  Ferramenta: <Wrench className="h-6 w-6" />,
 };
 
 export function ResourceCard({ resource }: ResourceCardProps) {
 
   const getLevelVariant = (level: string) => {
-    return level === 'Beginner' ? 'secondary' : 'destructive';
+    return level === 'Iniciante' ? 'secondary' : 'destructive';
   }
 
   return (
@@ -37,7 +37,7 @@ export function ResourceCard({ resource }: ResourceCardProps) {
         </CardContent>
         <CardFooter>
             <div className="flex items-center text-sm text-primary hover:underline">
-                View Resource <ArrowUpRight className="h-4 w-4 ml-1" />
+                Ver Recurso <ArrowUpRight className="h-4 w-4 ml-1" />
             </div>
         </CardFooter>
         </Card>

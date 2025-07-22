@@ -36,7 +36,7 @@ export default function CertificationsClient({ initialCerts }: CertificationsCli
         <div className="relative md:col-span-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input
-            placeholder="Search certifications..."
+            placeholder="Pesquisar certificações..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10"
@@ -44,21 +44,21 @@ export default function CertificationsClient({ initialCerts }: CertificationsCli
         </div>
         <Select value={level} onValueChange={setLevel}>
           <SelectTrigger>
-            <SelectValue placeholder="Filter by level" />
+            <SelectValue placeholder="Filtrar por nível" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="All">All Levels</SelectItem>
-            <SelectItem value="Beginner">Beginner</SelectItem>
-            <SelectItem value="Intermediate">Intermediate</SelectItem>
-            <SelectItem value="Advanced">Advanced</SelectItem>
+            <SelectItem value="All">Todos os Níveis</SelectItem>
+            <SelectItem value="Iniciante">Iniciante</SelectItem>
+            <SelectItem value="Intermediário">Intermediário</SelectItem>
+            <SelectItem value="Avançado">Avançado</SelectItem>
           </SelectContent>
         </Select>
         <Select value={domain} onValueChange={setDomain}>
           <SelectTrigger>
-            <SelectValue placeholder="Filter by domain" />
+            <SelectValue placeholder="Filtrar por domínio" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="All">All Domains</SelectItem>
+            <SelectItem value="All">Todos os Domínios</SelectItem>
             <SelectItem value="Penetration Testing">Penetration Testing</SelectItem>
             <SelectItem value="Incident Response">Incident Response</SelectItem>
             <SelectItem value="Network Security">Network Security</SelectItem>
@@ -73,7 +73,7 @@ export default function CertificationsClient({ initialCerts }: CertificationsCli
             <CertificationCard key={cert.id} cert={cert} />
           ))
         ) : (
-          <p className="col-span-full text-center text-muted-foreground">No certifications found.</p>
+          <p className="col-span-full text-center text-muted-foreground">Nenhuma certificação encontrada.</p>
         )}
       </div>
     </div>

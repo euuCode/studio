@@ -10,9 +10,9 @@ interface CertificationCardProps {
 export function CertificationCard({ cert }: CertificationCardProps) {
     const getLevelVariant = (level: string) => {
         switch(level) {
-            case 'Beginner': return 'secondary';
-            case 'Intermediate': return 'default';
-            case 'Advanced': return 'destructive';
+            case 'Iniciante': return 'secondary';
+            case 'Intermediário': return 'default';
+            case 'Avançado': return 'destructive';
             default: return 'outline';
         }
     }
@@ -28,7 +28,7 @@ export function CertificationCard({ cert }: CertificationCardProps) {
                   <Badge variant="outline">{cert.domain}</Badge>
               </div>
           </div>
-          <p className="text-sm text-muted-foreground">Issued by {cert.issuer}</p>
+          <p className="text-sm text-muted-foreground">Emitido por {cert.issuer}</p>
         </CardHeader>
         <CardContent>
           <CardDescription>{cert.description}</CardDescription>

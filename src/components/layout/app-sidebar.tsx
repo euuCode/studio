@@ -15,9 +15,9 @@ import {
 import { Logo } from '@/components/logo';
 
 const menuItems = [
-  { href: '/', label: 'Learning Path', icon: Bot },
-  { href: '/certifications', label: 'Certifications', icon: ShieldCheck },
-  { href: '/library', label: 'Content Library', icon: BookOpen },
+  { href: '/', label: 'Plano de Ensino', icon: Bot },
+  { href: '/certifications', label: 'Certificações', icon: ShieldCheck },
+  { href: '/library', label: 'Biblioteca', icon: BookOpen },
 ];
 
 export function AppSidebar() {

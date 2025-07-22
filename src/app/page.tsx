@@ -9,10 +9,10 @@ export default function Home() {
           <BrainCircuit className="h-12 w-12" />
         </div>
         <h1 className="font-headline text-5xl md:text-7xl tracking-wider mb-4">
-          Forge Your Cyber Path
+          Crie Seu Caminho Cyber
         </h1>
         <p className="max-w-2xl mx-auto text-lg text-muted-foreground mb-8">
-          Tell us your skill level and interests, and our AI will craft a personalized learning roadmap to guide your journey in cybersecurity.
+          Diga-nos seu nível de habilidade e interesses, e nossa IA criará um roteiro de aprendizado personalizado para guiar sua jornada em cibersegurança.
         </p>
       </section>
 

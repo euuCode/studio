@@ -1,7 +1,7 @@
 'use client';
 
 import { useFormState, useFormStatus } from 'react-dom';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
@@ -29,8 +29,8 @@ import { FormState, getLearningPath } from '@/app/actions';
 import { LearningPathDisplay } from '@/components/learning-path-display';
 
 const formSchema = z.object({
-  skillLevel: z.string().min(1, 'Please select your skill level.'),
-  areaOfInterest: z.string().min(1, 'Please select your area of interest.'),
+  skillLevel: z.string().min(1, 'Por favor, selecione seu nível de habilidade.'),
+  areaOfInterest: z.string().min(1, 'Por favor, selecione sua área de interesse.'),
 });
 
 const initialState: FormState = {
@@ -46,12 +46,12 @@ function SubmitButton() {
       {pending ? (
         <>
           <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-          Generating...
+          Gerando...
         </>
       ) : (
         <>
           <Bot className="mr-2 h-5 w-5" />
-          Generate Path
+          Gerar Plano
         </>
       )}
     </Button>
@@ -61,6 +61,7 @@ function SubmitButton() {
 export function LearningPathForm() {
   const { toast } = useToast();
   const [state, formAction] = useFormState(getLearningPath, initialState);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -74,38 +75,47 @@ export function LearningPathForm() {
     if (state.status === 'error') {
       toast({
         variant: 'destructive',
-        title: 'Error',
+        title: 'Erro',
         description: state.message,
       });
     }
   }, [state, toast]);
+  
+  const handleAction = (payload: FormData) => {
+    form.trigger().then((isValid) => {
+      if (isValid) {
+        formAction(payload);
+      }
+    });
+  };
+
 
   return (
     <>
       <Card className="border-2 border-primary/20 shadow-lg shadow-primary/5">
         <CardHeader>
-          <CardTitle className="font-headline text-3xl tracking-wide">AI Learning Planner</CardTitle>
-          <CardDescription>Select your options below to get a custom learning plan.</CardDescription>
+          <CardTitle className="font-headline text-3xl tracking-wide">Planejador de Ensino IA</CardTitle>
+          <CardDescription>Selecione suas opções abaixo para obter um plano de ensino personalizado.</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form action={formAction} className="space-y-8">
+            <form ref={formRef} action={handleAction} className="space-y-8">
               <FormField
                 control={form.control}
                 name="skillLevel"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-lg">Your Skill Level</FormLabel>
+                    <FormLabel className="text-lg">Seu Nível de Habilidade</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select your current skill level..." />
+                          <SelectValue placeholder="Selecione seu nível de habilidade atual..." />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="beginner">Beginner</SelectItem>
-                        <SelectItem value="intermediate">Intermediate</SelectItem>
-                        <SelectItem value="expert">Expert</SelectItem>
+                        <SelectItem value="beginner">Iniciante</SelectItem>
+                        <SelectItem value="intermediate">Intermediário</SelectItem>
+                        <SelectItem value="expert">Especialista</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -117,19 +127,19 @@ export function LearningPathForm() {
                 name="areaOfInterest"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-lg">Area of Interest</FormLabel>
+                    <FormLabel className="text-lg">Área de Interesse</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select your primary interest..." />
+                          <SelectValue placeholder="Selecione seu interesse principal..." />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="penetration testing">Penetration Testing</SelectItem>
-                        <SelectItem value="incident response">Incident Response</SelectItem>
-                        <SelectItem value="network security">Network Security</SelectItem>
-                        <SelectItem value="cloud security">Cloud Security</SelectItem>
-                        <SelectItem value="digital forensics">Digital Forensics</SelectItem>
+                        <SelectItem value="penetration testing">Teste de Invasão</SelectItem>
+                        <SelectItem value="incident response">Resposta a Incidentes</SelectItem>
+                        <SelectItem value="network security">Segurança de Rede</SelectItem>
+                        <SelectItem value="cloud security">Segurança na Nuvem</SelectItem>
+                        <SelectItem value="digital forensics">Forense Digital</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -152,7 +162,7 @@ export function LearningPathForm() {
          <div className="mt-8">
            <Card>
             <CardHeader>
-              <CardTitle className="font-headline text-2xl tracking-wide">Generating Your Path...</CardTitle>
+              <CardTitle className="font-headline text-2xl tracking-wide">Gerando seu plano...</CardTitle>
             </CardHeader>
             <CardContent className="flex items-center justify-center p-8">
               <Loader2 className="h-12 w-12 animate-spin text-primary"/>

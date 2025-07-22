@@ -35,7 +35,7 @@ export default function LibraryClient({ initialResources }: LibraryClientProps) 
         <div className="relative md:col-span-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input
-            placeholder="Search library..."
+            placeholder="Pesquisar na biblioteca..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10"
@@ -43,23 +43,23 @@ export default function LibraryClient({ initialResources }: LibraryClientProps) 
         </div>
         <Select value={level} onValueChange={setLevel}>
           <SelectTrigger>
-            <SelectValue placeholder="Filter by level" />
+            <SelectValue placeholder="Filtrar por nível" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="All">All Levels</SelectItem>
-            <SelectItem value="Beginner">Beginner</SelectItem>
-            <SelectItem value="Experienced">Experienced</SelectItem>
+            <SelectItem value="All">Todos os Níveis</SelectItem>
+            <SelectItem value="Iniciante">Iniciante</SelectItem>
+            <SelectItem value="Experiente">Experiente</SelectItem>
           </SelectContent>
         </Select>
         <Select value={type} onValueChange={setType}>
           <SelectTrigger>
-            <SelectValue placeholder="Filter by type" />
+            <SelectValue placeholder="Filtrar por tipo" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="All">All Types</SelectItem>
-            <SelectItem value="Article">Article</SelectItem>
-            <SelectItem value="Video">Video</SelectItem>
-            <SelectItem value="Tool">Tool</SelectItem>
+            <SelectItem value="All">Todos os Tipos</SelectItem>
+            <SelectItem value="Artigo">Artigo</SelectItem>
+            <SelectItem value="Vídeo">Vídeo</SelectItem>
+            <SelectItem value="Ferramenta">Ferramenta</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -70,7 +70,7 @@ export default function LibraryClient({ initialResources }: LibraryClientProps) 
             <ResourceCard key={resource.id} resource={resource} />
           ))
         ) : (
-          <p className="col-span-full text-center text-muted-foreground">No resources found.</p>
+          <p className="col-span-full text-center text-muted-foreground">Nenhum recurso encontrado.</p>
         )}
       </div>
     </div>
