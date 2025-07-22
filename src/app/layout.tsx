@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { SidebarProvider } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/layout/app-sidebar';
 import { Header } from '@/components/layout/header';
+import { ChatAssistant } from '@/components/chat-assistant';
 
 export const metadata: Metadata = {
   title: 'Mithras CyberSec',
@@ -36,6 +37,7 @@ export default function RootLayout({
             </div>
           </div>
         </SidebarProvider>
+        <ChatAssistant />
         <Toaster />
       </body>
     </html>
