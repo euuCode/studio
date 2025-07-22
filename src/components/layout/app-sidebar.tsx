@@ -29,7 +29,7 @@ export function AppSidebar() {
       <SidebarHeader className="h-16 flex items-center justify-center">
         <div className="flex items-center gap-2">
           <Logo className="text-primary" />
-          <span className="font-headline text-2xl tracking-wider group-data-[collapsible=icon]:hidden">
+          <span className="font-headline text-2xl tracking-tight font-semibold group-data-[collapsible=icon]:hidden">
             Mithras
           </span>
         </div>

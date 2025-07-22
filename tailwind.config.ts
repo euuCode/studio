@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['"Roboto Mono"', 'monospace'],
-        headline: ['"Bebas Neue"', 'sans-serif'],
+        body: ['"Inter"', 'sans-serif'],
+        headline: ['"Poppins"', 'sans-serif'],
         code: ['"Roboto Mono"', 'monospace'],
       },
       colors: {

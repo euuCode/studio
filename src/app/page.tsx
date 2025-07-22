@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
       <section className="text-center mb-12">
-        <h1 className="font-headline text-5xl md:text-7xl tracking-wider mb-4">
+        <h1 className="font-headline text-5xl md:text-7xl tracking-tight font-bold mb-4">
           Trace Seu Caminho em Cibersegurança
         </h1>
         <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
@@ -24,7 +24,7 @@ export default function Home() {
                 <div className="flex flex-col md:flex-row md:items-center gap-4">
                   <path.icon className="h-12 w-12 text-primary" />
                   <div>
-                    <h2 className="font-headline text-2xl tracking-wide">{path.title}</h2>
+                    <h2 className="font-headline text-2xl tracking-tight font-semibold">{path.title}</h2>
                     <p className="text-muted-foreground text-sm">{path.description}</p>
                   </div>
                 </div>
