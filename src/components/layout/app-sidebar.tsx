@@ -27,12 +27,12 @@ export function AppSidebar() {
   return (
     <Sidebar className="border-r">
       <SidebarHeader className="h-16 flex items-center justify-center">
-        <div className="flex items-center gap-2">
-          <Logo className="text-primary" />
-          <span className="font-headline text-2xl tracking-tight font-semibold group-data-[collapsible=icon]:hidden">
+        <Link href="/" className="flex items-center gap-2">
+          <Logo className="text-primary h-10 w-10" />
+          <span className="sr-only">
             Mithras
           </span>
-        </div>
+        </Link>
       </SidebarHeader>
       <SidebarContent>
         <SidebarMenu>

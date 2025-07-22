@@ -23,10 +23,12 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-10 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-8">
-      <div className="md:hidden">
-        <SidebarTrigger />
+      <div className="flex items-center gap-2">
+        <div className="md:hidden">
+          <SidebarTrigger />
+        </div>
+        <h1 className="flex-1 text-xl font-semibold tracking-tight font-headline">{title}</h1>
       </div>
-      <h1 className="flex-1 text-xl font-semibold tracking-tight font-headline">{title}</h1>
     </header>
   );
 }
