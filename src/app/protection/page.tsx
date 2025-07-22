@@ -42,7 +42,7 @@ export default function ProtectionPage() {
           Guia Rápido de Proteção Digital
         </h1>
         <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
-          Dicas simples e diretas para você navegar na internet com mais segurança no seu dia a dia.
+          dicas basicas para um usuario comum
         </p>
       </section>
 
