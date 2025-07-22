@@ -13,21 +13,40 @@ interface LibraryClientProps {
 
 export default function LibraryClient({ initialResources }: LibraryClientProps) {
   const [searchTerm, setSearchTerm] = useState('');
-  const [level, setLevel] = useState('All');
-  const [type, setType] = useState('All');
+  const [category, setCategory] = useState('All');
+  const [subcategory, setSubcategory] = useState('All');
+
+  const subcategories = useMemo(() => {
+    if (category === 'All') {
+      return ['All', 'Conceitos', 'Análise e Monitoramento', 'Pentest e Auditoria', 'Criptografia e Segurança de Dados', 'Análise de Malware e Forense', 'Segurança em Nuvem'];
+    }
+    if (category === 'Fundamentos') {
+      return ['All', 'Conceitos'];
+    }
+    if (category === 'Ferramentas') {
+      return ['All', 'Análise e Monitoramento', 'Pentest e Auditoria', 'Criptografia e Segurança de Dados', 'Análise de Malware e Forense', 'Segurança em Nuvem'];
+    }
+    return ['All'];
+  }, [category]);
 
   const filteredResources = useMemo(() => {
     return initialResources
       .filter((resource) =>
-        resource.title.toLowerCase().includes(searchTerm.toLowerCase())
+        resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        resource.description.toLowerCase().includes(searchTerm.toLowerCase())
       )
       .filter((resource) =>
-        level === 'All' ? true : resource.level === level
+        category === 'All' ? true : resource.category === category
       )
       .filter((resource) =>
-        type === 'All' ? true : resource.type === type
+        subcategory === 'All' ? true : resource.subcategory === subcategory
       );
-  }, [searchTerm, level, type, initialResources]);
+  }, [searchTerm, category, subcategory, initialResources]);
+  
+  const handleCategoryChange = (value: string) => {
+    setCategory(value);
+    setSubcategory('All');
+  }
 
   return (
     <div className="space-y-8">
@@ -41,25 +60,24 @@ export default function LibraryClient({ initialResources }: LibraryClientProps) 
             className="pl-10"
           />
         </div>
-        <Select value={level} onValueChange={setLevel}>
+        <Select value={category} onValueChange={handleCategoryChange}>
           <SelectTrigger>
-            <SelectValue placeholder="Filtrar por nível" />
+            <SelectValue placeholder="Filtrar por categoria" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="All">Todos os Níveis</SelectItem>
-            <SelectItem value="Iniciante">Iniciante</SelectItem>
-            <SelectItem value="Experiente">Experiente</SelectItem>
+            <SelectItem value="All">Todas as Categorias</SelectItem>
+            <SelectItem value="Fundamentos">Fundamentos</SelectItem>
+            <SelectItem value="Ferramentas">Ferramentas</SelectItem>
           </SelectContent>
         </Select>
-        <Select value={type} onValueChange={setType}>
+        <Select value={subcategory} onValueChange={setSubcategory}>
           <SelectTrigger>
-            <SelectValue placeholder="Filtrar por tipo" />
+            <SelectValue placeholder="Filtrar por subcategoria" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="All">Todos os Tipos</SelectItem>
-            <SelectItem value="Artigo">Artigo</SelectItem>
-            <SelectItem value="Vídeo">Vídeo</SelectItem>
-            <SelectItem value="Ferramenta">Ferramenta</SelectItem>
+            {subcategories.map(sub => (
+              <SelectItem key={sub} value={sub}>{sub === 'All' ? 'Todas as Subcategorias' : sub}</SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>
