@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BookOpen, Bot, ShieldCheck } from 'lucide-react';
+import { BookOpen, Briefcase, ShieldCheck } from 'lucide-react';
 import {
   Sidebar,
   SidebarHeader,
@@ -15,7 +15,7 @@ import {
 import { Logo } from '@/components/logo';
 
 const menuItems = [
-  { href: '/', label: 'Plano de Ensino', icon: Bot },
+  { href: '/', label: 'Planos de Carreira', icon: Briefcase },
   { href: '/certifications', label: 'Certificações', icon: ShieldCheck },
   { href: '/library', label: 'Biblioteca', icon: BookOpen },
 ];

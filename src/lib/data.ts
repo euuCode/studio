@@ -1,3 +1,5 @@
+import { Shield, Fingerprint, CloudCog } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 export type Certification = {
   id: string;
@@ -5,7 +7,7 @@ export type Certification = {
   issuer: string;
   description: string;
   level: 'Iniciante' | 'Intermediário' | 'Avançado';
-  domain: 'Penetration Testing' | 'Incident Response' | 'Network Security' | 'Cloud Security';
+  domain: 'Penetration Testing' | 'Incident Response' | 'Network Security' | 'Cloud Security' | 'Digital Forensics';
   price: string;
   url: string;
   details: string;
@@ -222,5 +224,228 @@ Engana a vítima para que ela envie uma solicitação maliciosa. Por exemplo, um
 - **PortSwigger Web Security Academy:** O melhor lugar para aprender a usar o Burp Suite, com dezenas de laboratórios práticos.
 - **Documentação Oficial:** A documentação da PortSwigger é extensa e cheia de exemplos.
 - **Tutoriais em Vídeo:** Muitos pesquisadores de segurança publicam tutoriais sobre como usar o Burp para encontrar vulnerabilidades específicas.`
+    },
+    {
+      id: 'metasploit-intro',
+      title: 'Introdução ao Metasploit',
+      type: 'Ferramenta',
+      level: 'Experiente',
+      description: 'Uma visão geral do Metasploit Framework, a ferramenta mais popular para pentesting.',
+      content: `O Metasploit Framework é um projeto de código aberto que fornece uma coleção massiva de exploits para uma vasta gama de vulnerabilidades. É a ferramenta de fato para profissionais de pentest e pesquisadores de segurança.
+
+**Componentes Chave:**
+- **msfconsole:** A interface de linha de comando principal para interagir com o framework.
+- **Payloads:** Códigos que são executados na máquina alvo após uma exploração bem-sucedida (ex: Meterpreter, um payload avançado com muitos recursos).
+- **Exploits:** O código que tira proveito de uma vulnerabilidade em um sistema.
+- **Módulos Auxiliares:** Ferramentas para tarefas como varredura, fuzzing e negação de serviço.
+
+**Como funciona?**
+1. Escolha e configure um exploit (ex: uma vulnerabilidade recente do Windows).
+2. Escolha e configure um payload (ex: um shell reverso para obter controle remoto).
+3. Configure as opções do alvo (ex: o endereço IP do alvo).
+4. Execute o exploit.
+
+**Onde aprender mais:**
+- **Metasploit Unleashed:** Um curso online gratuito mantido pela Offensive Security.
+- **Livro:** "Metasploit: The Penetration Tester's Guide" por David Kennedy et al.
+- **Labs:** Pratique no Metasploitable 2, uma máquina virtual intencionalmente vulnerável projetada para praticar com o Metasploit.`
+    },
+    {
+      id: 'hydra-intro',
+      title: 'Introdução ao Hydra',
+      type: 'Ferramenta',
+      level: 'Experiente',
+      description: 'Aprenda a usar o Hydra, uma ferramenta poderosa para ataques de força bruta online.',
+      content: `O Hydra é um cracker de senhas de login de rede que suporta inúmeros protocolos. Se você precisa testar a força de uma senha em um serviço de rede (como SSH, FTP, Telnet), o Hydra é a ferramenta ideal.
+
+**Funcionalidades:**
+- **Suporte a Múltiplos Protocolos:** Suporta dezenas de serviços, incluindo HTTP, FTP, SSH, SMB, RDP, e muitos mais.
+- **Flexibilidade:** Permite usar listas de nomes de usuário e senhas, além de combinações.
+- **Velocidade:** É uma ferramenta paralela, capaz de realizar muitas tentativas de login simultaneamente.
+
+**Exemplo de Uso (SSH):**
+\`hydra -L usuarios.txt -P senhas.txt ssh://192.168.1.101\`
+Este comando tenta fazer login no servidor SSH em \`192.168.1.101\` usando a lista de usuários de \`usuarios.txt\` e a lista de senhas de \`senhas.txt\`.
+
+**Considerações Éticas:**
+Use o Hydra apenas em sistemas que você tem permissão explícita para testar. Ataques de força bruta são barulhentos e podem bloquear contas ou acionar alertas de segurança.
+
+**Onde aprender mais:**
+- **Documentação:** A documentação oficial no repositório do GitHub do Hydra.
+- **Tutoriais:** Muitos tutoriais em blogs de segurança e vídeos no YouTube demonstram seu uso prático.
+- **Prática:** Use plataformas como TryHackMe para praticar ataques de força bruta em cenários controlados.`
+    },
+    {
+      id: 'wireshark-intro',
+      title: 'Introdução ao Wireshark',
+      type: 'Ferramenta',
+      level: 'Iniciante',
+      description: 'Aprenda o básico do Wireshark, o analisador de protocolos de rede mais popular do mundo.',
+      content: `O Wireshark é uma ferramenta essencial para qualquer pessoa que trabalhe com redes. Ele permite capturar e analisar o tráfego de rede em tempo real, fornecendo uma visão granular de cada pacote.
+
+**Para que é usado?**
+- **Solução de problemas de rede:** Identificar por que uma aplicação está lenta ou por que uma conexão está falhando.
+- **Análise de segurança:** Detectar atividades suspeitas, como varreduras de portas, malware se comunicando com um servidor de comando e controle, ou tráfego não criptografado contendo informações sensíveis.
+- **Aprendizado de protocolos:** Ver como protocolos como TCP, HTTP e DNS funcionam na prática.
+
+**Recursos Principais:**
+- **Filtros de Captura e Exibição:** Permitem focar apenas no tráfego que interessa.
+- **Reconstrução de Fluxo TCP:** Permite ver a conversa completa entre um cliente e um servidor.
+- **Coloração de Pacotes:** Ajuda a identificar visualmente diferentes tipos de tráfego.
+
+**Onde aprender mais:**
+- **Documentação Oficial:** O site do Wireshark tem uma documentação excelente e exemplos de arquivos de captura.
+- **Livro:** "Practical Packet Analysis" por Chris Sanders.
+- **Canal no YouTube:** Chris Greer's "The Networking Doctors" tem muitos vídeos sobre análise de pacotes com Wireshark.`
+    },
+    {
+      id: 'ipv4-vs-ipv6',
+      title: 'Introdução a IPv4 e IPv6',
+      type: 'Artigo',
+      level: 'Iniciante',
+      description: 'Entenda as diferenças, a estrutura e a necessidade dos dois principais protocolos de endereçamento da Internet.',
+      content: `O Protocolo de Internet (IP) é o que permite que os computadores se comuniquem através da internet. IPv4 e IPv6 são as duas versões desse protocolo.
+
+**IPv4 (Internet Protocol version 4):**
+- **Estrutura:** Usa um endereço de 32 bits, escrito em quatro octetos decimais (ex: \`192.168.1.1\`).
+- **Espaço de Endereçamento:** Oferece cerca de 4.3 bilhões de endereços.
+- **Esgotamento:** O número de dispositivos conectados à internet cresceu tanto que os endereços IPv4 se esgotaram. Técnicas como o NAT (Network Address Translation) foram criadas para contornar isso, mas não são uma solução de longo prazo.
+
+**IPv6 (Internet Protocol version 6):**
+- **Estrutura:** Usa um endereço de 128 bits, escrito em oito grupos de quatro dígitos hexadecimais (ex: \`2001:0db8:85a3:0000:0000:8a2e:0370:7334\`).
+- **Espaço de Endereçamento:** Oferece um número virtualmente ilimitado de endereços (2^128).
+- **Vantagens:** Além do espaço de endereçamento, o IPv6 foi projetado com segurança (IPsec é obrigatório) e eficiência de roteamento aprimoradas.
+
+**Transição:**
+A internet está em um longo processo de transição do IPv4 para o IPv6. Hoje, muitos sistemas operam em modo de "pilha dupla" (dual stack), o que significa que eles têm endereços IPv4 e IPv6 e podem se comunicar usando ambos.
+
+**Onde aprender mais:**
+- **Cursos:** O Google oferece um curso gratuito sobre IPv6.
+- **RFCs:** Para um mergulho profundo, leia as RFCs originais para IPv4 (RFC 791) e IPv6 (RFC 8200).
+- **Labs:** Pratique a configuração de endereços IPv6 em sistemas Linux e Windows.`
     }
+];
+
+export type CareerPath = {
+  id: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  stages: {
+    title: string;
+    duration: string;
+    items: {
+      title: string;
+      description: string;
+      resourceId?: string;
+    }[];
+  }[];
+};
+
+export const careerPaths: CareerPath[] = [
+  {
+    id: "pentester",
+    title: "Pentester (Hacker Ético)",
+    description: "Especialista em encontrar e explorar vulnerabilidades em sistemas para testar suas defesas.",
+    icon: Fingerprint,
+    stages: [
+      {
+        title: "Fundamentos (Meses 1-3)",
+        duration: "3 Meses",
+        items: [
+          { title: "Redes de Computadores", description: "Domine os modelos OSI e TCP/IP, sub-redes e protocolos essenciais.", resourceId: "networking-intro" },
+          { title: "Sistemas Operacionais", description: "Aprenda a usar e administrar Linux e Windows a fundo.", resourceId: "linux-distros" },
+          { title: "Criptografia Básica", description: "Entenda os conceitos de chaves, cifras e hashes.", resourceId: "cryptography-basics" },
+        ],
+      },
+      {
+        title: "Ferramentas do Ofício (Meses 4-6)",
+        duration: "3 Meses",
+        items: [
+          { title: "Dominando o Nmap", description: "Aprenda a escanear redes, descobrir hosts e identificar serviços.", resourceId: "top-linux-tools" },
+          { title: "Análise com Wireshark", description: "Capture e analise tráfego de rede para entender a comunicação.", resourceId: "wireshark-intro" },
+          { title: "Exploração com Metasploit", description: "Inicie seus estudos no framework de exploração mais famoso.", resourceId: "metasploit-intro" },
+        ],
+      },
+      {
+        title: "Prática e Certificação (Meses 7-12)",
+        duration: "6 Meses",
+        items: [
+          { title: "Plataformas de Treinamento", description: "Resolva máquinas em plataformas como Hack The Box e TryHackMe." },
+          { title: "Estudo para Certificação", description: "Prepare-se para certificações como CompTIA Security+ ou eJPT." },
+          { title: "Desenvolvimento de Scripts", description: "Aprenda Python ou Bash para automatizar tarefas e criar suas próprias ferramentas." },
+        ],
+      },
+    ],
+  },
+  {
+    id: "soc-analyst",
+    title: "Analista de SOC (Centro de Operações de Segurança)",
+    description: "O guardião da rede, monitorando, detectando e respondendo a ameaças em tempo real.",
+    icon: Shield,
+    stages: [
+      {
+        title: "Fundamentos de Defesa (Meses 1-3)",
+        duration: "3 Meses",
+        items: [
+          { title: "Introdução à Cibersegurança", description: "Conheça a tríade CIA (Confidencialidade, Integridade, Disponibilidade) e os principais vetores de ataque." },
+          { title: "Redes e Protocolos", description: "Foco em DNS, HTTP/S, e como o tráfego normal se parece.", resourceId: "networking-intro" },
+          { title: "Tipos de Malware", description: "Estude o comportamento de vírus, worms, ransomware e spyware.", resourceId: "malware-types" },
+        ],
+      },
+      {
+        title: "Análise e Ferramentas (Meses 4-6)",
+        duration: "3 Meses",
+        items: [
+          { title: "Análise de Logs", description: "Aprenda a ler e correlacionar logs de firewalls, sistemas operacionais e aplicações." },
+          { title: "SIEM (Security Information and Event Management)", description: "Entenda como funcionam ferramentas como Splunk ou ELK Stack para agregar e analisar alertas." },
+          { title: "Wireshark para Defesa", description: "Use o Wireshark para identificar anomalias e atividades maliciosas no tráfego.", resourceId: "wireshark-intro" },
+        ],
+      },
+      {
+        title: "Resposta a Incidentes e Certificação (Meses 7-12)",
+        duration: "6 Meses",
+        items: [
+          { title: "Playbooks de Resposta", description: "Aprenda os passos para conter, erradicar e recuperar de um incidente de segurança." },
+          { title: "Plataformas de Simulação", description: "Use plataformas como o LetsDefend para praticar a análise de alertas reais." },
+          { title: "Estudo para Certificação", description: "Prepare-se para certificações como Cisco CyberOps Associate ou CompTIA CySA+." },
+        ],
+      },
+    ],
+  },
+  {
+    id: "cloud-engineer",
+    title: "Engenheiro de Segurança na Nuvem",
+    description: "Especialista em proteger dados, aplicações e infraestrutura em ambientes de nuvem como AWS, Azure e GCP.",
+    icon: CloudCog,
+    stages: [
+      {
+        title: "Fundamentos de Nuvem e Segurança (Meses 1-3)",
+        duration: "3 Meses",
+        items: [
+          { title: "Conceitos de Nuvem", description: "Domine os modelos IaaS, PaaS, SaaS e os principais serviços da AWS, Azure ou GCP." },
+          { title: "Redes na Nuvem", description: "Aprenda sobre VPCs, Subnets, Security Groups e Network ACLs." },
+          { title: "Modelo de Responsabilidade Compartilhada", description: "Entenda o que é responsabilidade do provedor de nuvem e o que é sua." },
+        ],
+      },
+      {
+        title: "Gestão de Identidade e Acesso (IAM) (Meses 4-6)",
+        duration: "3 Meses",
+        items: [
+          { title: "Princípio do Menor Privilégio", description: "Aprenda a conceder apenas as permissões estritamente necessárias." },
+          { title: "Políticas e Roles", description: "Domine a criação de políticas de IAM para usuários, grupos e serviços." },
+          { title: "Autenticação Multifator (MFA)", description: "Implemente e gerencie a MFA para proteger contas críticas." },
+        ],
+      },
+      {
+        title: "Automação e Certificação (Meses 7-12)",
+        duration: "6 Meses",
+        items: [
+          { title: "Infraestrutura como Código (IaC)", description: "Use ferramentas como Terraform ou CloudFormation para automatizar a criação de ambientes seguros." },
+          { title: "Segurança de Contêineres e Serverless", description: "Aprenda a proteger Docker, Kubernetes e funções Lambda." },
+          { title: "Estudo para Certificação", description: "Prepare-se para certificações como AWS Certified Security - Specialty ou Microsoft Certified: Azure Security Engineer." },
+        ],
+      },
+    ],
+  },
 ];

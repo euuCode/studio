@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 
 const pageTitles: { [key: string]: string } = {
-  '/': 'Plano de Ensino Personalizado',
+  '/': 'Planos de Carreira',
   '/certifications': 'Guia de Certificações',
   '/library': 'Biblioteca de Conteúdo',
 };
