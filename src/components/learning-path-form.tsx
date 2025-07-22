@@ -29,8 +29,12 @@ import { FormState, getLearningPath } from '@/app/actions';
 import { LearningPathDisplay } from '@/components/learning-path-display';
 
 const formSchema = z.object({
-  skillLevel: z.string().min(1, 'Por favor, selecione seu nível de habilidade.'),
-  areaOfInterest: z.string().min(1, 'Por favor, selecione sua área de interesse.'),
+  skillLevel: z.string({
+    required_error: "Por favor, selecione seu nível de habilidade.",
+  }).min(1, 'Por favor, selecione seu nível de habilidade.'),
+  areaOfInterest: z.string({
+    required_error: "Por favor, selecione sua área de interesse.",
+  }).min(1, 'Por favor, selecione sua área de interesse.'),
 });
 
 const initialState: FormState = {
@@ -72,7 +76,7 @@ export function LearningPathForm() {
   });
 
   useEffect(() => {
-    if (state.status === 'error') {
+    if (state.status === 'error' && state.message) {
       toast({
         variant: 'destructive',
         title: 'Erro',
@@ -80,15 +84,6 @@ export function LearningPathForm() {
       });
     }
   }, [state, toast]);
-  
-  const handleAction = (payload: FormData) => {
-    form.trigger().then((isValid) => {
-      if (isValid) {
-        formAction(payload);
-      }
-    });
-  };
-
 
   return (
     <>
@@ -99,7 +94,12 @@ export function LearningPathForm() {
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form ref={formRef} action={handleAction} className="space-y-8">
+            <form
+              ref={formRef}
+              action={formAction}
+              onSubmit={form.handleSubmit(() => formRef.current?.submit())}
+              className="space-y-8"
+            >
               <FormField
                 control={form.control}
                 name="skillLevel"
