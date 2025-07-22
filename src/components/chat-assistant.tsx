@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter } from '@/components/ui/sheet';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Bot, MessageSquare, User, Send, CornerDownLeft } from 'lucide-react';
+import { Bot, User, Send } from 'lucide-react';
 import { askCyberAssistantAction } from '@/app/actions';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
 import { Skeleton } from './ui/skeleton';
 
@@ -64,8 +64,8 @@ export function ChatAssistant() {
         size="icon"
         onClick={() => setIsOpen(true)}
       >
-        <MessageSquare className="h-8 w-8" />
-        <span className="sr-only">Abrir Chat</span>
+        <Bot className="h-8 w-8" />
+        <span className="sr-only">Abrir chat com o Mithras AI</span>
       </Button>
 
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
