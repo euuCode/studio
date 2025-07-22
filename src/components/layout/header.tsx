@@ -5,14 +5,21 @@ import { SidebarTrigger } from '@/components/ui/sidebar';
 
 const pageTitles: { [key: string]: string } = {
   '/': 'Personalized Learning Path',
-  '/news': 'Cyber News Feed',
   '/certifications': 'Certification Guide',
   '/library': 'Content Library',
 };
 
 export function Header() {
   const pathname = usePathname();
-  const title = pageTitles[pathname] || 'Mithras CyberSec';
+  
+  let title = 'Mithras CyberSec';
+  if (pageTitles[pathname]) {
+    title = pageTitles[pathname];
+  } else if (pathname.startsWith('/certifications/')) {
+    title = 'Certification Details';
+  } else if (pathname.startsWith('/library/')) {
+    title = 'Content Details';
+  }
 
   return (
     <header className="sticky top-0 z-10 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-8">

@@ -67,13 +67,13 @@ export default function CertificationsClient({ initialCerts }: CertificationsCli
         </Select>
       </div>
 
-      <div className="space-y-4">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {filteredCerts.length > 0 ? (
           filteredCerts.map((cert) => (
             <CertificationCard key={cert.id} cert={cert} />
           ))
         ) : (
-          <p className="text-center text-muted-foreground">No certifications found.</p>
+          <p className="col-span-full text-center text-muted-foreground">No certifications found.</p>
         )}
       </div>
     </div>

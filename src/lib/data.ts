@@ -1,21 +1,3 @@
-export type NewsArticle = {
-  id: string;
-  title: string;
-  source: string;
-  date: string;
-  excerpt: string;
-  category: 'Threats' | 'Defense' | 'Policy';
-};
-
-export const newsFeed: NewsArticle[] = [
-  { id: '1', title: 'New Zero-Day Exploit "DataVortex" Discovered', source: 'CyberWire', date: '2024-07-29', excerpt: 'A critical vulnerability affecting major enterprise software has been found...', category: 'Threats' },
-  { id: '2', title: 'The Rise of AI in Phishing Attacks', source: 'ThreatPost', date: '2024-07-28', excerpt: 'Sophisticated AI models are now being used to create highly convincing phishing emails...', category: 'Threats' },
-  { id: '3', title: 'Global Consortium Announces New Encryption Standard', source: 'Security Weekly', date: '2024-07-27', excerpt: 'The PQ-4 algorithm is set to become the new benchmark for post-quantum cryptography...', category: 'Defense' },
-  { id: '4', title: 'US Senate Passes Landmark Data Privacy Bill', source: 'GovInfoSec', date: '2024-07-26', excerpt: 'The new legislation imposes strict data handling requirements on tech companies...', category: 'Policy' },
-  { id: '5', title: 'Ransomware Attack Cripples National Healthcare System', source: 'CyberWire', date: '2024-07-25', excerpt: 'The "MedusaLocker" gang has claimed responsibility for the attack...', category: 'Threats' },
-  { id: '6', title: 'Implementing a Zero Trust Architecture: A Case Study', source: 'Security Weekly', date: '2024-07-24', excerpt: 'A financial services firm shares its successful journey to a zero trust model...', category: 'Defense' },
-];
-
 export type Certification = {
   id: string;
   name: string;
@@ -23,16 +5,19 @@ export type Certification = {
   description: string;
   level: 'Beginner' | 'Intermediate' | 'Advanced';
   domain: 'Penetration Testing' | 'Incident Response' | 'Network Security' | 'Cloud Security';
+  price: string;
+  url: string;
+  details: string;
 };
 
 export const certifications: Certification[] = [
-  { id: '1', name: 'Certified Ethical Hacker (CEH)', issuer: 'EC-Council', description: 'A foundational certification for aspiring penetration testers, covering core ethical hacking concepts.', level: 'Intermediate', domain: 'Penetration Testing' },
-  { id: '2', name: 'Offensive Security Certified Professional (OSCP)', issuer: 'Offensive Security', description: 'A highly respected, hands-on certification that proves practical penetration testing skills.', level: 'Advanced', domain: 'Penetration Testing' },
-  { id: '3', name: 'GIAC Certified Incident Handler (GCIH)', issuer: 'GIAC', description: 'Focuses on detecting, responding to, and resolving computer security incidents.', level: 'Intermediate', domain: 'Incident Response' },
-  { id: '4', name: 'Cisco Certified CyberOps Associate', issuer: 'Cisco', description: 'Validates the day-to-day, tactical knowledge and skills that Security Operations Center (SOC) teams need.', level: 'Beginner', domain: 'Incident Response' },
-  { id: '5', name: 'CompTIA Security+', issuer: 'CompTIA', description: 'A global certification that validates the baseline skills necessary to perform core security functions.', level: 'Beginner', domain: 'Network Security' },
-  { id: '6', name: 'Certified Information Systems Security Professional (CISSP)', issuer: '(ISC)²', description: 'A globally recognized standard of achievement that confirms an individual\'s knowledge in the field of information security.', level: 'Advanced', domain: 'Network Security' },
-  { id: '7', name: 'Certified Cloud Security Professional (CCSP)', issuer: '(ISC)²', description: 'The premier cloud security certification for advanced technical skills in cloud application and infrastructure security.', level: 'Advanced', domain: 'Cloud Security' },
+  { id: 'ceh', name: 'Certified Ethical Hacker (CEH)', issuer: 'EC-Council', description: 'A foundational certification for aspiring penetration testers, covering core ethical hacking concepts.', level: 'Intermediate', domain: 'Penetration Testing', price: '$950 - $1199', url: 'https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/', details: 'The Certified Ethical Hacker (CEH) certification is a globally recognized credential that validates your skills in ethical hacking. It covers over 20 of the most current security domains, including footprinting and reconnaissance, scanning networks, enumeration, vulnerability analysis, system hacking, malware threats, sniffing, social engineering, denial-of-service, session hijacking, evading IDS, firewalls, and honeypots, hacking web servers, hacking web applications, SQL injection, hacking wireless networks, hacking mobile platforms, IoT hacking, cloud computing, and cryptography.' },
+  { id: 'oscp', name: 'Offensive Security Certified Professional (OSCP)', issuer: 'Offensive Security', description: 'A highly respected, hands-on certification that proves practical penetration testing skills.', level: 'Advanced', domain: 'Penetration Testing', price: '$1599', url: 'https://www.offsec.com/courses/pen-200/', details: 'The OSCP is a hands-on penetration testing certification. The exam consists of a 24-hour proctored, hands-on test where you must successfully compromise a series of target machines. It is known for its difficulty and practical nature, requiring you to think like an attacker.' },
+  { id: 'gcih', name: 'GIAC Certified Incident Handler (GCIH)', issuer: 'GIAC', description: 'Focuses on detecting, responding to, and resolving computer security incidents.', level: 'Intermediate', domain: 'Incident Response', price: '$2499', url: 'https://www.giac.org/certification/certified-incident-handler-gcih', details: 'The GCIH certification validates a practitioner\'s ability to detect, respond, and resolve computer security incidents. GCIH certification holders have the knowledge and skills needed to manage security incidents by understanding common attack techniques, vectors and tools, as well as defend against and/or respond to such attacks when they occur.' },
+  { id: 'cyberops', name: 'Cisco Certified CyberOps Associate', issuer: 'Cisco', description: 'Validates the day-to-day, tactical knowledge and skills that Security Operations Center (SOC) teams need.', level: 'Beginner', domain: 'Incident Response', price: '$300', url: 'https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/cyberops-associate.html', details: 'This certification prepares you for a career in cybersecurity operations. As a CyberOps Associate, you will know how to monitor, detect and respond to cybersecurity threats. The certification covers security concepts, security monitoring, host-based analysis, network intrusion analysis, and security policies and procedures.' },
+  { id: 'security-plus', name: 'CompTIA Security+', issuer: 'CompTIA', description: 'A global certification that validates the baseline skills necessary to perform core security functions.', level: 'Beginner', domain: 'Network Security', price: '$392', url: 'https://www.comptia.org/certifications/security', details: 'CompTIA Security+ is a global certification that validates the baseline skills necessary to perform core security functions and pursue an IT security career. It establishes the core knowledge required of any cybersecurity role and provides a springboard to intermediate-level cybersecurity jobs.' },
+  { id: 'cissp', name: 'Certified Information Systems Security Professional (CISSP)', issuer: '(ISC)²', description: 'A globally recognized standard of achievement that confirms an individual\'s knowledge in the field of information security.', level: 'Advanced', domain: 'Network Security', price: '$749', url: 'https://www.isc2.org/Certifications/CISSP', details: 'The CISSP is an advanced-level certification for IT security professionals. It demonstrates that you have the knowledge and experience to design, engineer, and manage an organization\'s overall security posture. The certification covers eight domains in computer security, including security and risk management, asset security, security architecture and engineering, communication and network security, identity and access management, security assessment and testing, security operations, and software development security.' },
+  { id: 'ccsp', name: 'Certified Cloud Security Professional (CCSP)', issuer: '(ISC)²', description: 'The premier cloud security certification for advanced technical skills in cloud application and infrastructure security.', level: 'Advanced', domain: 'Cloud Security', price: '$599', url: 'https://www.isc2.org/Certifications/CCSP', details: 'The CCSP shows you have the advanced technical skills and knowledge to design, manage and secure data, applications and infrastructure in the cloud using best practices, policies and procedures established by the cloud security experts at (ISC)². It covers cloud concepts, architecture and design, cloud data security, cloud platform & infrastructure security, cloud application security, and cloud security operations.' },
 ];
 
 export type Resource = {
@@ -41,13 +26,14 @@ export type Resource = {
   type: 'Article' | 'Video' | 'Tool';
   level: 'Beginner' | 'Experienced';
   description: string;
+  content: string;
 };
 
 export const contentLibrary: Resource[] = [
-    { id: '1', title: 'Understanding the CIA Triad', type: 'Article', level: 'Beginner', description: 'A fundamental concept in cybersecurity: Confidentiality, Integrity, and Availability.' },
-    { id: '2', title: 'How TCP/IP Works', type: 'Video', level: 'Beginner', description: 'A visual explanation of the foundational protocol suite of the internet.' },
-    { id: '3', title: 'Introduction to Metasploit', type: 'Video', level: 'Experienced', description: 'Learn the basics of the world\'s most popular penetration testing framework.' },
-    { id: '4', title: 'Wireshark: Deep Dive', type: 'Tool', level: 'Experienced', description: 'Master the art of network packet analysis with this powerful tool.' },
-    { id: '5', title: 'OWASP Top 10 Explained', type: 'Article', level: 'Beginner', description: 'An overview of the most critical security risks to web applications.' },
-    { id: '6', title: 'The Pyramid of Pain', type: 'Article', level: 'Experienced', description: 'A model for understanding the effectiveness of different types of threat indicators.' },
+    { id: 'cia-triad', title: 'Understanding the CIA Triad', type: 'Article', level: 'Beginner', description: 'A fundamental concept in cybersecurity: Confidentiality, Integrity, and Availability.', content: 'The CIA Triad is a model designed to guide policies for information security within an organization...\n\n**Confidentiality**: Measures to ensure that data is not disclosed to unauthorized individuals...\n\n**Integrity**: Measures to ensure that data is not altered or destroyed in an unauthorized manner...\n\n**Availability**: Measures to ensure that systems and data are accessible to authorized users when needed...' },
+    { id: 'tcp-ip', title: 'How TCP/IP Works', type: 'Video', level: 'Beginner', description: 'A visual explanation of the foundational protocol suite of the internet.', content: 'The TCP/IP model is the foundation of the internet. This article breaks down its four layers...\n\n**Application Layer**: Where protocols like HTTP, FTP, and SMTP operate...\n\n**Transport Layer**: Home to TCP and UDP, managing communication between hosts...\n\n**Internet Layer**: Responsible for logical addressing and routing (IP)...\n\n**Network Access Layer**: The physical hardware that connects devices...' },
+    { id: 'metasploit', title: 'Introduction to Metasploit', type: 'Video', level: 'Experienced', description: 'Learn the basics of the world\'s most popular penetration testing framework.', content: 'Metasploit is an essential tool for penetration testers. This guide covers the basics...\n\n**Modules**: Exploits, payloads, auxiliary, nops, encoders...\n\n**msfconsole**: The primary interface for interacting with the framework...\n\n**Basic Workflow**: Selecting an exploit, configuring a payload, setting options, and running the exploit.' },
+    { id: 'wireshark', title: 'Wireshark: Deep Dive', type: 'Tool', level: 'Experienced', description: 'Master the art of network packet analysis with this powerful tool.', content: 'Wireshark is a powerful network protocol analyzer. Key features include...\n\n**Packet Capturing**: How to start capturing packets on your network interface...\n\n**Display Filters**: Using filters to narrow down and find specific traffic...\n\n**Protocol Analysis**: Understanding how to dissect different protocols like HTTP, DNS, and TCP.' },
+    { id: 'owasp-top-10', title: 'OWASP Top 10 Explained', type: 'Article', level: 'Beginner', description: 'An overview of the most critical security risks to web applications.', content: 'The OWASP Top 10 is a standard awareness document for developers and web application security. It represents a broad consensus about the most critical security risks to web applications...\n\n1. Broken Access Control\n2. Cryptographic Failures\n3. Injection\n...' },
+    { id: 'pyramid-of-pain', title: 'The Pyramid of Pain', type: 'Article', level: 'Experienced', description: 'A model for understanding the effectiveness of different types of threat indicators.', content: 'The Pyramid of Pain is a conceptual model that helps security analysts understand the relative difficulty for an adversary to change different indicators of compromise (IOCs)...\n\n- **Hash Values**: Trivial to change.\n- **IP Addresses**: Easy for attackers to change.\n- **Domain Names**: Also relatively easy to change.\n- **Network/Host Artifacts**: More difficult to change.\n- **Tools**: Adversaries prefer to reuse tools, so detecting them is more impactful.\n- **TTPs (Tactics, Techniques, and Procedures)**: The most difficult for an adversary to change.' },
 ];

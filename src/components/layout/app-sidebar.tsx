@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BookOpen, Bot, Home, Newspaper, ShieldCheck } from 'lucide-react';
+import { BookOpen, Bot, ShieldCheck } from 'lucide-react';
 import {
   Sidebar,
   SidebarHeader,
@@ -16,14 +16,13 @@ import { Logo } from '@/components/logo';
 
 const menuItems = [
   { href: '/', label: 'Learning Path', icon: Bot },
-  { href: '/news', label: 'News Feed', icon: Newspaper },
   { href: '/certifications', label: 'Certifications', icon: ShieldCheck },
   { href: '/library', label: 'Content Library', icon: BookOpen },
 ];
 
 export function AppSidebar() {
   const pathname = usePathname();
-  const isActive = (path: string) => pathname === path;
+  const isActive = (path: string) => path === '/' ? pathname === path : pathname.startsWith(path);
 
   return (
     <Sidebar className="border-r">
