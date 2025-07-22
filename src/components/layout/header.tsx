@@ -8,6 +8,7 @@ const pageTitles: { [key: string]: string } = {
   '/certifications': 'Guia de Certificações',
   '/library': 'Biblioteca de Conteúdo',
   '/protection': 'Aprenda a se Proteger',
+  '/quiz': 'Quiz Interativo',
 };
 
 export function Header() {
