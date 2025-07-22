@@ -1,4 +1,4 @@
-import { Shield, Fingerprint, CloudCog, KeyRound, Layers, GitBranch, AlertTriangle, Blocks, Anchor, Lock, Server, FileLock2, BrainCircuit, Microscope, Cloud, Cpu, HardDrive, ShieldCheck, FileKey2 } from "lucide-react";
+import { Shield, Fingerprint, CloudCog, KeyRound, Layers, GitBranch, AlertTriangle, Blocks, Anchor, Lock, Server, FileLock2, BrainCircuit, Microscope, Cloud, Cpu, HardDrive, ShieldCheck, FileKey2, FileTerminal, Network, BookLock, Landmark } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export type Certification = {
@@ -26,10 +26,10 @@ export const certifications: Certification[] = [
 export type Resource = {
   id: string;
   title: string;
-  category: 'Fundamentos' | 'Ferramentas';
-  subcategory: 'Análise e Monitoramento' | 'Pentest e Auditoria' | 'Criptografia e Segurança de Dados' | 'Análise de Malware e Forense' | 'Segurança em Nuvem' | 'Conceitos';
+  category: 'Fundamentos' | 'Ferramentas Essenciais' | 'Outros Conhecimentos';
+  subcategory: 'Conceitos Básicos' | 'Análise e Monitoramento' | 'Pentest e Auditoria' | 'Criptografia e Segurança de Dados' | 'Análise de Malware e Forense' | 'Segurança em Nuvem' | 'Redes e Protocolos' | 'Políticas e Conformidade' | 'Sistemas Operacionais' | 'Análise de Logs';
   type: 'Artigo' | 'Ferramenta';
-  level: 'Iniciante' | 'Experiente';
+  level: 'Iniciante' | 'Intermediário' | 'Avançado';
   description: string;
   content: {
     concepts: string;
@@ -44,7 +44,7 @@ export const contentLibrary: Resource[] = [
         id: 'cia-triad',
         title: 'Tríade CIA: Confidencialidade, Integridade e Disponibilidade',
         category: 'Fundamentos',
-        subcategory: 'Conceitos',
+        subcategory: 'Conceitos Básicos',
         type: 'Artigo',
         level: 'Iniciante',
         description: 'Entenda os três pilares que sustentam toda a segurança da informação.',
@@ -58,7 +58,7 @@ export const contentLibrary: Resource[] = [
         id: 'aaa-model',
         title: 'AAA: Autenticação, Autorização e Auditoria',
         category: 'Fundamentos',
-        subcategory: 'Conceitos',
+        subcategory: 'Conceitos Básicos',
         type: 'Artigo',
         level: 'Iniciante',
         description: 'Conheça o framework que controla quem pode acessar e o que pode fazer em um sistema.',
@@ -72,7 +72,7 @@ export const contentLibrary: Resource[] = [
         id: 'cryptography',
         title: 'Fundamentos de Criptografia',
         category: 'Fundamentos',
-        subcategory: 'Conceitos',
+        subcategory: 'Conceitos Básicos',
         type: 'Artigo',
         level: 'Iniciante',
         description: 'Explore os conceitos de criptografia simétrica, assimétrica, hashes e PKI.',
@@ -86,7 +86,7 @@ export const contentLibrary: Resource[] = [
         id: 'threat-types',
         title: 'Principais Tipos de Ameaças',
         category: 'Fundamentos',
-        subcategory: 'Conceitos',
+        subcategory: 'Conceitos Básicos',
         type: 'Artigo',
         level: 'Iniciante',
         description: 'Aprenda sobre malware, phishing, ataques DDoS e a exploração de vulnerabilidades.',
@@ -100,9 +100,9 @@ export const contentLibrary: Resource[] = [
         id: 'security-models',
         title: 'Modelos de Segurança Essenciais',
         category: 'Fundamentos',
-        subcategory: 'Conceitos',
+        subcategory: 'Conceitos Básicos',
         type: 'Artigo',
-        level: 'Experiente',
+        level: 'Intermediário',
         description: 'Descubra os princípios de Zero Trust, Defense in Depth e Least Privilege.',
         content: {
           concepts: '**Defense in Depth (Defesa em Camadas)** é a prática de ter múltiplos controles de segurança, de modo que, se uma camada falhar, outra possa conter o ataque. Pense em um castelo com fosso, muralhas e guardas. **Least Privilege (Privilégio Mínimo)** é o princípio de dar a um usuário ou sistema apenas as permissões estritamente necessárias para realizar suas tarefas, e nada mais. Isso limita o dano que pode ser causado se a conta for comprometida. **Zero Trust (Confiança Zero)** é um modelo mais moderno que abandona a ideia de um "perímetro seguro". Ele opera sob o lema "nunca confie, sempre verifique", exigindo verificação estrita de identidade para cada pessoa e dispositivo tentando acessar recursos, não importa onde estejam localizados.',
@@ -110,11 +110,11 @@ export const contentLibrary: Resource[] = [
           recommendations: '- **Documentação:** O NIST (National Institute of Standards and Technology) possui uma publicação especial (SP 800-207) que define a arquitetura Zero Trust em detalhes.\n- **Livro:** "Zero Trust Networks: Building Secure Systems in Untrusted Networks" por Evan Gilman e Doug Barth.\n- **Projeto:** Tente implementar o princípio do privilégio mínimo em um projeto pessoal. Crie usuários diferentes com permissões diferentes para acessar um banco de dados ou um conjunto de arquivos.'
         }
     },
-    // Ferramentas
+    // Ferramentas Essenciais
     {
         id: 'wireshark',
         title: 'Wireshark',
-        category: 'Ferramentas',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Análise e Monitoramento',
         type: 'Ferramenta',
         level: 'Iniciante',
@@ -128,10 +128,10 @@ export const contentLibrary: Resource[] = [
     {
         id: 'siem',
         title: 'Splunk / ELK Stack (SIEM)',
-        category: 'Ferramentas',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Análise e Monitoramento',
         type: 'Ferramenta',
-        level: 'Experiente',
+        level: 'Intermediário',
         description: 'Agregue e analise logs para uma visão completa da segurança.',
         content: {
           concepts: 'SIEM significa "Security Information and Event Management". É um sistema que coleta dados de log de diversas fontes (servidores, firewalls, aplicações, etc.), os agrega em um local centralizado e realiza análises em tempo real para identificar atividades suspeitas. O Splunk é uma solução comercial líder de mercado, enquanto o ELK Stack (Elasticsearch, Logstash, Kibana) é a alternativa de código aberto mais popular. Um SIEM é o coração de um Centro de Operações de Segurança (SOC).',
@@ -142,10 +142,10 @@ export const contentLibrary: Resource[] = [
     {
         id: 'hids',
         title: 'OSSEC / Wazuh (HIDS)',
-        category: 'Ferramentas',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Análise e Monitoramento',
         type: 'Ferramenta',
-        level: 'Experiente',
+        level: 'Intermediário',
         description: 'Detecte intrusões e monitore a integridade em seus servidores.',
         content: {
           concepts: 'HIDS significa "Host-based Intrusion Detection System". Diferente de um NIDS, que monitora o tráfego da rede, um HIDS é instalado em um servidor ou endpoint individual para monitorar sua atividade interna. O OSSEC e seu fork popular, o Wazuh, são HIDS de código aberto. Eles monitoram a integridade de arquivos (avisando se um arquivo de sistema crítico foi alterado), verificam logs, detectam rootkits e alertam sobre atividades suspeitas no host.',
@@ -156,7 +156,7 @@ export const contentLibrary: Resource[] = [
     {
         id: 'kali-linux',
         title: 'Kali Linux',
-        category: 'Ferramentas',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Pentest e Auditoria',
         type: 'Ferramenta',
         level: 'Iniciante',
@@ -170,7 +170,7 @@ export const contentLibrary: Resource[] = [
     {
         id: 'nmap',
         title: 'Nmap',
-        category: 'Ferramentas',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Pentest e Auditoria',
         type: 'Ferramenta',
         level: 'Iniciante',
@@ -184,10 +184,10 @@ export const contentLibrary: Resource[] = [
     {
         id: 'metasploit',
         title: 'Metasploit',
-        category: 'Ferramentas',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Pentest e Auditoria',
         type: 'Ferramenta',
-        level: 'Experiente',
+        level: 'Intermediário',
         description: 'O framework de exploração de vulnerabilidades mais popular do mundo.',
         content: {
           concepts: 'O Metasploit Framework é uma plataforma de código aberto para desenvolver, testar e executar exploits. Ele contém um enorme banco de dados de exploits para vulnerabilidades conhecidas, além de ferramentas para criar e entregar payloads (o código que executa no alvo após uma exploração bem-sucedida). A interface de console, `msfconsole`, permite buscar por vulnerabilidades, configurar exploits e lançar ataques de forma sistemática. É uma ferramenta essencial para qualquer pentester.',
@@ -198,10 +198,10 @@ export const contentLibrary: Resource[] = [
     {
         id: 'burp-suite',
         title: 'Burp Suite / OWASP ZAP',
-        category: 'Ferramentas',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Pentest e Auditoria',
         type: 'Ferramenta',
-        level: 'Experiente',
+        level: 'Intermediário',
         description: 'Ferramentas essenciais para análise de segurança em aplicações web.',
         content: {
           concepts: 'Burp Suite (comercial, com uma edição gratuita) e OWASP ZAP (código aberto) são proxies de interceptação. Eles ficam entre o seu navegador e o servidor web, permitindo que você veja, modifique e analise todo o tráfego HTTP/S. Isso é fundamental para encontrar vulnerabilidades em aplicações web, como SQL Injection, Cross-Site Scripting (XSS) e outras falhas do OWASP Top 10. Ambos possuem scanners automáticos, mas seu verdadeiro poder está na interceptação e manipulação manual de requisições.',
@@ -212,7 +212,7 @@ export const contentLibrary: Resource[] = [
     {
         id: 'nikto',
         title: 'Nikto',
-        category: 'Ferramentas',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Pentest e Auditoria',
         type: 'Ferramenta',
         level: 'Iniciante',
@@ -223,14 +223,13 @@ export const contentLibrary: Resource[] = [
           recommendations: '- **Documentação:** O repositório oficial do Nikto no GitHub contém a documentação e as informações mais recentes.\n- **Combinação com Nmap:** Aprenda a usar o script `http-nikto.nse` do Nmap, que integra a funcionalidade do Nikto diretamente nos scans do Nmap.\n- **Cuidado:** Por ser uma ferramenta barulhenta, use o Nikto apenas em sistemas para os quais você tem permissão explícita para testar, pois ele pode facilmente acionar sistemas de detecção de intrusão (IDS).'
         }
     },
-    // ... O restante do conteúdo será adicionado de forma similar.
     {
         id: 'gpg-openssl',
         title: 'GPG / OpenSSL',
-        category: 'Ferramentas',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Criptografia e Segurança de Dados',
         type: 'Ferramenta',
-        level: 'Experiente',
+        level: 'Intermediário',
         description: 'Os canivetes suíços da criptografia de linha de comando.',
         content: {
           concepts: '**GPG (GNU Privacy Guard)** é a implementação de código aberto do padrão OpenPGP e é usado principalmente para criptografar e assinar e-mails e arquivos. Ele usa criptografia assimétrica. **OpenSSL** é uma biblioteca de criptografia muito mais ampla. É a base para a maioria das implementações de TLS/SSL (HTTPS) na web. É usada para criar/gerenciar certificados digitais, criptografar/descriptografar arquivos com vários algoritmos e muito mais. São ferramentas de linha de comando essenciais para qualquer administrador de sistemas ou profissional de segurança.',
@@ -241,7 +240,7 @@ export const contentLibrary: Resource[] = [
     {
         id: 'veracrypt',
         title: 'VeraCrypt',
-        category: 'Ferramentas',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Criptografia e Segurança de Dados',
         type: 'Ferramenta',
         level: 'Iniciante',
@@ -255,7 +254,7 @@ export const contentLibrary: Resource[] = [
     {
         id: 'password-managers',
         title: 'KeePassXC / Bitwarden',
-        category: 'Ferramentas',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Criptografia e Segurança de Dados',
         type: 'Ferramenta',
         level: 'Iniciante',
@@ -269,10 +268,10 @@ export const contentLibrary: Resource[] = [
     {
         id: 'forensic-analysis',
         title: 'Autopsy / FTK Imager',
-        category: 'Ferramentas',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Análise de Malware e Forense',
         type: 'Ferramenta',
-        level: 'Experiente',
+        level: 'Intermediário',
         description: 'Ferramentas para análise forense digital e aquisição de imagens de disco.',
         content: {
           concepts: 'Na forense digital, o primeiro passo é criar uma cópia bit a bit exata do disco original, chamada de imagem forense. **FTK Imager** é uma ferramenta gratuita amplamente utilizada para criar essas imagens sem alterar o disco original. **Autopsy** é uma plataforma de forense digital de código aberto que analisa essas imagens. Ele pode recuperar arquivos deletados, analisar a linha do tempo de atividades do usuário, extrair metadados de arquivos, pesquisar por palavras-chave e muito mais. É uma interface gráfica para as ferramentas do The Sleuth Kit.',
@@ -283,10 +282,10 @@ export const contentLibrary: Resource[] = [
     {
         id: 'memory-analysis',
         title: 'Volatility',
-        category: 'Ferramentas',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Análise de Malware e Forense',
         type: 'Ferramenta',
-        level: 'Experiente',
+        level: 'Avançado',
         description: 'O framework padrão para análise de despejos de memória RAM.',
         content: {
           concepts: 'A análise de memória é crucial porque muitos malwares modernos tentam operar apenas na RAM para evitar a detecção em disco. Volatility é um framework de código aberto que analisa despejos de memória (dumps de RAM) de sistemas Windows, Linux e macOS. Ele pode revelar processos em execução (mesmo os ocultos), conexões de rede ativas, DLLs injetadas, comandos digitados e extrair chaves de criptografia e senhas diretamente da memória.',
@@ -297,7 +296,7 @@ export const contentLibrary: Resource[] = [
     {
         id: 'virustotal',
         title: 'VirusTotal',
-        category: 'Ferramentas',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Análise de Malware e Forense',
         type: 'Ferramenta',
         level: 'Iniciante',
@@ -311,10 +310,10 @@ export const contentLibrary: Resource[] = [
     {
         id: 'aws-security',
         title: 'AWS Inspector / GuardDuty',
-        category: 'Ferramentas',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Segurança em Nuvem',
         type: 'Ferramenta',
-        level: 'Experiente',
+        level: 'Intermediário',
         description: 'Ferramentas de segurança nativas da AWS para proteger sua infraestrutura.',
         content: {
           concepts: '**AWS Inspector** é um serviço de gerenciamento de vulnerabilidades que varre continuamente suas cargas de trabalho na AWS (como instâncias EC2 e imagens de contêiner) em busca de vulnerabilidades de software e exposição não intencional à rede. **AWS GuardDuty** é um serviço de detecção de ameaças que monitora continuamente sua conta e cargas de trabalho AWS em busca de atividades maliciosas. Ele usa inteligência de ameaças e machine learning para identificar atividades anômalas, como instâncias se comunicando com servidores de comando e controle conhecidos ou mineração de criptomoedas.',
@@ -324,11 +323,11 @@ export const contentLibrary: Resource[] = [
     },
     {
         id: 'azure-security',
-        title: 'Azure Security Center',
-        category: 'Ferramentas',
+        title: 'Microsoft Defender for Cloud',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Segurança em Nuvem',
         type: 'Ferramenta',
-        level: 'Experiente',
+        level: 'Intermediário',
         description: 'Proteção unificada de infraestrutura e gerenciamento de segurança na nuvem da Microsoft.',
         content: {
           concepts: 'O Microsoft Defender for Cloud (anteriormente Azure Security Center e Azure Defender) é uma plataforma unificada para gerenciamento da postura de segurança na nuvem (CSPM) e proteção de cargas de trabalho na nuvem (CWP). Ele fornece recomendações de segurança para fortalecer sua postura no Azure (e em outras nuvens como AWS e GCP), avalia a conformidade com frameworks regulatórios e oferece proteção contra ameaças para servidores, bancos de dados, contêineres e outros recursos.',
@@ -339,7 +338,7 @@ export const contentLibrary: Resource[] = [
     {
         id: 'cloudflare-waf',
         title: 'Cloudflare / WAFs',
-        category: 'Ferramentas',
+        category: 'Ferramentas Essenciais',
         subcategory: 'Segurança em Nuvem',
         type: 'Ferramenta',
         level: 'Iniciante',
@@ -349,6 +348,63 @@ export const contentLibrary: Resource[] = [
           advanced: 'O gerenciamento avançado de um WAF envolve a sintonia fina das regras para evitar falsos positivos (bloquear tráfego legítimo) e falsos negativos (permitir tráfego malicioso). Isso geralmente significa ir além dos conjuntos de regras gerenciadas e escrever regras personalizadas específicas para a lógica da sua aplicação. A análise dos logs do WAF é crucial para entender os tipos de ataques que sua aplicação está sofrendo e para identificar novas ameaças. A limitação de taxa (rate limiting) e a proteção avançada contra bots são outros recursos importantes para configurar.',
           recommendations: '- **Blog da Cloudflare:** O blog da Cloudflare é uma fonte incrível de informações sobre segurança na web, tendências de ataques e novas tecnologias.\n- **OWASP ModSecurity Core Rule Set (CRS):** Se você quiser rodar seu próprio WAF (usando ModSecurity), estude o CRS. É o conjunto de regras de código aberto mais popular e ver seus padrões ajuda a entender como os WAFs funcionam.\n- **Plano Gratuito:** Experimente o plano gratuito da Cloudflare em um de seus projetos pessoais para ver como é fácil de configurar e quais proteções ele oferece por padrão.'
         }
+    },
+    // Outros Conhecimentos
+    {
+      id: 'network-protocols',
+      title: 'Redes e Protocolos',
+      category: 'Outros Conhecimentos',
+      subcategory: 'Redes e Protocolos',
+      type: 'Artigo',
+      level: 'Iniciante',
+      description: 'Entenda os protocolos que fazem a internet funcionar, como TCP/IP, DNS, e HTTP/S, e conceitos como Firewalls e VPNs.',
+      content: {
+        concepts: '**TCP/IP** é o conjunto de protocolos de comunicação fundamental da internet. O **TCP** garante a entrega ordenada e confiável dos pacotes, enquanto o **IP** cuida do endereçamento e roteamento. **DNS (Domain Name System)** é a "lista telefônica" da internet, traduzindo nomes de domínio (como google.com) para endereços IP. **HTTP/S** é o protocolo para transferência de dados na web; o "S" indica uma camada de segurança (TLS/SSL). **Firewalls** são barreiras que controlam o tráfego de rede com base em regras. **VPNs (Virtual Private Networks)** criam um "túnel" seguro sobre uma rede pública, protegendo sua privacidade.',
+        advanced: 'O entendimento avançado envolve analisar cabeçalhos de pacotes para depuração e segurança. Por exemplo, entender as flags do TCP (SYN, ACK, FIN, RST) é crucial para diagnosticar problemas de conexão e identificar scans de rede. O **DNSSEC** é uma extensão do DNS que fornece autenticação da origem dos dados, prevenindo ataques de envenenamento de cache. O **HTTP/2 e HTTP/3** trazem melhorias de desempenho e segurança sobre o HTTP/1.1. A configuração avançada de firewalls envolve **Stateful Packet Inspection (SPI)** e **Deep Packet Inspection (DPI)** para uma análise mais profunda do tráfego.',
+        recommendations: '- **Curso:** "The Bits and Bytes of Computer Networking" do Google no Coursera é uma excelente introdução.\n- **Livro:** "Redes de Computadores" de Andrew S. Tanenbaum é um clássico acadêmico completo.\n- **RFCs:** Para mergulhar fundo, leia as RFCs (Request for Comments) dos protocolos, como a RFC 793 para o TCP e a RFC 2616 para o HTTP/1.1.'
+      }
+    },
+    {
+      id: 'compliance-frameworks',
+      title: 'Políticas e Conformidade (Compliance)',
+      category: 'Outros Conhecimentos',
+      subcategory: 'Políticas e Conformidade',
+      type: 'Artigo',
+      level: 'Intermediário',
+      description: 'Conheça os principais frameworks e regulamentações de segurança, como LGPD, GDPR, ISO 27001 e NIST.',
+      content: {
+        concepts: 'Compliance não é o mesmo que segurança, mas está relacionado. É o ato de aderir a leis, regulamentos e padrões. **LGPD (Lei Geral de Proteção de Dados)** no Brasil e **GDPR (General Data Protection Regulation)** na Europa são leis que regulam como as empresas coletam, usam e protegem dados pessoais. **ISO/IEC 27001** é um padrão internacional para sistemas de gestão de segurança da informação (SGSI). O **NIST Cybersecurity Framework** é um guia de melhores práticas do governo dos EUA para gerenciar riscos de cibersegurança. **PCI-DSS** é um padrão de segurança obrigatório para empresas que processam transações de cartão de crédito.',
+        advanced: 'A implementação prática desses frameworks é um desafio. Envolve a realização de uma análise de risco completa, a criação de um catálogo de controles de segurança, a documentação de políticas e procedimentos e a realização de auditorias internas e externas. A automação da verificação de conformidade usando ferramentas de **Cloud Security Posture Management (CSPM)** é uma prática avançada em ambientes de nuvem. Entender como mapear os controles de um framework para outro (por exemplo, como os controles do NIST CSF ajudam a atender aos requisitos da LGPD) é uma habilidade valiosa.',
+        recommendations: '- **Sites Oficiais:** Visite os sites do NIST, da ISO e das autoridades de proteção de dados locais para ler os documentos originais.\n- **Blogs:** Blogs de empresas de consultoria em segurança e GRC (Governança, Risco e Conformidade) frequentemente publicam guias e análises sobre esses frameworks.\n- **Certificações:** Certificações como a "Certified in Risk and Information Systems Control" (CRISC) da ISACA são focadas nesta área.'
+      }
+    },
+    {
+      id: 'operating-systems-security',
+      title: 'Segurança em Sistemas Operacionais',
+      category: 'Outros Conhecimentos',
+      subcategory: 'Sistemas Operacionais',
+      type: 'Artigo',
+      level: 'Iniciante',
+      description: 'Aprenda os fundamentos de segurança para Linux e Windows.',
+      content: {
+        concepts: 'Tanto **Linux** quanto **Windows** têm mecanismos de segurança fundamentais. No Linux, a segurança é baseada em **permissões de arquivo** (leitura, escrita, execução para usuário, grupo e outros) e no conceito de superusuário (root). A administração é feita principalmente via **linha de comando (bash)** e os logs são centralizados no diretório `/var/log`. No Windows, a segurança é gerenciada através de **Contas de Usuário**, **Group Policies (GPO)** em ambientes de domínio (Active Directory) e o log de eventos é visualizado pelo **Event Viewer**. O **PowerShell** é a ferramenta de linha de comando moderna para automação e administração.',
+        advanced: 'A segurança avançada em Linux envolve o uso de módulos de segurança como **SELinux** ou **AppArmor**, que aplicam políticas de controle de acesso obrigatório (MAC), restringindo o que até mesmo o root pode fazer. Em Windows, o **Active Directory** é um alvo comum, e técnicas de defesa incluem a implementação de tiers de administração, o monitoramento de ataques como Kerberoasting e a proteção contra movimentação lateral. O uso de **Sysmon** (System Monitor) da Sysinternals Suite fornece uma telemetria de segurança muito mais rica do que os logs de eventos padrão do Windows.',
+        recommendations: '- **Linux:** Pratique em uma máquina virtual com Debian ou Ubuntu. Aprenda a usar comandos como `chmod`, `chown`, `sudo` e a navegar no sistema de arquivos.\n- **Windows:** Se possível, crie um pequeno laboratório com um Controlador de Domínio do Active Directory para experimentar GPOs e gerenciamento de usuários.\n- **Livro:** "Linux Basics for Hackers" por OccupyTheWeb é um bom ponto de partida prático.'
+      }
+    },
+    {
+      id: 'log-analysis',
+      title: 'Análise de Logs',
+      category: 'Outros Conhecimentos',
+      subcategory: 'Análise de Logs',
+      type: 'Artigo',
+      level: 'Intermediário',
+      description: 'Aprenda a arte de extrair inteligência de segurança de logs de sistemas e aplicações.',
+      content: {
+        concepts: 'Logs são registros de eventos que ocorreram em um sistema. A análise de logs é a prática de revisar esses registros para solucionar problemas e investigar incidentes de segurança. No Linux, os logs são comumente gerenciados pelo **syslog** ou, em sistemas modernos, pelo **journald** (parte do systemd). No Windows, o **Event Viewer** é a ferramenta central para visualizar logs de sistema, segurança e aplicação. Uma habilidade essencial para analisar logs de texto é o uso de **Expressões Regulares (regex)**, um padrão de busca poderoso para encontrar informações específicas.',
+        advanced: 'A análise manual de logs é inviável em grande escala. Por isso, a prática avançada envolve centralizar os logs de múltiplas fontes em um sistema **SIEM** (como Splunk ou ELK Stack). Nesses sistemas, você pode criar regras de correlação que alertam sobre eventos suspeitos que ocorrem em diferentes sistemas ao mesmo tempo. Aprender linguagens de consulta específicas desses sistemas (como a SPL do Splunk) é fundamental. A análise de logs de servidores web, firewalls, proxies e DNS é crucial para detectar os primeiros sinais de um ataque.',
+        recommendations: '- **Regex:** Sites como "regex101.com" e "regexr.com" são excelentes para aprender e testar expressões regulares de forma interativa.\n- **Desafios:** Participe de desafios de CTF que tenham categorias de análise de logs ou forense para praticar com dados do mundo real.\n- **Laboratório:** Configure um servidor syslog (como o rsyslog) em um Linux e configure outros sistemas (Windows, com um agente) para enviar seus logs para ele. Tente encontrar eventos específicos usando `grep` e regex.'
+      }
     }
 ];
 
@@ -379,8 +435,8 @@ export const careerPaths: CareerPath[] = [
         title: "Fundamentos (Meses 1-3)",
         duration: "3 Meses",
         items: [
-          { title: "Redes de Computadores", description: "Domine os modelos OSI e TCP/IP, sub-redes e protocolos essenciais.", resourceId: "nmap" },
-          { title: "Sistemas Operacionais", description: "Aprenda a usar e administrar Linux e Windows a fundo.", resourceId: "kali-linux" },
+          { title: "Redes de Computadores", description: "Domine os modelos OSI e TCP/IP, sub-redes e protocolos essenciais.", resourceId: "network-protocols" },
+          { title: "Sistemas Operacionais", description: "Aprenda a usar e administrar Linux e Windows a fundo.", resourceId: "operating-systems-security" },
           { title: "Criptografia Básica", description: "Entenda os conceitos de chaves, cifras e hashes.", resourceId: "cryptography" },
         ],
       },
@@ -415,7 +471,7 @@ export const careerPaths: CareerPath[] = [
         duration: "3 Meses",
         items: [
           { title: "Introdução à Cibersegurança", description: "Conheça a tríade CIA (Confidencialidade, Integridade, Disponibilidade) e os principais vetores de ataque.", resourceId: "cia-triad" },
-          { title: "Redes e Protocolos", description: "Foco em DNS, HTTP/S, e como o tráfego normal se parece.", resourceId: "wireshark" },
+          { title: "Redes e Protocolos", description: "Foco em DNS, HTTP/S, e como o tráfego normal se parece.", resourceId: "network-protocols" },
           { title: "Tipos de Malware", description: "Estude o comportamento de vírus, worms, ransomware e spyware.", resourceId: "threat-types" },
         ],
       },
@@ -423,7 +479,7 @@ export const careerPaths: CareerPath[] = [
         title: "Análise e Ferramentas (Meses 4-6)",
         duration: "3 Meses",
         items: [
-          { title: "Análise de Logs", description: "Aprenda a ler e correlacionar logs de firewalls, sistemas operacionais e aplicações." },
+          { title: "Análise de Logs", description: "Aprenda a ler e correlacionar logs de firewalls, sistemas operacionais e aplicações.", resourceId: "log-analysis" },
           { title: "SIEM (Security Information and Event Management)", description: "Entenda como funcionam ferramentas como Splunk ou ELK Stack para agregar e analisar alertas.", resourceId: "siem" },
           { title: "Wireshark para Defesa", description: "Use o Wireshark para identificar anomalias e atividades maliciosas no tráfego.", resourceId: "wireshark" },
         ],

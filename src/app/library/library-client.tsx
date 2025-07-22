@@ -17,17 +17,18 @@ export default function LibraryClient({ initialResources }: LibraryClientProps) 
   const [subcategory, setSubcategory] = useState('All');
 
   const subcategories = useMemo(() => {
+    const allSubcategories = [...new Set(initialResources.map(r => r.subcategory))];
     if (category === 'All') {
-      return ['All', 'Conceitos', 'Análise e Monitoramento', 'Pentest e Auditoria', 'Criptografia e Segurança de Dados', 'Análise de Malware e Forense', 'Segurança em Nuvem'];
+      return ['All', ...allSubcategories];
     }
-    if (category === 'Fundamentos') {
-      return ['All', 'Conceitos'];
-    }
-    if (category === 'Ferramentas') {
-      return ['All', 'Análise e Monitoramento', 'Pentest e Auditoria', 'Criptografia e Segurança de Dados', 'Análise de Malware e Forense', 'Segurança em Nuvem'];
-    }
-    return ['All'];
-  }, [category]);
+    const filteredSubcategories = [...new Set(initialResources.filter(r => r.category === category).map(r => r.subcategory))];
+    return ['All', ...filteredSubcategories];
+  }, [category, initialResources]);
+  
+  const categories = useMemo(() => {
+    const allCategories = [...new Set(initialResources.map(r => r.category))];
+    return ['All', ...allCategories];
+  }, [initialResources]);
 
   const filteredResources = useMemo(() => {
     return initialResources
@@ -65,12 +66,12 @@ export default function LibraryClient({ initialResources }: LibraryClientProps) 
             <SelectValue placeholder="Filtrar por categoria" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="All">Todas as Categorias</SelectItem>
-            <SelectItem value="Fundamentos">Fundamentos</SelectItem>
-            <SelectItem value="Ferramentas">Ferramentas</SelectItem>
+            {categories.map(cat => (
+              <SelectItem key={cat} value={cat}>{cat === 'All' ? 'Todas as Categorias' : cat}</SelectItem>
+            ))}
           </SelectContent>
         </Select>
-        <Select value={subcategory} onValueChange={setSubcategory}>
+        <Select value={subcategory} onValueChange={setSubcategory} disabled={category === 'All' && subcategory === 'All'}>
           <SelectTrigger>
             <SelectValue placeholder="Filtrar por subcategoria" />
           </SelectTrigger>

@@ -2,12 +2,11 @@ import { contentLibrary } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { FileText, Video, Wrench } from 'lucide-react';
+import { BookCopy, Wrench } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-const typeIcons = {
-  Artigo: <FileText className="h-8 w-8 text-primary" />,
-  Vídeo: <Video className="h-8 w-8 text-primary" />,
+const typeIcons: { [key: string]: React.ReactNode } = {
+  Artigo: <BookCopy className="h-8 w-8 text-primary" />,
   Ferramenta: <Wrench className="h-8 w-8 text-primary" />,
 };
 
@@ -19,7 +18,12 @@ export default function ResourceDetailPage({ params }: { params: { id: string } 
   }
   
   const getLevelVariant = (level: string) => {
-    return level === 'Iniciante' ? 'secondary' : 'destructive';
+    switch(level) {
+        case 'Iniciante': return 'secondary';
+        case 'Intermediário': return 'default';
+        case 'Avançado': return 'destructive';
+        default: return 'outline';
+    }
   }
 
   const renderContent = (content: string) => {
@@ -63,14 +67,14 @@ export default function ResourceDetailPage({ params }: { params: { id: string } 
               <TabsTrigger value="advanced">Avançado</TabsTrigger>
               <TabsTrigger value="recommendations">Recomendações</TabsTrigger>
             </TabsList>
-            <TabsContent value="concepts" className="mt-6 text-base text-foreground/90 leading-relaxed">
-               {renderContent(resource.content.concepts)}
+            <TabsContent value="concepts" className="mt-6 text-base text-foreground/90 leading-relaxed prose prose-invert max-w-none">
+               <pre className="whitespace-pre-wrap bg-transparent p-0 font-body">{renderContent(resource.content.concepts)}</pre>
             </TabsContent>
-            <TabsContent value="advanced" className="mt-6 text-base text-foreground/90 leading-relaxed">
-              {renderContent(resource.content.advanced)}
+            <TabsContent value="advanced" className="mt-6 text-base text-foreground/90 leading-relaxed prose prose-invert max-w-none">
+              <pre className="whitespace-pre-wrap bg-transparent p-0 font-body">{renderContent(resource.content.advanced)}</pre>
             </TabsContent>
-            <TabsContent value="recommendations" className="mt-6 text-base text-foreground/90 leading-relaxed">
-              {renderRecommendations(resource.content.recommendations)}
+            <TabsContent value="recommendations" className="mt-6 text-base text-foreground/90 leading-relaxed prose prose-invert max-w-none">
+              <pre className="whitespace-pre-wrap bg-transparent p-0 font-body">{renderRecommendations(resource.content.recommendations)}</pre>
             </TabsContent>
           </Tabs>
         </CardContent>
