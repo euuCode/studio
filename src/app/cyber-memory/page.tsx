@@ -1,18 +1,20 @@
-import { cyberMemory, CyberEra } from '@/lib/data';
+
+import { cyberMemory, type CyberEra } from '@/lib/data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Binary, Bomb, Bug, CloudLightning, BrainCircuit } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Binary, Bomb, Bug, CloudLightning, BrainCircuit, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const iconMap: { [key: string]: React.ReactNode } = {
   Binary: <Binary className="h-8 w-8 text-primary" />,
   Bomb: <Bomb className="h-8 w-8 text-primary" />,
-  Spider: <Bug className="h-8 w-8 text-primary" />,
+  Bug: <Bug className="h-8 w-8 text-primary" />,
   CloudLightning: <CloudLightning className="h-8 w-8 text-primary" />,
   BrainCircuit: <BrainCircuit className="h-8 w-8 text-primary" />,
 };
 
 const EraCard = ({ era }: { era: CyberEra }) => (
-  <Card className="mb-8">
+  <Card className="mb-8 overflow-hidden">
     <CardHeader>
       <div className="flex items-center gap-4">
         {iconMap[era.icon]}
@@ -20,24 +22,26 @@ const EraCard = ({ era }: { era: CyberEra }) => (
       </div>
     </CardHeader>
     <CardContent>
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px]">Ano</TableHead>
-            <TableHead>Evento</TableHead>
-            <TableHead>Descrição</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {era.events.map((event, index) => (
-            <TableRow key={index}>
-              <TableCell className="font-medium">{event.year}</TableCell>
-              <TableCell className="font-semibold">{event.event}</TableCell>
-              <TableCell>{event.description}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <div className="border-t border-border -mx-6">
+        {era.events.map((event, index) => (
+          <div key={event.id} className="grid md:grid-cols-4 gap-4 border-b border-border p-4 md:p-6 hover:bg-muted/50 transition-colors">
+            <div className="md:col-span-1">
+              <p className="font-bold text-lg text-primary">{event.year}</p>
+              <p className="font-semibold text-foreground/90">{event.event}</p>
+            </div>
+            <div className="md:col-span-2">
+              <p className="text-muted-foreground">{event.description}</p>
+            </div>
+            <div className="md:col-span-1 flex items-center justify-end">
+               <Button asChild variant="outline" size="sm">
+                <Link href={`/cyber-memory/${event.id}`}>
+                  Ver Detalhes <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        ))}
+      </div>
     </CardContent>
   </Card>
 );

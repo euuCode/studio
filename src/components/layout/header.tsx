@@ -1,3 +1,4 @@
+
 'use client';
 
 import { usePathname } from 'next/navigation';
@@ -22,6 +23,8 @@ export function Header() {
     title = 'Detalhes da Certificação';
   } else if (pathname.startsWith('/library/')) {
     title = 'Detalhes do Conteúdo';
+  } else if (pathname.startsWith('/cyber-memory/')) {
+    title = 'Detalhes do Evento Histórico';
   }
 
   return (
