@@ -1,26 +1,83 @@
+
 import type { LucideIcon } from "lucide-react";
 
-export type Certification = {
-  id: string;
-  name: string;
-  issuer: string;
-  description: string;
-  level: 'Iniciante' | 'Intermediário' | 'Avançado';
-  domain: 'Penetration Testing' | 'Incident Response' | 'Network Security' | 'Cloud Security' | 'Digital Forensics';
-  price: string;
-  url: string;
-  details: string;
+// Tipos para a nova estrutura de Certificações
+export type CertGratuita = {
+  nome: string;
+  instituicao: string;
+  conteudo: string;
+  observacoes: string;
 };
 
-export const certifications: Certification[] = [
-  { id: 'ceh', name: 'Certified Ethical Hacker (CEH)', issuer: 'EC-Council', description: 'Uma certificação fundamental para aspirantes a pentester, cobrindo conceitos centrais de hacking ético.', level: 'Intermediário', domain: 'Penetration Testing', price: '$950 - $1199', url: 'https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/', details: 'A certificação Certified Ethical Hacker (CEH) é uma credencial reconhecida globalmente que valida suas habilidades em hacking ético. Abrange mais de 20 dos domínios de segurança mais atuais, incluindo levantamento de informações, varredura de redes, enumeração, análise de vulnerabilidades, hacking de sistemas, ameaças de malware, sniffing, engenharia social, negação de serviço, sequestro de sessão, evasão de IDS, firewalls e honeypots, hacking de servidores web, hacking de aplicações web, injeção de SQL, hacking de redes sem fio, hacking de plataformas móveis, hacking de IoT, computação em nuvem e criptografia.' },
-  { id: 'oscp', name: 'Offensive Security Certified Professional (OSCP)', issuer: 'Offensive Security', description: 'Uma certificação prática e altamente respeitada que comprova habilidades práticas em testes de invasão.', level: 'Avançado', domain: 'Penetration Testing', price: '$1599', url: 'https://www.offsec.com/courses/pen-200/', details: 'O OSCP é uma certificação prática em testes de invasão. O exame consiste em um teste prático e supervisionado de 24 horas, onde você deve comprometer com sucesso uma série de máquinas-alvo. É conhecido por sua dificuldade e natureza prática, exigindo que você pense como um invasor.' },
-  { id: 'gcih', name: 'GIAC Certified Incident Handler (GCIH)', issuer: 'GIAC', description: 'Foca em detectar, responder e resolver incidentes de segurança de computadores.', level: 'Intermediário', domain: 'Incident Response', price: '$2499', url: 'https://www.giac.org/certification/certified-incident-handler-gcih', details: 'A certificação GCIH valida a capacidade de um profissional para detectar, responder e resolver incidentes de segurança de computadores. Os detentores da certificação GCIH possuem o conhecimento e as habilidades necessárias para gerenciar incidentes de segurança, compreendendo técnicas, vetores e ferramentas de ataque comuns, bem como se defender e/ou responder a tais ataques quando ocorrem.' },
-  { id: 'cyberops', name: 'Cisco Certified CyberOps Associate', issuer: 'Cisco', description: 'Valida o conhecimento tático e as habilidades diárias que as equipes do Centro de Operações de Segurança (SOC) precisam.', level: 'Iniciante', domain: 'Incident Response', price: '$300', url: 'https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/cyberops-associate.html', details: 'Esta certificação prepara você para uma carreira em operações de cibersegurança. Como um CyberOps Associate, você saberá como monitorar, detectar e responder a ameaças de cibersegurança. A certificação abrange conceitos de segurança, monitoramento de segurança, análise baseada em host, análise de intrusão de rede e políticas e procedimentos de segurança.' },
-  { id: 'security-plus', name: 'CompTIA Security+', issuer: 'CompTIA', description: 'Uma certificação global que valida as habilidades básicas necessárias para executar funções essenciais de segurança.', level: 'Iniciante', domain: 'Network Security', price: '$392', url: 'https://www.comptia.org/certifications/security', details: 'A CompTIA Security+ é uma certificação global que valida as habilidades básicas necessárias para executar as principais funções de segurança e seguir uma carreira em segurança de TI. Ela estabelece o conhecimento central exigido de qualquer função de cibersegurança e fornece um trampolim para empregos de cibersegurança de nível intermediário.' },
-  { id: 'cissp', name: 'Certified Information Systems Security Professional (CISSP)', issuer: '(ISC)²', description: 'Um padrão de realização globalmente reconhecido que confirma o conhecimento de um indivíduo no campo da segurança da informação.', level: 'Avançado', domain: 'Network Security', price: '$749', url: 'https://www.isc2.org/Certifications/CISSP', details: 'O CISSP é uma certificação de nível avançado para profissionais de segurança de TI. Demonstra que você tem o conhecimento e a experiência para projetar, desenvolver e gerenciar a postura geral de segurança de uma organização. A certificação abrange oito domínios em segurança de computadores, incluindo segurança e gerenciamento de riscos, segurança de ativos, arquitetura e engenharia de segurança, comunicação e segurança de rede, gerenciamento de identidade e acesso, avaliação e testes de segurança, operações de segurança e segurança de desenvolvimento de software.' },
-  { id: 'ccsp', name: 'Certified Cloud Security Professional (CCSP)', issuer: '(ISC)²', description: 'A principal certificação de segurança em nuvem para habilidades técnicas avançadas em segurança de aplicativos e infraestrutura em nuvem.', level: 'Avançado', domain: 'Cloud Security', price: '$599', url: 'https://www.isc2.org/Certifications/CCSP', details: 'O CCSP mostra que você tem as habilidades técnicas avançadas e o conhecimento para projetar, gerenciar e proteger dados, aplicativos e infraestrutura na nuvem usando as melhores práticas, políticas e procedimentos estabelecidos pelos especialistas em segurança em nuvem da (ISC)². Abrange conceitos de nuvem, arquitetura e design, segurança de dados em nuvem, segurança de plataforma e infraestrutura em nuvem, segurança de aplicativos em nuvem e operações de segurança em nuvem.' },
+export type CertPaga = {
+  nome: string;
+  instituicao: string;
+  nivel: string;
+  foco: string;
+  valor: string;
+};
+
+export type CertISO = {
+  norma: string;
+  nome: string;
+  foco: string;
+};
+
+// Dados para Cibersegurança
+export const certsGratuitasCiber: CertGratuita[] = [
+  { nome: 'Introduction to Cybersecurity', instituicao: 'Cisco Networking Academy', conteudo: 'Fundamentos da cibersegurança, ataques, defesa, ética', observacoes: 'Em português' },
+  { nome: 'Cybersecurity Essentials', instituicao: 'Cisco Networking Academy', conteudo: 'Continuação da introdutória, com tópicos mais técnicos', observacoes: 'Requer conta Cisco NetAcad' },
+  { nome: 'IBM Cybersecurity Analyst (Fundamentos)', instituicao: 'Coursera / IBM', conteudo: 'Ataques, SIEM, análise forense', observacoes: 'Curso gratuito, certificado pago (pode ser gratuito com auxílio)' },
+  { nome: 'Cybersecurity for Everyone', instituicao: 'University of Maryland (Coursera)', conteudo: 'Visão geral, tipos de ataques, ameaças modernas', observacoes: 'Em inglês' },
+  { nome: 'Fundamentos de Segurança Cibernética', instituicao: 'Fundação Bradesco', conteudo: 'Introdução à segurança, conceitos básicos', observacoes: '100% gratuito, com certificado' },
+  { nome: 'AWS Cloud Security', instituicao: 'AWS Skill Builder', conteudo: 'Fundamentos de segurança na nuvem AWS', observacoes: 'Inglês, certificado gratuito' },
+  { nome: 'Google Cybersecurity Certificate (inicial)', instituicao: 'Google / Coursera', conteudo: 'Teoria + prática com simulações de trabalho', observacoes: 'Pode ser gratuito com auxílio' },
+  { nome: 'Microsoft Security, Compliance & Identity Fundamentals (SC-900)', instituicao: 'Microsoft Learn', conteudo: 'Fundamentos de segurança Microsoft 365 e Azure', observacoes: 'Curso gratuito, certificação paga' },
 ];
+
+export const certsPagasCiber: CertPaga[] = [
+  { nome: 'CompTIA Security+ (SY0-701)', instituicao: 'CompTIA', nivel: 'Intermediário', foco: 'Segurança geral, redes, compliance', valor: 'US$ 392' },
+  { nome: 'CompTIA CySA+', instituicao: 'CompTIA', nivel: 'Avançado', foco: 'Análise e resposta a incidentes', valor: 'US$ 392' },
+  { nome: 'CompTIA PenTest+', instituicao: 'CompTIA', nivel: 'Avançado', foco: 'Testes de penetração', valor: 'US$ 392' },
+  { nome: 'CEH – Certified Ethical Hacker', instituicao: 'EC-Council', nivel: 'Avançado', foco: 'Hacking ético, pentest, ferramentas', valor: 'US$ 1.200–2.000' },
+  { nome: 'CISM – Certified Information Security Manager', instituicao: 'ISACA', nivel: 'Avançado', foco: 'Gestão de segurança, governança', valor: 'US$ 760–1.200' },
+  { nome: 'CISSP – Certified Information Systems Security Professional', instituicao: '(ISC)²', nivel: 'Avançado', foco: 'Gestão, arquitetura, engenharia de segurança', valor: 'US$ 749' },
+  { nome: 'SSCP – Systems Security Certified Practitioner', instituicao: '(ISC)²', nivel: 'Intermediário', foco: 'Prática técnica de segurança', valor: 'US$ 249–499' },
+  { nome: 'CHFI – Computer Hacking Forensic Investigator', instituicao: 'EC-Council', nivel: 'Avançado', foco: 'Investigação forense digital', valor: 'US$ 1.200+' },
+  { nome: 'OSCP – Offensive Security Certified Professional', instituicao: 'Offensive Security', nivel: 'Avançado', foco: 'Pentest ofensivo prático', valor: 'US$ 1.599+' },
+  { nome: 'ISO/IEC 27001 Lead Implementer', instituicao: 'PECB / EXIN / BSI', nivel: 'Avançado', foco: 'Implementação de SGSI', valor: 'R$ 3.000–6.000' },
+  { nome: 'ISO/IEC 27001 Lead Auditor', instituicao: 'PECB / EXIN / BSI', nivel: 'Avançado', foco: 'Auditoria em SGSI', valor: 'R$ 3.000–6.000' },
+];
+
+export const certsIso: CertISO[] = [
+  { norma: 'ISO/IEC 27001', nome: 'Sistemas de Gestão da Segurança da Informação (SGSI)', foco: 'Principal norma internacional de segurança' },
+  { norma: 'ISO/IEC 27002', nome: 'Controles de segurança da informação', foco: 'Complementa a 27001' },
+  { norma: 'ISO/IEC 27005', nome: 'Gestão de riscos de segurança da informação', foco: 'Foco em análise de risco' },
+  { norma: 'ISO/IEC 27017', nome: 'Segurança na nuvem', foco: 'Segurança em ambientes cloud' },
+  { norma: 'ISO/IEC 27018', nome: 'Proteção de dados pessoais na nuvem', foco: 'Alinhamento com LGPD/GDPR' },
+  { norma: 'ISO/IEC 27701', nome: 'Extensão para privacidade e proteção de dados', foco: 'Complementar à 27001/27002' },
+  { norma: 'ISO/IEC 22301', nome: 'Continuidade de negócios', foco: 'Segurança e disponibilidade em incidentes' },
+];
+
+// Dados para Redes de Computadores
+export const certsGratuitasRedes: CertGratuita[] = [
+  { nome: 'Introduction to Networking', instituicao: 'Cisco Networking Academy', conteudo: 'Curso base', observacoes: 'Essencial para iniciantes' },
+  { nome: 'NDG Linux Unhatched / Linux Essentials', instituicao: 'Cisco / NDG', conteudo: 'Introdução à rede com Linux', observacoes: 'Ótimo para aprender comandos' },
+  { nome: 'Google IT Support Certificate', instituicao: 'Google / Coursera', conteudo: 'Inclui noções de redes', observacoes: 'Pode ser gratuito com auxílio' },
+  { nome: 'Fundamentos de Redes', instituicao: 'Fundação Bradesco', conteudo: 'Conceitos básicos de redes', observacoes: '100% gratuito, com certificado' },
+  { nome: 'Redes de Computadores (UFES)', instituicao: 'edX / Coursera', conteudo: 'Curso técnico com simuladores', observacoes: 'Gratuito com bolsas' },
+];
+
+export const certsPagasRedes: CertPaga[] = [
+  { nome: 'CompTIA Network+', instituicao: 'CompTIA', nivel: 'Intermediário', foco: 'Fundamentos de redes', valor: 'US$ 358' },
+  { nome: 'CCNA – Cisco Certified Network Associate', instituicao: 'Cisco', nivel: 'Intermediário', foco: 'Infraestrutura Cisco', valor: 'R$ 1.200–2.000' },
+  { nome: 'CCNP – Cisco Certified Network Professional', instituicao: 'Cisco', nivel: 'Avançado', foco: 'Especialização em redes Cisco', valor: 'R$ 2.000–5.000' },
+  { nome: 'JNCIA / JNCIS / JNCIP', instituicao: 'Juniper Networks', nivel: 'Básico a Avançado', foco: 'Infraestrutura Juniper', valor: 'US$ 200–500' },
+  { nome: 'MikroTik MTCNA / MTCRE', instituicao: 'MikroTik Academy', nivel: 'Básico a Intermediário', foco: 'Configuração de roteadores MikroTik', valor: 'R$ 500–2.000' },
+  { nome: 'Aruba Certified Associate (Networking)', instituicao: 'Aruba / HPE', nivel: 'Intermediário', foco: 'Redes sem fio e com fio Aruba', valor: 'US$ 200–300' },
+  { nome: 'Linux Professional Institute LPIC-1 (com foco em redes)', instituicao: 'LPI', nivel: 'Intermediário', foco: 'Administração Linux com ênfase em redes', valor: 'US$ 200 por prova' },
+];
+
 
 export type Resource = {
   id: string;
