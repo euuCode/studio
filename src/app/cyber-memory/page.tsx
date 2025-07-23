@@ -1,12 +1,12 @@
 import { cyberMemory, CyberEra } from '@/lib/data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Binary, Bomb, Spider, CloudLightning, BrainCircuit } from 'lucide-react';
+import { Binary, Bomb, Bug, CloudLightning, BrainCircuit } from 'lucide-react';
 
 const iconMap: { [key: string]: React.ReactNode } = {
   Binary: <Binary className="h-8 w-8 text-primary" />,
   Bomb: <Bomb className="h-8 w-8 text-primary" />,
-  Spider: <Spider className="h-8 w-8 text-primary" />,
+  Spider: <Bug className="h-8 w-8 text-primary" />,
   CloudLightning: <CloudLightning className="h-8 w-8 text-primary" />,
   BrainCircuit: <BrainCircuit className="h-8 w-8 text-primary" />,
 };
