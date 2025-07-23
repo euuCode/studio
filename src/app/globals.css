@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Roboto Mono', monospace;
-}
-
 @layer base {
   :root {
     --background: 240 10% 3.9%;

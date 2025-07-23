@@ -68,13 +68,13 @@ export default function ResourceDetailPage({ params }: { params: { id: string } 
               <TabsTrigger value="recommendations">Recomendações</TabsTrigger>
             </TabsList>
             <TabsContent value="concepts" className="mt-6 text-base text-foreground/90 leading-relaxed prose prose-invert max-w-none">
-               <pre className="whitespace-pre-wrap bg-transparent p-0 font-body">{renderContent(resource.content.concepts)}</pre>
+               <div className="whitespace-pre-wrap font-body">{renderContent(resource.content.concepts)}</div>
             </TabsContent>
             <TabsContent value="advanced" className="mt-6 text-base text-foreground/90 leading-relaxed prose prose-invert max-w-none">
-              <pre className="whitespace-pre-wrap bg-transparent p-0 font-body">{renderContent(resource.content.advanced)}</pre>
+              <div className="whitespace-pre-wrap font-body">{renderContent(resource.content.advanced)}</div>
             </TabsContent>
             <TabsContent value="recommendations" className="mt-6 text-base text-foreground/90 leading-relaxed prose prose-invert max-w-none">
-              <pre className="whitespace-pre-wrap bg-transparent p-0 font-body">{renderRecommendations(resource.content.recommendations)}</pre>
+              <div className="whitespace-pre-wrap font-body">{renderRecommendations(resource.content.recommendations)}</div>
             </TabsContent>
           </Tabs>
         </CardContent>

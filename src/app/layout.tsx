@@ -1,4 +1,6 @@
+
 import type { Metadata } from 'next';
+import { Poppins, Inter, Roboto_Mono } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
@@ -12,6 +14,23 @@ export const metadata: Metadata = {
   description: 'Seu companheiro de aprendizado de cibersegurança personalizado.',
 };
 
+const fontBody = Inter({
+  subsets: ['latin'],
+  variable: '--font-body',
+});
+
+const fontHeadline = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  variable: '--font-headline',
+});
+
+const fontCode = Roboto_Mono({
+  subsets: ['latin'],
+  variable: '--font-code',
+});
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,14 +43,8 @@ export default function RootLayout({
           rel="icon"
           href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z' /><circle cx='12' cy='12' r='3' /><path d='M12 17a5 5 0 0 0 0-10' /></svg>"
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
       </head>
-      <body className={cn('font-body antialiased min-h-screen w-full bg-background text-foreground')}>
+      <body className={cn('font-body antialiased min-h-screen w-full bg-background text-foreground', fontBody.variable, fontHeadline.variable, fontCode.variable)}>
         <SidebarProvider>
           <div className="flex">
             <AppSidebar />
