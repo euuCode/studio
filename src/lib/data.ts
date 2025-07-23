@@ -496,25 +496,6 @@ export type CareerPath = {
       description: string;
     }[];
   }[];
-  specializations?: {
-    title: string;
-    duration: string;
-    objective: string;
-    tracks: {
-        id: string;
-        title: string;
-        icon: string;
-        duration: string;
-        focus: string;
-        topics: string[];
-        recommendations: string[];
-    }[];
-  }[];
-  consolidation?: {
-     title: string;
-     duration: string;
-     items: string[];
-  }[];
 };
 
 export const careerPaths: CareerPath[] = [
@@ -1248,6 +1229,86 @@ export const quizTopics: QuizTopic[] = [
         correctAnswer: "Um modelo onde o provedor de nuvem gerencia a infraestrutura; o desafio é a segurança das permissões das funções",
         explanation: "Em arquiteturas serverless (como AWS Lambda), o foco da segurança se desloca para o controle de acesso, garantindo que cada função tenha apenas o mínimo de permissões necessárias para operar (princípio do menor privilégio)."
       }
+    ]
+  },
+];
+
+
+export type TimelineEvent = {
+  year: string;
+  event: string;
+  description: string;
+};
+
+export type CyberEra = {
+  id: string;
+  title: string;
+  icon: string;
+  events: TimelineEvent[];
+};
+
+export const cyberMemory: CyberEra[] = [
+  {
+    id: "era1",
+    title: "1960–1980: Origem e Primeiros Experimentos",
+    icon: "Binary",
+    events: [
+      { year: "1969", event: "ARPANET criada", description: "A 'internet primitiva' dos EUA interligava universidades — base para ataques futuros." },
+      { year: "1971", event: "Primeiro vírus: Creeper", description: "Exibia a mensagem: “I’m the Creeper, catch me if you can!”; não era destrutivo." },
+      { year: "1983", event: "Termo 'vírus' é usado pela 1ª vez", description: "Por Fred Cohen, que demonstrou o comportamento viral em computadores." },
+      { year: "1986", event: "Caso 'Morris Worm'", description: "Robert Tappan Morris criou o primeiro worm a se espalhar na internet. Derrubou 10% da ARPANET." },
+      { year: "1988", event: "Criação do CERT", description: "Após o Morris Worm, o Computer Emergency Response Team foi criado para responder a incidentes." },
+    ]
+  },
+  {
+    id: "era2",
+    title: "Anos 1990: Era dos Vírus Populares e Crackers",
+    icon: "Bomb",
+    events: [
+      { year: "1992", event: "Michelangelo Virus", description: "Infectava milhões de PCs com Windows/DOS e apagava dados em 6 de março." },
+      { year: "1998", event: "Ataques ao Pentágono", description: "Série de invasões russas ao DoD dos EUA, nomeada operação Moonlight Maze." },
+      { year: "1999", event: "Melissa Virus", description: "Disseminado por e-mail, travava servidores. Um dos primeiros a causar prejuízo milionário." },
+    ]
+  },
+  {
+    id: "era3",
+    title: "Anos 2000: Cibercrime Profissional",
+    icon: "Spider",
+    events: [
+      { year: "2000", event: "Ataques DDoS massivos", description: "Amazon, eBay, CNN e Yahoo caíram após ataque coordenado." },
+      { year: "2001", event: "Código Red Worm", description: "Infectou 359 mil computadores com Windows em menos de 24h." },
+      { year: "2003", event: "Início do Anonymous", description: "Surge como grupo de 'hacktivismo' no 4chan." },
+      { year: "2007", event: "Ataque à Estônia (Cyberwar)", description: "Primeiro caso de guerra cibernética nacional, supostamente pela Rússia." },
+      { year: "2008", event: "Conficker Worm", description: "Um dos mais resistentes vírus da história, infectando milhões de sistemas Windows." },
+    ]
+  },
+  {
+    id: "era4",
+    title: "2010–2020: Guerra Cibernética e Ransomware",
+    icon: "CloudLightning",
+    events: [
+      { year: "2010", event: "Stuxnet", description: "Vírus militar (EUA/Israel) que sabotou usinas nucleares no Irã. Considerado a primeira 'arma cibernética'." },
+      { year: "2011", event: "Vazamento da RSA Security", description: "Hackers roubaram dados de autenticação de tokens RSA, comprometendo empresas no mundo inteiro." },
+      { year: "2013", event: "Edward Snowden", description: "Revela espionagem global da NSA sobre cidadãos, líderes e empresas." },
+      { year: "2014", event: "Sony Hack", description: "Coreia do Norte hackeia a Sony após filme satírico 'A Entrevista'. Vazamentos e prejuízo bilionário." },
+      { year: "2016", event: "Ataques à Eleição dos EUA", description: "Suposta interferência russa via redes sociais e invasões de servidores democratas." },
+      { year: "2017", event: "WannaCry", description: "Ransomware global usando brecha da NSA. Afetou hospitais (NHS), empresas e governos." },
+      { year: "2017", event: "NotPetya", description: "Ransomware disfarçado que destruiu dados, afetando Ucrânia e grandes corporações como Maersk." },
+      { year: "2018", event: "Cambridge Analytica", description: "Escândalo de uso indevido de dados do Facebook para manipular eleições." },
+      { year: "2019", event: "Cidade de Baltimore paralisada", description: "Ataque de ransomware travou serviços públicos por semanas." },
+    ]
+  },
+  {
+    id: "era5",
+    title: "2020–2025: IA, Deepfakes e Ataques a Infraestruturas",
+    icon: "BrainCircuit",
+    events: [
+      { year: "2020", event: "Hack SolarWinds (EUA)", description: "Espionagem sofisticada: malware em atualização da SolarWinds afetou governo e big techs." },
+      { year: "2021", event: "Colonial Pipeline Hack", description: "Ataque com ransomware travou distribuição de combustível nos EUA. Pagaram US$ 4,4 milhões." },
+      { year: "2021", event: "Pegasus Spyware", description: "Revelado que governos usavam spyware em ativistas, jornalistas e políticos." },
+      { year: "2022", event: "Guerra Rússia x Ucrânia", description: "Múltiplos ataques cibernéticos derrubam sites ucranianos e afetam sistemas globais." },
+      { year: "2023", event: "Boom dos Deepfakes", description: "Golpes com IA imitando voz e faces cresceram exponencialmente." },
+      { year: "2024–2025", event: "Ataques baseados em IA", description: "Cibercriminosos começam a automatizar invasões com modelos de IA." },
     ]
   },
 ];

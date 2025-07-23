@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BookOpen, Briefcase, ShieldCheck, LifeBuoy, Puzzle } from 'lucide-react';
+import { BookOpen, Briefcase, ShieldCheck, LifeBuoy, Puzzle, History } from 'lucide-react';
 import {
   Sidebar,
   SidebarHeader,
@@ -17,6 +17,7 @@ import { Logo } from '@/components/logo';
 const menuItems = [
   { href: '/', label: 'Planos de Carreira', icon: Briefcase },
   { href: '/certifications', label: 'Certificações', icon: ShieldCheck },
+  { href: '/cyber-memory', label: 'Memória Cibernética', icon: History },
   { href: '/library', label: 'Biblioteca', icon: BookOpen },
   { href: '/protection', label: 'Aprenda a se Proteger', icon: LifeBuoy },
   { href: '/quiz', label: 'Quiz Interativo', icon: Puzzle },

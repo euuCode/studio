@@ -6,6 +6,7 @@ import { SidebarTrigger } from '@/components/ui/sidebar';
 const pageTitles: { [key: string]: string } = {
   '/': 'Planos de Carreira',
   '/certifications': 'Guia de Certificações',
+  '/cyber-memory': 'Memória Cibernética',
   '/library': 'Biblioteca de Conteúdo',
   '/protection': 'Aprenda a se Proteger',
   '/quiz': 'Quiz Interativo',
