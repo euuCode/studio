@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { QuizTopic, QuizQuestion } from '@/lib/quiz-data';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -20,11 +20,19 @@ export default function QuizClient({ topics }: QuizClientProps) {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [score, setScore] = useState(0);
+  const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);
+
+  useEffect(() => {
+    if (selectedTopic) {
+        // Shuffle questions for variety only on the client side
+        const questions = [...selectedTopic.questions].sort(() => Math.random() - 0.5);
+        setShuffledQuestions(questions.slice(0, 10)); // Take 10 questions
+    }
+  }, [selectedTopic]);
+
 
   const handleTopicSelect = (topic: QuizTopic) => {
-    // Shuffle questions for variety
-    const shuffledQuestions = [...topic.questions].sort(() => Math.random() - 0.5);
-    setSelectedTopic({ ...topic, questions: shuffledQuestions.slice(0, 10) }); // Take 10 questions
+    setSelectedTopic(topic);
     setCurrentQuestionIndex(0);
     setScore(0);
     setSelectedAnswer(null);
@@ -34,7 +42,7 @@ export default function QuizClient({ topics }: QuizClientProps) {
   const handleAnswerSubmit = () => {
     if (!selectedAnswer) return;
 
-    const currentQuestion = selectedTopic?.questions[currentQuestionIndex];
+    const currentQuestion = shuffledQuestions[currentQuestionIndex];
     if (selectedAnswer === currentQuestion?.correctAnswer) {
       setScore(score + 1);
     }
@@ -49,6 +57,7 @@ export default function QuizClient({ topics }: QuizClientProps) {
 
   const handleRestart = () => {
     setSelectedTopic(null);
+    setShuffledQuestions([]);
     setCurrentQuestionIndex(0);
     setScore(0);
     setSelectedAnswer(null);
@@ -74,9 +83,9 @@ export default function QuizClient({ topics }: QuizClientProps) {
     );
   }
 
-  const isQuizFinished = currentQuestionIndex >= selectedTopic.questions.length;
+  const isQuizFinished = currentQuestionIndex >= shuffledQuestions.length;
 
-  if (isQuizFinished) {
+  if (isQuizFinished || shuffledQuestions.length === 0) {
     return (
       <Card className="max-w-2xl mx-auto">
         <CardHeader className="text-center">
@@ -84,10 +93,10 @@ export default function QuizClient({ topics }: QuizClientProps) {
         </CardHeader>
         <CardContent className="text-center space-y-6">
           <p className="text-xl">
-            Sua pontuação final é: <span className="font-bold text-primary">{score} de {selectedTopic.questions.length}</span>
+            Sua pontuação final é: <span className="font-bold text-primary">{score} de {shuffledQuestions.length}</span>
           </p>
           <div className="w-full bg-muted rounded-full h-4">
-              <div className="bg-primary h-4 rounded-full" style={{ width: `${(score / selectedTopic.questions.length) * 100}%` }}></div>
+              <div className="bg-primary h-4 rounded-full" style={{ width: `${(score / shuffledQuestions.length) * 100}%` }}></div>
           </div>
           <Button onClick={handleRestart} size="lg">
             <RotateCcw className="mr-2 h-5 w-5" />
@@ -98,7 +107,7 @@ export default function QuizClient({ topics }: QuizClientProps) {
     );
   }
 
-  const currentQuestion = selectedTopic.questions[currentQuestionIndex];
+  const currentQuestion = shuffledQuestions[currentQuestionIndex];
 
   return (
     <Card className="max-w-2xl mx-auto">
@@ -106,11 +115,11 @@ export default function QuizClient({ topics }: QuizClientProps) {
          <CardTitle className="text-2xl">{selectedTopic.title}</CardTitle>
          <div className="flex justify-between items-center pt-2">
             <CardDescription>
-                Pergunta {currentQuestionIndex + 1} de {selectedTopic.questions.length}
+                Pergunta {currentQuestionIndex + 1} de {shuffledQuestions.length}
             </CardDescription>
             <p className="text-sm font-medium text-primary">Pontuação: {score}</p>
          </div>
-         <Progress value={((currentQuestionIndex + 1) / selectedTopic.questions.length) * 100} className="mt-2"/>
+         <Progress value={((currentQuestionIndex + 1) / shuffledQuestions.length) * 100} className="mt-2"/>
       </CardHeader>
       <CardContent className="space-y-6">
         <p className="text-lg font-semibold">{currentQuestion.question}</p>
@@ -159,3 +168,4 @@ export default function QuizClient({ topics }: QuizClientProps) {
     </Card>
   );
 }
+    

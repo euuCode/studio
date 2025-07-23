@@ -1,4 +1,3 @@
-import { Shield, Fingerprint, CloudCog, KeyRound, Layers, GitBranch, AlertTriangle, Blocks, Anchor, Lock, Server, FileLock2, BrainCircuit, Microscope, Cloud, Cpu, HardDrive, ShieldCheck, FileKey2, FileTerminal, Network, BookLock, Landmark, Target, Binary, TestTube2, Scale, Files } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export type Certification = {
@@ -440,7 +439,7 @@ export type CareerPath = {
   id: string;
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: string;
   stages: {
     title: string;
     duration: string;
@@ -462,7 +461,7 @@ export type CareerPath = {
     tracks: {
         id: string;
         title: string;
-        icon: LucideIcon;
+        icon: string;
         duration: string;
         focus: string;
         topics: string[];
@@ -481,7 +480,7 @@ export const careerPaths: CareerPath[] = [
     id: "offensive-security",
     title: "Segurança Ofensiva (Red Team)",
     description: "Especialistas em simular ataques para encontrar e explorar vulnerabilidades, testando as defesas da organização.",
-    icon: Target,
+    icon: "Target",
     stages: [
         {
             title: "FASE 1 – Fundamentos da Cibersegurança",
@@ -531,7 +530,7 @@ export const careerPaths: CareerPath[] = [
     id: "defensive-security",
     title: "Segurança Defensiva (Blue Team)",
     description: "Os guardiões da rede, focados em detecção, resposta a incidentes e defesa proativa dos sistemas.",
-    icon: Shield,
+    icon: "Shield",
     stages: [
        {
             title: "FASE 1 – Fundamentos da Cibersegurança",
@@ -581,7 +580,7 @@ export const careerPaths: CareerPath[] = [
     id: "digital-forensics",
     title: "Forense Digital",
     description: "O detetive digital, focado na investigação de crimes cibernéticos e na análise de evidências digitais.",
-    icon: Microscope,
+    icon: "Microscope",
     stages: [
        {
             title: "FASE 1 – Fundamentos da Cibersegurança",
@@ -631,7 +630,7 @@ export const careerPaths: CareerPath[] = [
     id: "grc",
     title: "Gestão de Segurança / GRC",
     description: "O estrategista, focado em políticas, governança, risco e conformidade (compliance).",
-    icon: Scale,
+    icon: "Scale",
     stages: [
        {
             title: "FASE 1 – Fundamentos da Cibersegurança",
@@ -681,7 +680,7 @@ export const careerPaths: CareerPath[] = [
     id: "cloud-security",
     title: "Segurança em Nuvem",
     description: "Especialista em proteger dados e infraestrutura em ambientes de nuvem como AWS, Azure e Google Cloud.",
-    icon: CloudCog,
+    icon: "CloudCog",
     stages: [
         {
             title: "FASE 1 – Fundamentos da Cibersegurança",
@@ -731,7 +730,7 @@ export const careerPaths: CareerPath[] = [
     id: "appsec",
     title: "DevSecOps / Segurança de Aplicações",
     description: "Foco em integrar a segurança em todo o ciclo de vida de desenvolvimento de software (SDLC).",
-    icon: GitBranch,
+    icon: "GitBranch",
     stages: [
         {
             title: "FASE 1 – Fundamentos da Cibersegurança",
@@ -781,7 +780,7 @@ export const careerPaths: CareerPath[] = [
     id: "malware-analysis",
     title: "Análise de Malware",
     description: "Especialista em engenharia reversa de softwares maliciosos para entender seu funcionamento.",
-    icon: Binary,
+    icon: "Binary",
     stages: [
        {
             title: "FASE 1 – Fundamentos da Cibersegurança",
@@ -831,7 +830,7 @@ export const careerPaths: CareerPath[] = [
     id: "threat-intelligence",
     title: "Threat Intelligence",
     description: "O analista de inteligência, focado na coleta e análise de informações sobre ameaças cibernéticas.",
-    icon: TestTube2,
+    icon: "TestTube2",
     stages: [
         {
             title: "FASE 1 – Fundamentos da Cibersegurança",
@@ -881,7 +880,7 @@ export const careerPaths: CareerPath[] = [
     id: "audit",
     title: "Auditoria de Sistemas",
     description: "Responsável pela verificação e validação dos controles de segurança para garantir a conformidade.",
-    icon: Files,
+    icon: "Files",
     stages: [
        {
             title: "FASE 1 – Fundamentos da Cibersegurança",
@@ -928,3 +927,5 @@ export const careerPaths: CareerPath[] = [
     ]
   },
 ];
+
+    
