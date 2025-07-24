@@ -113,7 +113,7 @@ export const contentLibrary: Resource[] = [
         id: 'cryptography',
         title: 'Fundamentos de Criptografia',
         category: 'Fundamentos',
-        subcategory: 'Conceitos Básicos',
+        subcategory: 'Criptografia e Segurança de Dados',
         type: 'Artigo',
         level: 'Iniciante',
         description: 'Explore os conceitos de criptografia simétrica, assimétrica, hashes e PKI.',
@@ -169,7 +169,7 @@ export const contentLibrary: Resource[] = [
      {
         id: 'ipv4-ipv6',
         title: 'IPv4 vs. IPv6',
-        category: 'Ferramentas Essenciais',
+        category: 'Outros Conhecimentos',
         subcategory: 'Redes e Protocolos',
         type: 'Artigo',
         level: 'Iniciante',
@@ -974,38 +974,53 @@ export type CyberEra = {
 export const cyberMemory: CyberEra[] = [
   {
     id: "era1",
-    title: "1960–1980: Origem e Primeiros Experimentos",
+    title: "Anos 1960–1980: Origem e primeiros experimentos",
     icon: "Binary",
     events: [
-      { id: "arpanet", year: "1969", event: "ARPANET criada", description: "A 'internet primitiva' dos EUA interligava universidades — base para ataques futuros.", content: {
-        event_detail: "A ARPANET (Advanced Research Projects Agency Network) foi uma rede de computadores pioneira financiada pela ARPA (agora DARPA) do Departamento de Defesa dos EUA. Seu objetivo era conectar computadores em diferentes locais para pesquisa, mas acabou se tornando a base técnica para a Internet como a conhecemos.",
-        impact: "Embora não projetada com a segurança em mente, a ARPANET introduziu protocolos de comunicação abertos que, mais tarde, se tornariam vetores de ataque. A falta de autenticação e criptografia era a norma, pois o ambiente era restrito e confiável.",
-        lessons: "A lição fundamental da era ARPANET é que a segurança deve ser considerada desde o início do design de um sistema. A falha em fazer isso criou um legado de protocolos inseguros que tivemos que consertar e proteger por décadas."
+      { id: "arpanet-1969", year: "1969", event: "ARPANET Criada", description: "Primeira rede de computadores do mundo, base da internet.", content: {
+        event_detail: "A ARPANET (Advanced Research Projects Agency Network) foi uma rede de computadores pioneira financiada pela ARPA (agora DARPA) do Departamento de Defesa dos EUA. Seu objetivo era conectar computadores em diferentes locais para pesquisa, mas acabou se tornando a base técnica para a Internet como a conhecemos. Foi projetada com a premissa de confiança, não de segurança.",
+        impact: "Embora não projetada com a segurança em mente, a ARPANET introduziu protocolos de comunicação abertos que, mais tarde, se tornariam vetores de ataque. A falta de autenticação e criptografia era a norma, pois o ambiente era restrito e confiável. O 'Tópico Marcante' foi o nascimento da internet, criando um novo domínio para a interação humana e, consequentemente, para conflitos.",
+        lessons: "A lição fundamental da era ARPANET é que a segurança deve ser considerada desde o início do design de um sistema ('Security by Design'). A falha em fazer isso criou um legado de protocolos inseguros que tivemos que consertar e proteger por décadas."
       }},
-      { id: "creeper", year: "1971", event: "Primeiro vírus: Creeper", description: "Exibia a mensagem: “I’m the Creeper, catch me if you can!”; não era destrutivo.", content: {
-        event_detail: "O Creeper foi um programa experimental escrito por Bob Thomas na BBN Technologies. Ele se movia entre os computadores DEC PDP-10 que executavam o sistema operacional TENEX, não para causar danos, mas para demonstrar a possibilidade de uma aplicação móvel.",
-        impact: "O Creeper não era malicioso, mas foi o primeiro exemplo de um worm de computador. Ele levou à criação do 'Reaper', o primeiro programa antivírus, projetado especificamente para encontrar e remover o Creeper.",
+      { id: "creeper-1971", year: "1971", event: "Primeiro Vírus: Creeper", description: "Exibia a mensagem: “I’m the Creeper, catch me if you can!”.", content: {
+        event_detail: "O Creeper foi um programa experimental escrito por Bob Thomas na BBN Technologies. Ele se movia entre os computadores DEC PDP-10 que executavam o sistema operacional TENEX, não para causar danos, mas para demonstrar a possibilidade de uma aplicação móvel. Ele exibia a famosa mensagem e foi a primeira ameaça virtual da história.",
+        impact: "O Creeper não era malicioso, mas foi o primeiro exemplo de um worm de computador. Ele levou à criação do 'Reaper', o primeiro programa antivírus, projetado especificamente para encontrar e remover o Creeper, dando início à indústria de segurança.",
         lessons: "Este evento mostrou que um código poderia se replicar e se espalhar por uma rede, um conceito fundamental para todos os malwares que se seguiram. Também deu início à corrida armamentista entre criadores de vírus e desenvolvedores de software de segurança."
       }},
-      { id: "morris-worm", year: "1988", event: "Morris Worm", description: "Robert Tappan Morris criou o primeiro worm a se espalhar massivamente na internet. Derrubou 10% da ARPANET.", content: {
-        event_detail: "Escrito por um estudante de pós-graduação da Cornell University, o Morris Worm não foi projetado para ser destrutivo, mas um erro em seu mecanismo de propagação o tornou agressivo, reinfectando máquinas e causando lentidão até travá-las.",
-        impact: "O worm causou um dos primeiros grandes desligamentos da Internet, com um custo estimado de limpeza de centenas de milhares a milhões de dólares. Levou à criação do primeiro CERT (Computer Emergency Response Team) no Carnegie Mellon University.",
+       { id: "virus-term-1983", year: "1983", event: "Termo 'Vírus' é Usado pela 1ª Vez", description: "Fred Cohen cria um protótipo e define o conceito.", content: {
+        event_detail: "Em sua tese acadêmica, Fred Cohen, então estudante da Universidade da Califórnia do Sul, usou o termo 'vírus de computador' para descrever um programa que pode 'infectar' outros programas, modificando-os para incluir uma cópia de si mesmo. Ele criou um protótipo em um computador VAX 11/750, que se espalhou com sucesso.",
+        impact: "A formalização do conceito de 'vírus' deu aos pesquisadores uma linguagem comum para descrever e analisar esse novo tipo de ameaça. Isso foi um passo crucial para o desenvolvimento de estratégias de defesa e softwares antivírus mais sofisticados.",
+        lessons: "A definição de um problema é o primeiro passo para resolvê-lo. A nomenclatura e a classificação de ameaças tornaram-se uma parte fundamental da cibersegurança, permitindo uma resposta mais organizada e científica."
+      }},
+      { id: "morris-worm-1988", year: "1988", event: "Morris Worm", description: "Primeira infecção em massa, causou danos reais e derrubou 10% da ARPANET.", content: {
+        event_detail: "Escrito por Robert Tappan Morris, um estudante de pós-graduação da Cornell University, o Morris Worm não foi projetado para ser destrutivo, mas um erro em seu mecanismo de propagação o tornou agressivo, reinfectando máquinas e causando lentidão até travá-las.",
+        impact: "O worm causou um dos primeiros grandes desligamentos da Internet, com um custo estimado de limpeza de centenas de milhares a milhões de dólares. Foi a primeira vez que um malware teve um impacto financeiro e operacional em larga escala, mostrando a fragilidade da rede.",
         lessons: "O Morris Worm foi um alerta sobre como vulnerabilidades de software aparentemente pequenas poderiam ser exploradas com consequências em larga escala. Ele destacou a necessidade de patches de segurança rápidos e coordenação na resposta a incidentes."
+      }},
+       { id: "cert-1988", year: "1988", event: "Criação do CERT", description: "Fundado para reagir a emergências cibernéticas.", content: {
+        event_detail: "Como resposta direta ao caos causado pelo Morris Worm, a DARPA fundou o CERT/CC (Computer Emergency Response Team Coordination Center) na Carnegie Mellon University. Sua missão era coordenar a comunicação entre especialistas durante incidentes de segurança.",
+        impact: "A criação do CERT marcou o início da resposta a incidentes como uma disciplina formal. O modelo foi replicado em todo o mundo, com a criação de CERTs nacionais e corporativos, formando uma rede global para compartilhamento de informações sobre ameaças e vulnerabilidades.",
+        lessons: "A colaboração e a comunicação são essenciais para a defesa cibernética. Nenhum grupo ou organização pode se defender sozinho; a partilha de inteligência sobre ameaças é um multiplicador de força."
       }},
     ]
   },
   {
     id: "era2",
-    title: "Anos 1990: Era dos Vírus Populares e Crackers",
+    title: "Anos 1990: Era dos vírus populares e crackers",
     icon: "Bomb",
     events: [
-      { id: "michelangelo", year: "1992", event: "Michelangelo Virus", description: "Infectava milhões de PCs com Windows/DOS e apagava dados em 6 de março.", content: {
+      { id: "michelangelo-1992", year: "1992", event: "Michelangelo Virus", description: "Apagava dados em massa no aniversário do artista.", content: {
         event_detail: "O Michelangelo era um vírus de setor de boot que permanecia inativo até 6 de março, aniversário do artista renascentista. Nessa data, ele sobrescrevia os primeiros setores do disco rígido com dados aleatórios, tornando o sistema inoperável e os dados irrecuperáveis.",
-        impact: "O vírus causou pânico em massa na mídia, embora o número real de computadores afetados tenha sido menor do que o previsto. Ele impulsionou a indústria de antivírus e tornou o público em geral ciente da ameaça dos malwares.",
-        lessons: "A importância dos backups tornou-se dolorosamente clara. O evento também mostrou como a mídia poderia amplificar o medo em torno de uma ameaça cibernética, um padrão que se repetiria no futuro."
+        impact: "O vírus causou o primeiro pânico global na mídia em torno de uma ameaça digital, com vendas de software antivírus disparando. Embora o número real de computadores afetados tenha sido menor do que o previsto, o medo gerado foi imenso.",
+        lessons: "A importância dos backups tornou-se dolorosamente clara para o público em geral. O evento também mostrou como a mídia poderia amplificar o medo em torno de uma ameaça cibernética, um padrão que se repetiria no futuro."
       }},
-      { id: "melissa-virus", year: "1999", event: "Melissa Virus", description: "Disseminado por e-mail, travava servidores. Um dos primeiros a causar prejuízo milionário.", content: {
-        event_detail: "O Melissa era um vírus de macro que se espalhava através de documentos do Microsoft Word. Quando um usuário abria um documento infectado, o vírus enviava uma cópia de si mesmo para os primeiros 50 contatos da lista de endereços do Outlook do usuário.",
+      { id: "pentagon-1998", year: "1998", event: "Ataques ao Pentágono", description: "Invasão russa ao Departamento de Defesa dos EUA.", content: {
+        event_detail: "Uma série de ataques sistemáticos e coordenados, apelidados de 'Moonlight Maze', visaram redes do Pentágono, NASA e outras agências governamentais dos EUA. Os atacantes exfiltraram grandes quantidades de dados sensíveis, incluindo mapas militares e projetos de hardware.",
+        impact: "Este foi um dos primeiros casos documentados de espionagem cibernética patrocinada por um estado-nação. Mostrou que o ciberespaço era um novo campo de batalha para a coleta de inteligência e o conflito entre nações.",
+        lessons: "As nações perceberam que seus segredos militares e de estado estavam vulneráveis no mundo digital. Isso levou a um aumento maciço do investimento em defesas cibernéticas governamentais e militares."
+      }},
+      { id: "melissa-1999", year: "1999", event: "Melissa Virus", description: "Explosão dos malwares por engenharia social.", content: {
+        event_detail: "O Melissa era um vírus de macro que se espalhava através de documentos do Microsoft Word. Quando um usuário abria um documento infectado com um e-mail intitulado 'Mensagem Importante de...', o vírus enviava uma cópia de si mesmo para os primeiros 50 contatos da lista de endereços do Outlook do usuário.",
         impact: "A rápida propagação do Melissa sobrecarregou e derrubou servidores de e-mail de grandes corporações como a Microsoft e a Intel. Os danos foram estimados em mais de 80 milhões de dólares.",
         lessons: "Melissa demonstrou o poder da engenharia social (usando um e-mail aparentemente inofensivo) e a vulnerabilidade das aplicações de escritório. Isso levou a uma maior desconfiança em relação a anexos de e-mail e a melhorias na segurança de softwares de produtividade."
       }},
@@ -1013,18 +1028,33 @@ export const cyberMemory: CyberEra[] = [
   },
   {
     id: "era3",
-    title: "Anos 2000: Cibercrime Profissional",
+    title: "Anos 2000: Era da internet e cibercrime profissional",
     icon: 'Bug',
     events: [
-      { id: "ddos-2000", year: "2000", event: "Ataques DDoS massivos", description: "Amazon, eBay, CNN e Yahoo caíram após ataque coordenado.", content: {
-        event_detail: "Um adolescente canadense conhecido como 'Mafiaboy' orquestrou uma série de ataques de negação de serviço (DDoS) que derrubaram alguns dos maiores sites do mundo. Ele usou uma rede de computadores 'zumbis' em universidades para inundar os servidores com tráfego.",
-        impact: "Este foi um dos primeiros ataques DDoS de alto perfil que mostrou como a infraestrutura da Internet comercial era vulnerável. Causou perdas financeiras significativas e levou a uma maior conscientização sobre a necessidade de proteção contra DDoS.",
+      { id: "ddos-2000", year: "2000", event: "Ataques DDoS Massivos", description: "Grandes sites como Yahoo e Amazon caem por sobrecarga de tráfego.", content: {
+        event_detail: "Um adolescente canadense de 15 anos conhecido como 'Mafiaboy' orquestrou uma série de ataques de negação de serviço (DDoS) que derrubaram alguns dos maiores sites do mundo, incluindo Yahoo!, Amazon, eBay e CNN. Ele usou uma rede de computadores 'zumbis' em universidades para inundar os servidores com tráfego.",
+        impact: "Este foi um dos primeiros ataques DDoS de alto perfil que mostrou como a infraestrutura da Internet comercial era vulnerável. Causou perdas financeiras significativas e levou a uma maior conscientização sobre a necessidade de proteção contra DDoS, que até então era uma ameaça teórica para muitos.",
         lessons: "A interconexão da internet significava que a segurança de um site dependia da segurança de inúmeros outros sistemas. A facilidade com que um indivíduo podia causar danos em larga escala destacou a necessidade de cooperação e legislação internacional."
       }},
-      { id: "estonian-cyberwar", year: "2007", event: "Ataque à Estônia (Cyberwar)", description: "Primeiro caso de guerra cibernética nacional, supostamente pela Rússia.", content: {
-        event_detail: "Após a realocação de um memorial de guerra soviético, a Estônia foi alvo de um ataque cibernético massivo e coordenado que durou semanas. Sites do governo, bancos e meios de comunicação foram derrubados por ataques DDoS e desfiguração.",
-        impact: "Este evento é frequentemente citado como o primeiro exemplo de guerra cibernética entre estados-nação. Ele paralisou a infraestrutura digital de um país inteiro e levou a OTAN a criar o Centro de Excelência em Defesa Cibernética Cooperativa em Tallinn, na Estônia.",
-        lessons: "A infraestrutura crítica de um país era um alvo viável em um conflito geopolítico. A defesa de uma nação agora incluía explicitamente o domínio cibernético, e a necessidade de uma doutrina de defesa cibernética tornou-se urgente."
+      { id: "code-red-2001", year: "2001", event: "Code Red Worm", description: "Exploração de falha no IIS da Microsoft, propagação em horas.", content: {
+        event_detail: "O worm Code Red explorou uma vulnerabilidade de buffer overflow no software de servidor web IIS da Microsoft. Ele se espalhou com uma velocidade impressionante, infectando cerca de 359.000 servidores em menos de 14 horas. Uma vez infectado, o servidor exibia a mensagem 'Hacked by Chinese!'.",
+        impact: "O Code Red demonstrou a velocidade e o alcance que os worms modernos podiam atingir, explorando uma única vulnerabilidade em um software onipresente. O custo global dos danos foi estimado em mais de 2 bilhões de dólares.",
+        lessons: "A monocultura de software (onde muitos sistemas usam o mesmo software) pode ser perigosa, pois uma única vulnerabilidade pode ter um impacto global. A importância de aplicar patches de segurança rapidamente tornou-se uma prioridade crítica para administradores de sistemas."
+      }},
+      { id: "anonymous-2003", year: "2003", event: "Início do Anonymous", description: "Surgimento do hacktivismo global.", content: {
+        event_detail: "O Anonymous originou-se no imageboard 4chan como um conceito de comunidade online agindo de forma anônima e coordenada. Inicialmente focado em pegadinhas, evoluiu para o hacktivismo, realizando protestos e ataques cibernéticos contra alvos como a Igreja da Cientologia, governos e grandes corporações.",
+        impact: "O grupo popularizou o conceito de hacktivismo, usando ataques DDoS, desfiguração de sites e vazamento de dados como formas de protesto político e social. A máscara de Guy Fawkes tornou-se um símbolo global de resistência contra a tirania e o autoritarismo.",
+        lessons: "A cibersegurança ganhou uma nova dimensão: a política. Os ataques não eram mais apenas por ganho financeiro ou curiosidade, mas também por motivações ideológicas. As empresas e governos tiveram que começar a considerar sua postura política e social como um fator em seu perfil de risco cibernético."
+      }},
+      { id: "estonian-cyberwar-2007", year: "2007", event: "Ataque à Estônia", description: "País fica offline após conflito com a Rússia.", content: {
+        event_detail: "Após a realocação de um memorial de guerra soviético, a Estônia foi alvo de um ataque cibernético massivo e coordenado que durou semanas. Sites do governo, bancos e meios de comunicação foram derrubados por ataques DDoS e desfiguração, paralisando a nação mais digital da Europa.",
+        impact: "Este evento é frequentemente citado como a primeira guerra cibernética entre estados-nação. Ele paralisou a infraestrutura digital de um país inteiro e levou a OTAN a criar o Centro de Excelência em Defesa Cibernética Cooperativa em Tallinn, na Estônia.",
+        lessons: "A infraestrutura crítica de um país era um alvo viável em um conflito geopolítico. A defesa de uma nação agora incluía explicitamente o domínio cibernético, e a necessidade de uma doutrina de defesa cibernética tornou-se urgente para governos em todo o mundo."
+      }},
+       { id: "conficker-2008", year: "2008", event: "Conficker Worm", description: "Malware persistente e altamente adaptável.", content: {
+        event_detail: "O Conficker foi um worm de computador que surgiu em 2008, visando o sistema operacional Windows. Ele usava técnicas avançadas para a época, incluindo a exploração de uma vulnerabilidade no serviço de Servidor do Windows (MS08-067), adivinhação de senhas de administrador e propagação via unidades USB.",
+        impact: "O Conficker infectou milhões de computadores em mais de 190 países, criando uma das maiores botnets já vistas. Sua sofisticação, com múltiplos vetores de propagação e um mecanismo de atualização via domínios gerados algoritmicamente (DGA), tornou sua erradicação extremamente difícil. Ele permaneceu uma ameaça por anos.",
+        lessons: "O worm demonstrou a importância de uma defesa em camadas, pois ele podia contornar firewalls através de drives USB. A complexidade do Conficker exigiu uma colaboração sem precedentes entre a indústria de segurança, acadêmicos e provedores de internet (a 'Conficker Working Group') para combatê-lo, mostrando a necessidade de alianças público-privadas."
       }},
     ]
   },
@@ -1033,20 +1063,50 @@ export const cyberMemory: CyberEra[] = [
     title: "2010–2020: Guerra Cibernética e Ransomware",
     icon: "CloudLightning",
     events: [
-      { id: "stuxnet", year: "2010", event: "Stuxnet", description: "Vírus militar (EUA/Israel) que sabotou usinas nucleares no Irã. Considerado a primeira 'arma cibernética'.", content: {
-        event_detail: "Stuxnet foi um worm de computador extremamente sofisticado projetado para um alvo específico: os sistemas de controle industrial (SCADA) da Siemens que controlavam as centrífugas de enriquecimento de urânio do Irã. Ele se espalhou via USB e explorou múltiplas vulnerabilidades de dia zero.",
+      { id: "stuxnet-2010", year: "2010", event: "Stuxnet", description: "Vírus militar que sabotou usinas nucleares no Irã. Considerado a primeira 'arma cibernética'.", content: {
+        event_detail: "Stuxnet foi um worm de computador extremamente sofisticado projetado para um alvo específico: os sistemas de controle industrial (SCADA) da Siemens que controlavam as centrífugas de enriquecimento de urânio do Irã. Ele se espalhou via USB e explorou múltiplas vulnerabilidades de dia zero (zero-day) do Windows.",
         impact: "Stuxnet provou que um ataque cibernético poderia causar danos físicos a uma infraestrutura crítica. Foi a primeira arma digital a ser usada para sabotar um programa nuclear, mudando para sempre a paisagem da guerra cibernética.",
         lessons: "A linha entre a guerra digital e a física foi apagada. A proliferação de armas cibernéticas tornou-se uma realidade, e a segurança de sistemas industriais (OT - Operational Technology) tornou-se uma preocupação de segurança nacional."
       }},
-      { id: "snowden", year: "2013", event: "Edward Snowden", description: "Revela espionagem global da NSA sobre cidadãos, líderes e empresas.", content: {
-        event_detail: "Edward Snowden, um ex-contratado da NSA, vazou dezenas de milhares de documentos confidenciais que revelaram a escala maciça dos programas de vigilância global da agência. Os documentos mostraram que a NSA estava coletando dados de telefone e internet de milhões de pessoas, incluindo cidadãos americanos e líderes mundiais.",
-        impact: "As revelações de Snowden desencadearam um debate global sobre privacidade, vigilância governamental e segurança de dados. Levaram a reformas legais em alguns países e aumentaram a desconfiança pública em relação aos governos e às empresas de tecnologia.",
-        lessons: "A privacidade tornou-se um tema central na tecnologia. O uso de criptografia de ponta a ponta em aplicativos de mensagens tornou-se padrão, e os usuários tornaram-se mais conscientes sobre os dados que compartilham online."
+      { id: "rsa-hack-2011", year: "2011", event: "Vazamento da RSA Security", description: "Comprometeu segurança de milhares de tokens de autenticação.", content: {
+        event_detail: "Hackers, supostamente ligados a um estado-nação, realizaram um ataque de spear-phishing contra funcionários da RSA, a divisão de segurança da EMC. Eles conseguiram roubar informações relacionadas aos seus produtos de autenticação de dois fatores SecurID.",
+        impact: "O ataque foi um grande golpe na confiança da indústria de segurança. Os dados roubados permitiram que os atacantes realizassem ataques subsequentes contra clientes da RSA, incluindo grandes empreiteiros de defesa como a Lockheed Martin. Mostrou que até as empresas de segurança eram vulneráveis.",
+        lessons: "Ataques de spear-phishing são extremamente eficazes, mesmo contra alvos tecnicamente proficientes. A segurança da cadeia de suprimentos de segurança (proteger os protetores) tornou-se um ponto crítico de preocupação."
       }},
-      { id: "wannacry", year: "2017", event: "WannaCry", description: "Ransomware global usando brecha da NSA. Afetou hospitais (NHS), empresas e governos.", content: {
+      { id: "snowden-2013", year: "2013", event: "Edward Snowden", description: "Revela espionagem global da NSA sobre cidadãos, líderes e empresas.", content: {
+        event_detail: "Edward Snowden, um ex-contratado da NSA, vazou dezenas de milhares de documentos confidenciais que revelaram a escala maciça dos programas de vigilância global da agência, como o PRISM. Os documentos mostraram que a NSA estava coletando dados de telefone e internet de milhões de pessoas, incluindo cidadãos americanos e líderes mundiais.",
+        impact: "As revelações de Snowden desencadearam um debate global sobre privacidade, vigilância governamental e segurança de dados. Levaram a reformas legais em alguns países e aumentaram a desconfiança pública em relação aos governos e às empresas de tecnologia.",
+        lessons: "A privacidade tornou-se um tema central na tecnologia. O uso de criptografia de ponta a ponta em aplicativos de mensagens tornou-se padrão, e os usuários tornaram-se mais conscientes sobre os dados que compartilham online. A ameaça interna (insider threat) foi destacada como um risco de segurança massivo."
+      }},
+      { id: "sony-hack-2014", year: "2014", event: "Sony Hack", description: "Retaliação da Coreia do Norte por um filme satírico.", content: {
+        event_detail: "Um grupo que se autodenominava 'Guardians of Peace' (supostamente ligado à Coreia do Norte) invadiu a Sony Pictures. O ataque foi uma retaliação ao filme 'A Entrevista', uma comédia que satirizava o líder norte-coreano Kim Jong-un. Os hackers vazaram e-mails embaraçosos, dados de funcionários e filmes inéditos, além de destruir dados nos sistemas da empresa.",
+        impact: "O ataque demonstrou uma nova motivação para o ciberataque: a censura e a retaliação política. Foi um dos ataques mais destrutivos contra uma empresa americana, causando enormes prejuízos financeiros e de reputação.",
+        lessons: "Os ataques cibernéticos poderiam ser usados para coagir e intimidar, influenciando a liberdade de expressão. A segregação de redes e a proteção contra malware destrutivo (wipers) tornaram-se ainda mais críticas."
+      }},
+       { id: "election-hack-2016", year: "2016", event: "Ataques à Eleição dos EUA", description: "Manipulação democrática por cibermeios.", content: {
+        event_detail: "Agências de inteligência dos EUA concluíram que a Rússia orquestrou uma campanha multifacetada para interferir na eleição presidencial de 2016. Isso incluiu o hackeamento dos servidores do Comitê Nacional Democrata (DNC) e o vazamento de e-mails através de sites como o WikiLeaks, além de uma vasta campanha de desinformação e propaganda nas redes sociais.",
+        impact: "O evento borrou as linhas entre espionagem, guerra de informação e ataque cibernético. Ele minou a confiança no processo democrático e demonstrou como as redes sociais poderiam ser armadas para polarizar a sociedade e influenciar a opinião pública.",
+        lessons: "A segurança eleitoral tornou-se uma questão de segurança nacional. As democracias perceberam que precisavam defender não apenas sua infraestrutura de votação, mas também o 'espaço cognitivo' de seus cidadãos contra a desinformação estrangeira."
+      }},
+      { id: "wannacry-2017", year: "2017", event: "WannaCry", description: "Ransomware global que explorou uma falha da NSA, tornando-se uma ameaça mundial.", content: {
         event_detail: "O WannaCry foi um ataque de ransomware que se espalhou rapidamente por mais de 150 países. Ele explorou uma vulnerabilidade no protocolo SMB do Windows, conhecida como EternalBlue, que se acredita ter sido desenvolvida pela NSA e vazada pelo grupo Shadow Brokers.",
         impact: "O ataque paralisou sistemas em todo o mundo, com um impacto particularmente devastador no Serviço Nacional de Saúde (NHS) do Reino Unido, forçando hospitais a cancelar cirurgias. Os danos globais foram estimados em bilhões de dólares.",
         lessons: "A importância crítica de aplicar patches de segurança foi destacada. O WannaCry também mostrou como as ferramentas desenvolvidas por agências de inteligência podem ser transformadas em armas e usadas por criminosos, levantando questões sobre o armazenamento de vulnerabilidades."
+      }},
+      { id: "notpetya-2017", year: "2017", event: "NotPetya", description: "Disfarçado de ransomware, destruiu dados em massa.", content: {
+        event_detail: "Inicialmente parecendo um ataque de ransomware, o NotPetya era, na verdade, um 'wiper' - um malware projetado para destruir dados permanentemente. O ataque foi direcionado principalmente à Ucrânia, disfarçado através de uma atualização de software de contabilidade, mas se espalhou globalmente.",
+        impact: "NotPetya foi o ataque cibernético mais caro da história, com danos estimados em mais de 10 bilhões de dólares. Ele afetou gigantes globais como a Maersk (transporte marítimo), FedEx e Merck (farmacêutica), mostrando como um ataque regional poderia ter consequências globais devastadoras.",
+        lessons: "A atribuição de ataques tornou-se mais complexa, com atores estatais usando táticas de cibercrime para disfarçar suas ações. As empresas aprenderam que a resiliência (capacidade de se recuperar rapidamente) era tão importante quanto a prevenção."
+      }},
+      { id: "cambridge-analytica-2018", year: "2018", event: "Cambridge Analytica", description: "Uso indevido de dados do Facebook para influenciar decisões políticas.", content: {
+        event_detail: "Foi revelado que a empresa de consultoria política Cambridge Analytica havia coletado dados de milhões de perfis do Facebook sem o consentimento dos usuários. Esses dados foram usados para construir perfis psicográficos e direcionar propaganda política altamente personalizada durante várias eleições ao redor do mundo.",
+        impact: "O escândalo gerou uma crise de confiança no Facebook e em outras plataformas de mídia social. Levou a investigações governamentais, multas bilionárias e uma maior conscientização pública sobre como os dados pessoais são coletados e monetizados.",
+        lessons: "A privacidade dos dados tornou-se uma questão de consumidor e regulatória de primeira linha. Os usuários começaram a questionar o modelo de negócios de 'dados por serviço gratuito', e leis como a LGPD e GDPR ganharam ainda mais relevância."
+      }},
+      { id: "baltimore-ransomware-2019", year: "2019", event: "Baltimore Paralisada", description: "Cidade inteira sem serviços após ataque de ransomware.", content: {
+        event_detail: "A cidade de Baltimore foi atingida por um ataque de ransomware chamado 'RobbinHood', que criptografou servidores em toda a administração municipal. O ataque paralisou serviços essenciais, como pagamentos de contas, e-mails e sistemas imobiliários, por semanas.",
+        impact: "O incidente custou à cidade mais de 18 milhões de dólares em custos de recuperação e perda de receita. Ele destacou a crescente tendência de ataques de ransomware visando governos municipais e infraestrutura local, que muitas vezes carecem de recursos de cibersegurança adequados.",
+        lessons: "As cidades e os municípios tornaram-se alvos críticos e lucrativos para os cibercriminosos. A necessidade de investir em modernização de TI, backups robustos e treinamento de segurança para o setor público tornou-se urgente."
       }},
     ]
   },
@@ -1055,20 +1115,35 @@ export const cyberMemory: CyberEra[] = [
     title: "2020–2025: IA, Deepfakes e Ataques a Infraestruturas",
     icon: "BrainCircuit",
     events: [
-      { id: "solarwinds", year: "2020", event: "Hack SolarWinds", description: "Espionagem sofisticada: malware em atualização da SolarWinds afetou governo e big techs.", content: {
+      { id: "solarwinds-2020", year: "2020", event: "Hack SolarWinds", description: "Ataque em cadeia a empresas e governos por backdoor em software corporativo.", content: {
         event_detail: "Atacantes sofisticados (atribuídos à inteligência russa) comprometeram o processo de construção de software da empresa SolarWinds. Eles inseriram um backdoor malicioso em uma atualização do software Orion, que foi então distribuída para mais de 18.000 clientes.",
         impact: "Este foi um dos ataques à cadeia de suprimentos de software mais significativos da história. Os atacantes ganharam acesso a redes de várias agências do governo dos EUA e de grandes empresas de tecnologia, permitindo uma espionagem de longo prazo.",
         lessons: "A segurança da cadeia de suprimentos de software tornou-se uma preocupação de primeira ordem. As empresas perceberam que não bastava proteger suas próprias redes; elas também precisavam garantir a segurança do software de terceiros que utilizavam."
       }},
-      { id: "colonial-pipeline", year: "2021", event: "Colonial Pipeline Hack", description: "Ataque com ransomware travou distribuição de combustível nos EUA. Pagaram US$ 4,4 milhões.", content: {
-        event_detail: "O grupo de ransomware DarkSide comprometeu a rede de TI da Colonial Pipeline, a maior operadora de oleodutos de combustível dos EUA. Embora a rede de controle operacional (OT) não tenha sido diretamente atingida, a empresa desligou os oleodutos por precaução, causando pânico e escassez de combustível na Costa Leste dos EUA.",
+      { id: "colonial-pipeline-2021", year: "2021", event: "Colonial Pipeline Hack", description: "Parou combustível nos EUA, pagamento de resgate em BTC.", content: {
+        event_detail: "O grupo de ransomware DarkSide comprometeu a rede de TI da Colonial Pipeline, a maior operadora de oleodutos de combustível dos EUA, através de uma única senha comprometida encontrada na dark web. Embora a rede de controle operacional (OT) não tenha sido diretamente atingida, a empresa desligou os oleodutos por precaução, causando pânico e escassez de combustível na Costa Leste dos EUA.",
         impact: "O ataque demonstrou como um incidente no ambiente de TI de uma empresa de infraestrutura crítica pode ter consequências diretas no mundo físico. A empresa pagou um resgate de 75 bitcoins (então US$ 4,4 milhões), parte do qual foi posteriormente recuperado pelo FBI.",
-        lessons: "A segmentação entre redes de TI e OT é crucial, mas não infalível. Este evento levou a novas regulamentações de segurança cibernética para operadores de oleodutos nos EUA e aumentou o foco do governo no combate ao ransomware."
+        lessons: "A segmentação entre redes de TI e OT é crucial, mas não infalível. A importância da autenticação multifator (MFA) e de não reutilizar senhas foi drasticamente reforçada. Este evento levou a novas regulamentações de segurança cibernética para operadores de oleodutos nos EUA e aumentou o foco do governo no combate ao ransomware."
       }},
-      { id: "ai-attacks", year: "2024–2025", event: "Ataques baseados em IA", description: "Cibercriminosos começam a automatizar invasões com modelos de IA. Defesa começa a usar IA generativa para proteção.", content: {
-        event_detail: "A proliferação de modelos de linguagem grandes (LLMs) e outras ferramentas de IA generativa começa a ser usada por ambos os lados. Atacantes usam IA para criar e-mails de phishing mais convincentes, descobrir vulnerabilidades e automatizar a movimentação lateral dentro de redes.",
-        impact: "A velocidade e a escala dos ataques aumentam. Deepfakes de voz e vídeo tornam-se comuns em fraudes e desinformação. Do lado da defesa, as equipes de Blue Team começam a usar IA para analisar enormes volumes de dados, identificar anomalias e gerar respostas a incidentes de forma mais rápida.",
-        lessons: "A era da cibersegurança impulsionada por IA começa. A habilidade de usar e defender-se contra ferramentas de IA torna-se um diferencial para os profissionais de segurança. A ética no uso de IA para segurança ofensiva torna-se um tópico de debate intenso."
+       { id: "pegasus-2021", year: "2021", event: "Pegasus Spyware", description: "Espionagem a jornalistas e políticos por spyware invisível.", content: {
+        event_detail: "Uma investigação jornalística global revelou o uso generalizado do spyware Pegasus, desenvolvido pela empresa israelense NSO Group. O Pegasus podia infectar telefones iPhone e Android sem qualquer interação do usuário (ataque 'zero-click'), dando ao invasor acesso completo ao microfone, câmera, e-mails, mensagens e localização do dispositivo.",
+        impact: "A investigação revelou que o spyware estava sendo usado por governos autoritários (e alguns democráticos) para espionar jornalistas, ativistas de direitos humanos, advogados e líderes de oposição em todo o mundo. O escândalo levantou sérias questões sobre a regulamentação da indústria de spyware privado.",
+        lessons: "A ameaça de 'zero-click' mostrou que mesmo os usuários mais cautelosos poderiam ser comprometidos. A segurança de dispositivos móveis tornou-se um campo de batalha crítico, e a necessidade de transparência e responsabilização na indústria de vigilância privada tornou-se um debate global."
+      }},
+      { id: "ukraine-war-2022", year: "2022", event: "Guerra Rússia x Ucrânia", description: "Conflito híbrido: guerra real + ciberespaço.", content: {
+        event_detail: "A invasão em grande escala da Ucrânia pela Rússia foi precedida e acompanhada por uma onda massiva de ataques cibernéticos. Isso incluiu ataques de wiper (destruição de dados) contra agências governamentais e empresas ucranianas, ataques DDoS contra sites de bancos e campanhas de desinformação.",
+        impact: "A guerra na Ucrânia tornou-se o exemplo mais proeminente de conflito híbrido, onde as operações militares convencionais são totalmente integradas com a guerra cibernética e de informação. Empresas privadas de tecnologia (como Microsoft e Starlink) desempenharam um papel sem precedentes na defesa cibernética de uma nação.",
+        lessons: "O ciberespaço é agora um domínio de guerra estabelecido. A resiliência da infraestrutura digital e a colaboração com o setor privado são vitais para a defesa nacional. A linha entre combatentes e civis no ciberespaço tornou-se cada vez mais tênue."
+      }},
+      { id: "deepfake-scams-2023", year: "2023", event: "Boom dos Deepfakes em Golpes", description: "Ciberfraudes com IA e engenharia social.", content: {
+        event_detail: "A tecnologia de Inteligência Artificial para criar deepfakes (vídeos ou áudios falsos, mas realistas) tornou-se amplamente acessível. Cibercriminosos começaram a usá-la em escala para golpes, como fraudes de CEO, onde um áudio deepfake imitando a voz de um executivo instrui um funcionário a fazer uma transferência bancária urgente.",
+        impact: "Os deepfakes representaram um salto quântico na sofisticação da engenharia social. A confiança na evidência de áudio e vídeo começou a ser erodida, tornando a verificação de identidade e a desconfiança saudável habilidades ainda mais cruciais para todos.",
+        lessons: "A nova fronteira da segurança é a 'realidade sintética'. As defesas precisam evoluir para além da detecção de malware para incluir a detecção de mídia sintética e a educação dos usuários para questionar o que veem e ouvem online."
+      }},
+      { id: "ai-attacks-2024", year: "2024–2025", event: "Ataques com IA", description: "A era da cibersegurança autônoma.", content: {
+        event_detail: "A proliferação de modelos de linguagem grandes (LLMs) e outras ferramentas de IA generativa começa a ser usada por ambos os lados. Atacantes usam IA para criar e-mails de phishing mais convincentes, descobrir vulnerabilidades e automatizar a movimentação lateral dentro de redes. A defesa começa a usar IA generativa para proteção.",
+        impact: "A velocidade e a escala dos ataques aumentam dramaticamente. Do lado da defesa, as equipes de Blue Team começam a usar IA para analisar enormes volumes de dados, identificar anomalias e gerar respostas a incidentes de forma mais rápida, levando a uma cibersegurança mais autônoma.",
+        lessons: "A era da cibersegurança impulsionada por IA começa. A habilidade de usar e defender-se contra ferramentas de IA torna-se um diferencial para os profissionais de segurança. A ética no uso de IA para segurança ofensiva e a possibilidade de 'IA vs. IA' no ciberespaço tornam-se tópicos de debate intenso."
       }},
     ]
   },
