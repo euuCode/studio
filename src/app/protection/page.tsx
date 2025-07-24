@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ShieldQuestion, Fish, KeyRound, MousePointerClick, ShieldCheck, UserCog } from 'lucide-react';
 
@@ -38,10 +39,10 @@ export default function ProtectionPage() {
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
       <section className="text-center mb-12">
-        <h1 className="font-headline text-5xl md:text-7xl tracking-tight font-bold mb-4">
+        <h1 className="font-headline text-4xl md:text-7xl tracking-tight font-bold mb-4">
           Guia Rápido de Proteção Digital
         </h1>
-        <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
+        <p className="max-w-3xl mx-auto text-base md:text-lg text-muted-foreground">
           dicas basicas para um usuario comum
         </p>
       </section>

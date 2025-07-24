@@ -1,10 +1,11 @@
+
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { careerPaths } from '@/lib/data';
-import { CheckCircle2, ArrowRight, BookOpen, Target, Shield, Microscope, Scale, CloudCog, GitBranch, Binary, TestTube2, Files } from 'lucide-react';
+import { CheckCircle2, ArrowRight, BookOpen, Target, Shield, Microscope, Scale, CloudCog, GitBranch, Binary, TestTube2, Files, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 
-const iconMap: { [key: string]: React.ElementType } = {
+const iconMap: { [key: string]: LucideIcon } = {
   Target,
   Shield,
   Microscope,
@@ -20,10 +21,10 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
       <section className="text-center mb-12">
-        <h1 className="font-headline text-5xl md:text-7xl tracking-tight font-bold mb-4">
+        <h1 className="font-headline text-4xl md:text-7xl tracking-tight font-bold mb-4">
           Trace Seu Caminho em Cibersegurança
         </h1>
-        <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
+        <p className="max-w-3xl mx-auto text-base md:text-lg text-muted-foreground">
           Explore nossos planos de carreira estruturados, criados por especialistas. Do iniciante ao avançado, encontre o roteiro ideal para sua jornada no universo da segurança digital.
         </p>
       </section>
@@ -100,5 +101,3 @@ export default function Home() {
     </div>
   );
 }
-
-    

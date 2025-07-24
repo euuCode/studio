@@ -32,7 +32,7 @@ const EraCard = ({ era }: { era: CyberEra }) => (
             <div className="md:col-span-2">
               <p className="text-muted-foreground">{event.description}</p>
             </div>
-            <div className="md:col-span-1 flex items-center justify-end">
+            <div className="md:col-span-1 flex items-center justify-start md:justify-end mt-2 md:mt-0">
                <Button asChild variant="outline" size="sm">
                 <Link href={`/cyber-memory/${event.id}`}>
                   Ver Detalhes <ArrowRight className="ml-2 h-4 w-4" />
@@ -50,10 +50,10 @@ export default function CyberMemoryPage() {
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
       <section className="text-center mb-12">
-        <h1 className="font-headline text-5xl md:text-7xl tracking-tight font-bold mb-4">
+        <h1 className="font-headline text-4xl md:text-7xl tracking-tight font-bold mb-4">
           Memória Cibernética
         </h1>
-        <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
+        <p className="max-w-3xl mx-auto text-base md:text-lg text-muted-foreground">
           Uma linha do tempo dos eventos que moldaram o mundo da cibersegurança como o conhecemos hoje.
         </p>
       </section>

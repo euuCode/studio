@@ -1,13 +1,12 @@
 
 import type { Metadata } from 'next';
-import { Poppins, Inter, Roboto_Mono } from 'next/font/google';
+import { Inter, Poppins, Roboto_Mono } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
 import { SidebarProvider } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/layout/app-sidebar';
 import { Header } from '@/components/layout/header';
-import { ChatAssistant } from '@/components/chat-assistant';
 
 export const metadata: Metadata = {
   title: 'Mithras',
@@ -54,7 +53,6 @@ export default function RootLayout({
             </div>
           </div>
         </SidebarProvider>
-        <ChatAssistant />
         <Toaster />
       </body>
     </html>

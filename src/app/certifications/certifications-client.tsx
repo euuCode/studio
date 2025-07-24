@@ -37,16 +37,16 @@ export default function CertificationsClient({ initialCertifications }: Certific
   return (
     <div className="space-y-8">
         <div className="text-center mb-12">
-            <h1 className="font-headline text-5xl md:text-7xl tracking-tight font-bold mb-4">
+            <h1 className="font-headline text-4xl md:text-7xl tracking-tight font-bold mb-4">
                 Guia de Certificações
             </h1>
-            <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
+            <p className="max-w-3xl mx-auto text-base md:text-lg text-muted-foreground">
                 Encontre a certificação ideal para impulsionar sua carreira. Pesquise e filtre por área, custo e nível de dificuldade.
             </p>
         </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 border rounded-lg bg-card/50">
-        <div className="relative md:col-span-1">
+        <div className="relative lg:col-span-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input
             placeholder="Pesquisar certificação..."
